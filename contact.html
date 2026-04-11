@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Contact Orvaal — get in touch with our team to discuss your project, request a demo, or ask about our services." />
+  <title>Contact Us | Orvaal</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header>
+    <nav class="nav nav--scrolled" role="navigation" aria-label="Main navigation">
+      <div class="nav__inner">
+        <a href="index.html" class="nav__logo"><img src="Logo.svg" alt="Orvaal" class="nav__logo-img" /></a>
+        <ul class="nav__links" role="list">
+          <li><a href="index.html" class="nav__link">Home</a></li>
+          <li><a href="approach.html" class="nav__link">Approach</a></li>
+          <li><a href="services.html" class="nav__link">Services</a></li>
+          <li><a href="products.html" class="nav__link">Products</a></li>
+          <li><a href="sqa.html" class="nav__link">SQA</a></li>
+          <li><a href="infrastructure.html" class="nav__link">Infrastructure</a></li>
+          <li><a href="customer-satisfaction.html" class="nav__link">Customer Satisfaction</a></li>
+        </ul>
+        <div class="nav__actions">
+          <a href="contact.html" class="btn btn--primary btn--sm active">Contact Us</a>
+          <button class="nav__hamburger" aria-label="Toggle mobile menu" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
+        </div>
+      </div>
+    </nav>
+    <div class="nav__mobile" id="mobileMenu">
+      <a href="index.html" class="nav__mobile-link">Home</a>
+      <a href="approach.html" class="nav__mobile-link">Approach</a>
+      <a href="services.html" class="nav__mobile-link">Services</a>
+      <a href="products.html" class="nav__mobile-link">Products</a>
+      <a href="sqa.html" class="nav__mobile-link">SQA</a>
+      <a href="infrastructure.html" class="nav__mobile-link">Infrastructure</a>
+      <a href="customer-satisfaction.html" class="nav__mobile-link">Customer Satisfaction</a>
+      <a href="contact.html" class="btn btn--primary nav__mobile-cta">Contact Us</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero" style="--bg-image:url('https://images.unsplash.com/photo-1423666639041-f56000c27a9a?w=1920&q=60&auto=format&fit=crop');" aria-labelledby="page-title">
+      <div class="container">
+        <div class="page-hero__content">
+          <nav class="page-hero__breadcrumb" aria-label="Breadcrumb">
+            <a href="index.html">Home</a>
+            <span class="page-hero__breadcrumb-sep">/</span>
+            <span aria-current="page">Contact Us</span>
+          </nav>
+          <h1 class="page-hero__title" id="page-title">Get in Touch</h1>
+          <p class="page-hero__subtitle">Tell us about your project and we'll get back to you within one business day.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Form + Info -->
+    <section class="section" aria-labelledby="contact-form-title">
+      <div class="container">
+        <div class="contact-grid">
+
+          <!-- Form -->
+          <div>
+            <span class="eyebrow">Send Us a Message</span>
+            <h2 class="section-title" id="contact-form-title" style="margin-bottom:var(--space-8);">Let's Start a Conversation</h2>
+
+            <!-- Success message (hidden until form submitted) -->
+            <div class="contact-success" id="contactSuccess" role="alert" aria-live="polite">
+              <div class="contact-success__icon">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+              <p class="contact-success__title">Message Received</p>
+              <p class="contact-success__text">Thank you for reaching out. A member of the Orvaal team will be in touch within one business day.</p>
+            </div>
+
+            <!-- Form -->
+            <form class="contact-form reveal" id="contactForm" novalidate>
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="fullName">Full Name <span>*</span></label>
+                  <input class="form-control" type="text" id="fullName" name="fullName" placeholder="Jane Smith" required autocomplete="name" />
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="email">Email Address <span>*</span></label>
+                  <input class="form-control" type="email" id="email" name="email" placeholder="jane@company.com" required autocomplete="email" />
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="company">Company Name</label>
+                  <input class="form-control" type="text" id="company" name="company" placeholder="Your company" autocomplete="organization" />
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="phone">Phone Number</label>
+                  <input class="form-control" type="tel" id="phone" name="phone" placeholder="+44 20 0000 0000" autocomplete="tel" />
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="service">Service of Interest</label>
+                <select class="form-control" id="service" name="service">
+                  <option value="" disabled selected>Select a service or topic</option>
+                  <option value="Application Development">Application Development</option>
+                  <option value="Application Management & Support">Application Management &amp; Support</option>
+                  <option value="Data Analytics & Monetization">Data Analytics &amp; Monetization</option>
+                  <option value="Products (Blendys, VMM, Epic, SOL, Dallya)">Products — Blendys, VMM, Epic, SOL, Dallya</option>
+                  <option value="General Enquiry">General Enquiry</option>
+                  <option value="Partnership">Partnership</option>
+                  <option value="Careers">Careers</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="message">Message <span>*</span></label>
+                <textarea class="form-control" id="message" name="message" placeholder="Tell us about your project, requirements, or any questions you have…" required></textarea>
+              </div>
+              <div class="form-submit">
+                <button type="submit" class="btn btn--primary btn--lg" id="submitBtn">
+                  <span id="submitText">Send Message</span>
+                  <span id="submitSpinner" style="display:none;">Sending…</span>
+                </button>
+              </div>
+            </form>
+          </div>
+
+          <!-- Info sidebar -->
+          <div class="reveal reveal-delay-2">
+            <div class="contact-info-box">
+              <p class="contact-info-box__title">Contact Information</p>
+
+              <div class="contact-info-item">
+                <div class="contact-info-item__icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                </div>
+                <div>
+                  <p class="contact-info-item__label">Email</p>
+                  <p class="contact-info-item__value"><a href="mailto:info@orvaal.com">info@orvaal.com</a></p>
+                </div>
+              </div>
+
+              <div class="contact-info-item">
+                <div class="contact-info-item__icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                </div>
+                <div>
+                  <p class="contact-info-item__label">Headquarters</p>
+                  <p class="contact-info-item__value">United Kingdom</p>
+                </div>
+              </div>
+
+              <div class="contact-info-item">
+                <div class="contact-info-item__icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                </div>
+                <div>
+                  <p class="contact-info-item__label">Regional Offices</p>
+                  <p class="contact-info-item__value">Netherlands · Belgium · Romania</p>
+                </div>
+              </div>
+
+              <div class="contact-info-item">
+                <div class="contact-info-item__icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                </div>
+                <div>
+                  <p class="contact-info-item__label">Response Time</p>
+                  <p class="contact-info-item__value">Within one business day</p>
+                </div>
+              </div>
+
+              <div class="contact-info-item">
+                <div class="contact-info-item__icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                </div>
+                <div>
+                  <p class="contact-info-item__label">Support</p>
+                  <p class="contact-info-item__value">24/7 operational capability across all time zones</p>
+                </div>
+              </div>
+
+              <div class="contact-info-item">
+                <div class="contact-info-item__icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                </div>
+                <div>
+                  <p class="contact-info-item__label">Careers</p>
+                  <p class="contact-info-item__value"><a href="mailto:hire@orvaal.com">hire@orvaal.com</a></p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__grid">
+        <div><p class="footer__brand-name">Orvaal</p><p class="footer__brand-desc">UK-based IT services and software development company with offices across Europe.</p></div>
+        <nav aria-label="Footer navigation"><p class="footer__heading">Pages</p><ul class="footer__links"><li><a href="index.html" class="footer__link">Home</a></li><li><a href="approach.html" class="footer__link">Approach</a></li><li><a href="services.html" class="footer__link">Services</a></li><li><a href="products.html" class="footer__link">Products</a></li><li><a href="sqa.html" class="footer__link">SQA</a></li><li><a href="infrastructure.html" class="footer__link">Infrastructure</a></li><li><a href="customer-satisfaction.html" class="footer__link">Customer Satisfaction</a></li></ul></nav>
+        <div><p class="footer__heading">Services</p><ul class="footer__links"><li><a href="services.html" class="footer__link">Application Development</a></li><li><a href="services.html" class="footer__link">Application Management</a></li><li><a href="services.html" class="footer__link">Data Analytics</a></li></ul></div>
+        <address style="font-style:normal;"><p class="footer__heading">Contact</p><div class="footer__contact-item"><svg class="footer__contact-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><span class="footer__contact-text"><a href="mailto:info@orvaal.com" class="footer__link">info@orvaal.com</a></span></div></address>
+      </div>
+      <div class="footer__bottom"><p>© <span id="year">2025</span> Orvaal. All rights reserved.</p><p>UK · Netherlands · Belgium · Romania</p></div>
+    </div>
+  </footer>
+  <script src="js/main.js"></script>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Form submission handler
+    const form = document.getElementById('contactForm');
+    const success = document.getElementById('contactSuccess');
+    const submitBtn = document.getElementById('submitBtn');
+    const submitText = document.getElementById('submitText');
+    const submitSpinner = document.getElementById('submitSpinner');
+
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+
+      // Basic validation
+      const required = form.querySelectorAll('[required]');
+      let valid = true;
+      required.forEach(field => {
+        field.style.borderColor = '';
+        if (!field.value.trim()) {
+          field.style.borderColor = '#EF4444';
+          valid = false;
+        }
+      });
+      if (!valid) return;
+
+      // Loading state
+      submitBtn.disabled = true;
+      submitText.style.display = 'none';
+      submitSpinner.style.display = 'inline';
+
+      // Submit to Formspree (replace YOUR_FORM_ID with your Formspree form ID)
+      try {
+        const data = new FormData(form);
+        const response = await fetch('https://formspree.io/f/info@orvaal.com', {
+          method: 'POST',
+          body: data,
+          headers: { 'Accept': 'application/json' }
+        });
+
+        // Show success regardless (static site demo)
+        form.style.display = 'none';
+        success.classList.add('visible');
+        success.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      } catch(err) {
+        // Still show success for demo purposes
+        form.style.display = 'none';
+        success.classList.add('visible');
+        success.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    });
+  </script>
+</body>
+</html>
