@@ -322,6 +322,7 @@ p { line-height: 1.75; }
   z-index: 1;
   max-width: 760px;
   padding-top: var(--nav-height);
+  padding-bottom: var(--space-20);
 }
 .hero__eyebrow { color: var(--color-accent); margin-bottom: var(--space-5); }
 .hero__title {
