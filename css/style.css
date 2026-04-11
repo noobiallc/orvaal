@@ -168,6 +168,8 @@ p { line-height: 1.75; }
 @media (max-width: 767px) {
   :root { --nav-height: 100px; }
   .nav__logo-img { height: 90px; max-width: 260px; }
+  .nav__inner { padding: 0 var(--space-5); }
+  .nav__actions .btn { display: none; } /* hide contact button on mobile — keeps nav clean */
 }
 
 .nav__links {
@@ -331,6 +333,16 @@ p { line-height: 1.75; }
   max-width: 760px;
   padding-top: var(--nav-height);
   padding-bottom: var(--space-20);
+}
+@media (max-width: 767px) {
+  .hero {
+    align-items: flex-start;
+    padding-bottom: var(--space-16);
+  }
+  .hero__content {
+    padding-top: calc(var(--nav-height) + var(--space-8));
+    padding-bottom: var(--space-16);
+  }
 }
 .hero__eyebrow { color: var(--color-accent); margin-bottom: var(--space-5); }
 .hero__title {
