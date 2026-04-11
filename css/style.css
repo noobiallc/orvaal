@@ -908,54 +908,81 @@ select.form-control { cursor: pointer; background-image: url("data:image/svg+xml
 /* ---- Contact Page — Mobile ---- */
 @media (max-width: 899px) {
 
-  /* Sidebar floats above the form */
-  .contact-grid { gap: var(--space-8); }
-  .contact-grid > div:last-child { order: -1; }
+  /* Stack as plain blocks — form first, info second */
+  .contact-grid {
+    display: block;
+  }
 
-  /* Info box becomes a compact 2-col card grid */
+  /* Info box sits below the form with top margin */
+  .contact-grid > div:last-child {
+    margin-top: var(--space-10);
+  }
+
+  /* Info box: compact single-column list */
   .contact-info-box {
     position: static;
-    padding: var(--space-5);
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--space-3);
+    padding: var(--space-6);
     border-radius: var(--radius-lg);
   }
   .contact-info-box__title {
-    grid-column: 1 / -1;
     font-size: 1rem;
-    margin-bottom: var(--space-1);
+    margin-bottom: var(--space-5);
   }
   .contact-info-item {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: var(--space-2);
-    padding: var(--space-3);
-    border-bottom: none;
-    border-radius: var(--radius-md);
-    background: rgba(255,255,255,0.06);
+    padding: var(--space-4) 0;
+    gap: var(--space-3);
+    align-items: center;
   }
-  .contact-info-item__icon { width: 32px; height: 32px; }
-  .contact-info-item__label { font-size: 0.65rem; }
-  .contact-info-item__value { font-size: 0.8125rem; line-height: 1.5; }
+  .contact-info-item__icon {
+    width: 36px;
+    height: 36px;
+    flex-shrink: 0;
+  }
+  .contact-info-item__label { font-size: 0.7rem; }
+  .contact-info-item__value { font-size: 0.875rem; line-height: 1.55; }
 
-  /* Form: always single column, tighter gap */
-  .form-row { grid-template-columns: 1fr; gap: var(--space-4); }
-  .contact-form { gap: var(--space-4); }
+  /* Form: every field full-width, clear stacking */
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-5);
+  }
+  .form-row {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-5);
+  }
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    width: 100%;
+  }
+  .form-label {
+    display: block;
+    font-size: 0.875rem;
+  }
+  .form-control {
+    display: block;
+    width: 100%;
+    font-size: 16px; /* prevents iOS auto-zoom on focus */
+    padding: 14px var(--space-4);
+  }
+  textarea.form-control {
+    min-height: 130px;
+  }
 
-  /* Full-width submit button — easier to tap */
-  .form-submit { margin-top: var(--space-3); }
+  /* Full-width submit button */
+  .form-submit {
+    margin-top: var(--space-2);
+  }
   .form-submit .btn--lg {
     width: 100%;
-    display: flex;
-    justify-content: center;
+    display: block;
     text-align: center;
     padding: 18px var(--space-6);
     font-size: 1rem;
   }
-
-  /* Tighten section heading on mobile */
-  #contact-form-title { font-size: 1.75rem; margin-bottom: var(--space-6) !important; }
 }
 
 /* ---- Scroll Animations ---- */
