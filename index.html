@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Orvaal — Custom software development, application management, and data analytics. High performance closer to you." />
+  <title>Orvaal | High Performance Closer to You</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <header>
+    <nav class="nav nav--transparent" role="navigation" aria-label="Main navigation">
+      <div class="nav__inner">
+        <a href="index.html" class="nav__logo" aria-label="Orvaal — Home">
+          <img src="Logo.svg" alt="Orvaal" class="nav__logo-img" />
+        </a>
+        <ul class="nav__links" role="list">
+          <li><a href="index.html" class="nav__link active">Home</a></li>
+          <li><a href="approach.html" class="nav__link">Approach</a></li>
+          <li><a href="services.html" class="nav__link">Services</a></li>
+          <li><a href="products.html" class="nav__link">Products</a></li>
+          <li><a href="sqa.html" class="nav__link">SQA</a></li>
+          <li><a href="infrastructure.html" class="nav__link">Infrastructure</a></li>
+          <li><a href="customer-satisfaction.html" class="nav__link">Customer Satisfaction</a></li>
+        </ul>
+        <div class="nav__actions">
+          <a href="mailto:info@orvaal.com" class="btn btn--primary btn--sm">Contact Us</a>
+          <button class="nav__hamburger" aria-label="Toggle mobile menu" aria-expanded="false" aria-controls="mobileMenu">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </nav>
+    <div class="nav__mobile" id="mobileMenu">
+      <a href="index.html" class="nav__mobile-link">Home</a>
+      <a href="approach.html" class="nav__mobile-link">Approach</a>
+      <a href="services.html" class="nav__mobile-link">Services</a>
+      <a href="products.html" class="nav__mobile-link">Products</a>
+      <a href="sqa.html" class="nav__mobile-link">SQA</a>
+      <a href="infrastructure.html" class="nav__mobile-link">Infrastructure</a>
+      <a href="customer-satisfaction.html" class="nav__mobile-link">Customer Satisfaction</a>
+      <a href="mailto:info@orvaal.com" class="btn btn--primary nav__mobile-cta">Contact Us</a>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- Hero -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero__bg" style="background-image:url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1920&q=60&auto=format&fit=crop');"></div>
+      <div class="hero__gradient"></div>
+
+      <!-- Animated geometric shapes -->
+      <div class="hero__shapes" aria-hidden="true">
+        <div class="hero__shape" style="--rotate:12deg;--delay:0.3s;left:-5%;top:20%;width:600px;height:140px;">
+          <div class="hero__shape-inner" style="background:linear-gradient(to right,rgba(99,102,241,0.15),transparent);"></div>
+        </div>
+        <div class="hero__shape" style="--rotate:-15deg;--delay:0.5s;right:-2%;top:68%;width:500px;height:120px;">
+          <div class="hero__shape-inner" style="background:linear-gradient(to right,rgba(244,63,94,0.15),transparent);"></div>
+        </div>
+        <div class="hero__shape" style="--rotate:-8deg;--delay:0.4s;left:8%;bottom:8%;width:300px;height:80px;">
+          <div class="hero__shape-inner" style="background:linear-gradient(to right,rgba(139,92,246,0.15),transparent);"></div>
+        </div>
+        <div class="hero__shape" style="--rotate:20deg;--delay:0.6s;right:18%;top:12%;width:200px;height:60px;">
+          <div class="hero__shape-inner" style="background:linear-gradient(to right,rgba(245,158,11,0.15),transparent);"></div>
+        </div>
+        <div class="hero__shape" style="--rotate:-25deg;--delay:0.7s;left:22%;top:8%;width:150px;height:40px;">
+          <div class="hero__shape-inner" style="background:linear-gradient(to right,rgba(6,182,212,0.15),transparent);"></div>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="hero__content">
+          <span class="eyebrow hero__eyebrow">IT Services &amp; Software Development</span>
+          <h1 class="hero__title" id="hero-title">High Performance<br /><span>Closer to You.</span></h1>
+          <p class="hero__subtitle">Orvaal brings highly skilled professionals and advanced systems to meet your requirements fully and efficiently — from custom software to enterprise data analytics.</p>
+          <div class="hero__actions">
+            <a href="services.html" class="btn btn--primary btn--lg">Explore Services</a>
+            <a href="approach.html" class="btn btn--outline btn--lg">Our Approach</a>
+          </div>
+        </div>
+      </div>
+      <div class="hero__scroll-indicator" aria-hidden="true">
+        <div class="hero__scroll-line"></div>
+      </div>
+    </section>
+
+    <!-- Services Strip -->
+    <div class="services-strip" aria-label="Core services">
+      <div class="container">
+        <div class="services-strip__grid">
+          <div class="services-strip__item reveal">
+            <div class="services-strip__icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+            </div>
+            <div>
+              <p class="services-strip__title">Application Development</p>
+              <p class="services-strip__desc">Custom software, web-enabled applications, and platform migrations tailored to your business.</p>
+            </div>
+          </div>
+          <div class="services-strip__item reveal reveal-delay-1">
+            <div class="services-strip__icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+            </div>
+            <div>
+              <p class="services-strip__title">Application Management</p>
+              <p class="services-strip__desc">24/7 remote monitoring, single point of contact, maintenance, and performance support.</p>
+            </div>
+          </div>
+          <div class="services-strip__item reveal reveal-delay-2">
+            <div class="services-strip__icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+            </div>
+            <div>
+              <p class="services-strip__title">Data Analytics</p>
+              <p class="services-strip__desc">AI-powered predictive analytics, enterprise data landscape analysis, and custom reporting.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- About Split -->
+    <section class="section" aria-labelledby="about-title">
+      <div class="container">
+        <div class="split">
+          <div class="split__content reveal">
+            <span class="eyebrow">About Orvaal</span>
+            <h2 class="section-title" id="about-title">Innovative Services with Deep Business Knowledge</h2>
+            <p class="split__body">Orvaal is a UK-based IT services and software development company with regional offices in the Netherlands, Belgium, and Romania. We combine innovative services with deep business knowledge to help our clients stay ahead of the competition.</p>
+            <p class="split__body">Our teams deliver tailored solutions that improve operational efficiency, reduce costs, and accelerate time to market — all backed by a commitment to quality that runs through everything we do.</p>
+            <div class="split__actions">
+              <a href="approach.html" class="btn btn--primary">Our Approach</a>
+              <a href="services.html" class="btn btn--outline-dark">View Services</a>
+            </div>
+          </div>
+          <div class="split__image reveal reveal-delay-2">
+            <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=85&auto=format&fit=crop" alt="Orvaal team collaborating on software development" loading="lazy" width="800" height="600" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stats -->
+    <div class="stats" aria-label="Company statistics">
+      <div class="container">
+        <div class="stats__grid">
+          <div class="stat-item reveal">
+            <div class="stat-item__number" data-count="20" data-suffix="+">20+</div>
+            <div class="stat-item__label">Years of Experience</div>
+          </div>
+          <div class="stat-item reveal reveal-delay-1">
+            <div class="stat-item__number" data-count="4">4</div>
+            <div class="stat-item__label">Countries</div>
+          </div>
+          <div class="stat-item reveal reveal-delay-2">
+            <div class="stat-item__number" data-count="3">3</div>
+            <div class="stat-item__label">Core Services</div>
+          </div>
+          <div class="stat-item reveal reveal-delay-3">
+            <div class="stat-item__number" data-count="5">5</div>
+            <div class="stat-item__label">Products</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Products Teaser -->
+    <section class="section section--dark" aria-labelledby="products-title">
+      <div class="container">
+        <div class="section-header section-header--center">
+          <span class="eyebrow">Our Products</span>
+          <h2 class="section-title section-title--light" id="products-title">Built for Modern Business</h2>
+          <p class="section-subtitle section-subtitle--light">Five proprietary products designed to solve real operational challenges — ready to deploy and scale.</p>
+        </div>
+        <div class="products-grid">
+          <div class="product-card reveal">
+            <span class="product-card__badge">Notifications</span>
+            <h3 class="product-card__title">Blendys</h3>
+            <p class="product-card__desc">Smartphone notification app for bulk customer communications — order completions, service readiness, and more. Available on App Store &amp; Play Store.</p>
+          </div>
+          <div class="product-card reveal reveal-delay-1">
+            <span class="product-card__badge">Marketing</span>
+            <h3 class="product-card__title">VMM</h3>
+            <p class="product-card__desc">Viral Marketing Master — social network platform enabling person-to-person recommendations with customer referral rewards.</p>
+          </div>
+          <div class="product-card reveal reveal-delay-2">
+            <span class="product-card__badge">Integration</span>
+            <h3 class="product-card__title">Epic</h3>
+            <p class="product-card__desc">Enterprise Platform for Integration &amp; Connectivity — middleware that connects your systems seamlessly, on-premise or in the cloud.</p>
+          </div>
+          <div class="product-card reveal">
+            <span class="product-card__badge">Automation</span>
+            <h3 class="product-card__title">SOL</h3>
+            <p class="product-card__desc">Smart Object Listing — automated business process application with compliance tools, blacklisting, and full API integration.</p>
+          </div>
+          <div class="product-card reveal reveal-delay-1">
+            <span class="product-card__badge">Location</span>
+            <h3 class="product-card__title">Dallya</h3>
+            <p class="product-card__desc">Mobile Matching — indoor/outdoor location-based matching with privacy-focused anonymous profiles for intelligent proximity networking.</p>
+          </div>
+        </div>
+        <div style="text-align:center;margin-top:var(--space-10);">
+          <a href="products.html" class="btn btn--outline">View All Products</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Approach Teaser -->
+    <section class="section section--alt" aria-labelledby="approach-title">
+      <div class="container">
+        <div class="section-header section-header--center">
+          <span class="eyebrow">Our Approach</span>
+          <h2 class="section-title" id="approach-title">Five Pillars of Quality</h2>
+          <p class="section-subtitle">Every engagement is guided by these core principles to ensure we deliver exactly what you need.</p>
+        </div>
+        <div class="pillars-grid">
+          <div class="pillar-card reveal">
+            <div class="pillar-card__number">01</div>
+            <h3 class="pillar-card__title">Quality</h3>
+            <p class="pillar-card__desc">High-quality products and services delivered without compromise on every project.</p>
+          </div>
+          <div class="pillar-card reveal reveal-delay-1">
+            <div class="pillar-card__number">02</div>
+            <h3 class="pillar-card__title">Requirements</h3>
+            <p class="pillar-card__desc">Converting client needs into robust, precise technical solutions that perform.</p>
+          </div>
+          <div class="pillar-card reveal reveal-delay-2">
+            <div class="pillar-card__number">03</div>
+            <h3 class="pillar-card__title">Speed</h3>
+            <p class="pillar-card__desc">Fast, timely project delivery that respects your schedule and business urgency.</p>
+          </div>
+          <div class="pillar-card reveal reveal-delay-3">
+            <div class="pillar-card__number">04</div>
+            <h3 class="pillar-card__title">Communication</h3>
+            <p class="pillar-card__desc">Clear, transparent communication at every step — no surprises, no guesswork.</p>
+          </div>
+          <div class="pillar-card reveal reveal-delay-4">
+            <div class="pillar-card__number">05</div>
+            <h3 class="pillar-card__title">Pricing</h3>
+            <p class="pillar-card__desc">Competitive, cost-effective solutions that deliver maximum value for your investment.</p>
+          </div>
+        </div>
+        <div style="text-align:center;margin-top:var(--space-10);">
+          <a href="approach.html" class="btn btn--primary">Learn More</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-banner" aria-labelledby="cta-title">
+      <div class="container">
+        <div class="cta-banner__content reveal">
+          <h2 class="cta-banner__title" id="cta-title">Ready to Get Started?</h2>
+          <p class="cta-banner__subtitle">Tell us about your project and we'll show you how Orvaal can help you achieve more.</p>
+          <div class="cta-banner__actions">
+            <a href="mailto:info@orvaal.com" class="btn btn--primary btn--lg">Get in Touch</a>
+            <a href="mailto:hire@orvaal.com" class="cta-banner__email">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              Careers: hire@orvaal.com
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <p class="footer__brand-name">Orvaal</p>
+          <p class="footer__brand-desc">UK-based IT services and software development company with offices across Europe. High performance closer to you.</p>
+          <div style="margin-top:var(--space-4);">
+            <span class="footer__badge">UK Headquartered</span>
+            <span class="footer__badge">EU Offices</span>
+          </div>
+        </div>
+        <nav aria-label="Footer navigation">
+          <p class="footer__heading">Pages</p>
+          <ul class="footer__links">
+            <li><a href="index.html" class="footer__link">Home</a></li>
+            <li><a href="approach.html" class="footer__link">Approach</a></li>
+            <li><a href="services.html" class="footer__link">Services</a></li>
+            <li><a href="products.html" class="footer__link">Products</a></li>
+            <li><a href="sqa.html" class="footer__link">SQA</a></li>
+            <li><a href="infrastructure.html" class="footer__link">Infrastructure</a></li>
+            <li><a href="customer-satisfaction.html" class="footer__link">Customer Satisfaction</a></li>
+          </ul>
+        </nav>
+        <div>
+          <p class="footer__heading">Services</p>
+          <ul class="footer__links">
+            <li><a href="services.html" class="footer__link">Application Development</a></li>
+            <li><a href="services.html" class="footer__link">Application Management</a></li>
+            <li><a href="services.html" class="footer__link">Data Analytics</a></li>
+            <li><a href="careers.html" class="footer__link">Careers</a></li>
+          </ul>
+        </div>
+        <address style="font-style:normal;">
+          <p class="footer__heading">Contact</p>
+          <div class="footer__contact-item">
+            <svg class="footer__contact-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <span class="footer__contact-text"><a href="mailto:info@orvaal.com" class="footer__link">info@orvaal.com</a></span>
+          </div>
+          <div class="footer__contact-item">
+            <svg class="footer__contact-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <span class="footer__contact-text"><a href="mailto:hire@orvaal.com" class="footer__link">hire@orvaal.com</a> (Careers)</span>
+          </div>
+          <div class="footer__contact-item">
+            <svg class="footer__contact-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span class="footer__contact-text">United Kingdom &amp; EU — NL · BE · RO</span>
+          </div>
+        </address>
+      </div>
+      <div class="footer__bottom">
+        <p>© <span id="year">2025</span> Orvaal. All rights reserved.</p>
+        <p>NCAGE: U03V0 · DUNS: 719305737</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
