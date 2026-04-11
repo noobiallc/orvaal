@@ -166,8 +166,8 @@ p { line-height: 1.75; }
 .nav__logo { display: flex; align-items: center; text-decoration: none; flex-shrink: 0; }
 .nav__logo-img { height: 180px; width: auto; max-width: 500px; display: block; object-fit: contain; }
 @media (max-width: 767px) {
-  :root { --nav-height: 100px; }
-  .nav__logo-img { height: 90px; max-width: 260px; }
+  :root { --nav-height: 140px; }
+  .nav__logo-img { height: 135px; max-width: 340px; }
   .nav__inner { padding: 0 var(--space-5); }
   .nav__actions .btn { display: none; } /* hide contact button on mobile — keeps nav clean */
 }
@@ -337,11 +337,11 @@ p { line-height: 1.75; }
 @media (max-width: 767px) {
   .hero {
     align-items: flex-start;
-    padding-bottom: var(--space-16);
+    padding-bottom: var(--space-8);
   }
   .hero__content {
-    padding-top: calc(var(--nav-height) + var(--space-8));
-    padding-bottom: var(--space-16);
+    padding-top: calc(var(--nav-height) + var(--space-6));
+    padding-bottom: var(--space-8);
   }
 }
 .hero__eyebrow { color: var(--color-accent); margin-bottom: var(--space-5); }
