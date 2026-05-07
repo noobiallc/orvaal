@@ -6,12 +6,50 @@
   <meta name="description" content="Orvaal's approach to quality IT delivery — five pillars of excellence and a proven three-milestone delivery model." />
   <title>Approach | Orvaal</title>
   <link rel="stylesheet" href="css/style.css" />
+  <style>
+    /* ── Scroll stack — solid, no bleed-through ── */
+    .stack-section {
+      position: sticky;
+      top: 0;
+      z-index: var(--s-z, 1);
+      will-change: transform;
+      isolation: isolate;
+      overflow: hidden;
+      box-shadow: 0 -8px 30px rgba(0, 0, 0, 0.15);
+      transform-origin: top center;
+      transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .stack-section + .stack-section { border-radius: 16px 16px 0 0; }
+    .stack-section.is-stacked { transform: scale(0.95) translateY(-8px); }
+    @media (prefers-reduced-motion: reduce) {
+      .stack-section { transition: none !important; will-change: auto; }
+      .stack-section.is-stacked { transform: none !important; }
+    }
+    /* ── Methodology Diagrams ── */
+    .diag-card { background:#fff; border-radius:16px; padding:28px 24px 20px; border:1px solid rgba(38,36,83,0.08); box-shadow:0 4px 24px rgba(38,36,83,0.06); }
+    .diag-card__title { font-size:1.0625rem; font-weight:700; color:#262453; margin:0 0 4px; }
+    .diag-card__subtitle { font-size:0.875rem; color:rgba(38,36,83,0.50); margin:0 0 20px; }
+    .diag-card__takeaway { font-size:0.8125rem; font-style:italic; color:rgba(38,36,83,0.48); margin:16px 0 0; text-align:center; }
+    .methodology-pair { display:grid; grid-template-columns:1fr 1fr; gap:32px; margin-top:40px; }
+    @media (max-width:767px) { .methodology-pair { grid-template-columns:1fr; gap:36px; } }
+    /* diagram animation */
+    .diag-svg .diag-node, .diag-svg .diag-arrow { opacity:0; }
+    .diag-svg.meth-vis .diag-node, .diag-svg.meth-vis .diag-arrow { animation:diagIn 0.45s ease forwards; }
+    @keyframes diagIn { from { opacity:0; } to { opacity:1; } }
+    @media (prefers-reduced-motion: reduce) {
+      .diag-svg .diag-node, .diag-svg .diag-arrow { opacity:1; }
+      .diag-svg.meth-vis .diag-node, .diag-svg.meth-vis .diag-arrow { animation:none; }
+    }
+  </style>
 </head>
 <body>
   <header>
     <nav class="nav nav--scrolled" role="navigation" aria-label="Main navigation">
       <div class="nav__inner">
-        <a href="index.html" class="nav__logo"><img src="Logo.svg" alt="Orvaal" class="nav__logo-img" /></a>
+        <a href="index.html" class="nav__logo" aria-label="Orvaal — Home">
+          <img src="Logo.svg" alt="Orvaal" class="nav__logo-img" />
+          <span class="nav__logo-tagline">computer sapiens</span>
+        </a>
         <ul class="nav__links" role="list">
           <li><a href="index.html" class="nav__link">Home</a></li>
           <li><a href="approach.html" class="nav__link active">Approach</a></li>
@@ -40,7 +78,7 @@
   </header>
 
   <main>
-    <section class="page-hero" style="--bg-image:url('https://images.unsplash.com/photo-1531297484001-80022131f5a1?w=1920&q=60&auto=format&fit=crop');" aria-labelledby="page-title">
+    <section class="page-hero stack-section" style="--s-z:1;background:#262453;--bg-image:url('https://images.unsplash.com/photo-1531297484001-80022131f5a1?w=1920&q=60&auto=format&fit=crop');" aria-labelledby="page-title">
       <div class="container">
         <div class="page-hero__content">
           <nav class="page-hero__breadcrumb" aria-label="Breadcrumb">
@@ -55,7 +93,7 @@
     </section>
 
     <!-- Five Pillars -->
-    <section class="section" aria-labelledby="pillars-title">
+    <section class="section stack-section" style="--s-z:2;background:#ffffff" aria-labelledby="pillars-title">
       <div class="container">
         <div class="section-header section-header--center">
           <span class="eyebrow">Core Principles</span>
@@ -108,8 +146,234 @@
       </div>
     </section>
 
+    <!-- Our Methodology -->
+    <section class="section stack-section" style="--s-z:3;background:#f8f8fc" aria-labelledby="methodology-title">
+      <div class="container">
+        <div class="section-header section-header--center">
+          <span class="eyebrow">Our Methodology</span>
+          <h2 class="section-title" id="methodology-title">How We Deliver. Every Time.</h2>
+          <p class="section-subtitle">Three proven models that guide every project from first brief to final delivery.</p>
+        </div>
+
+        <!-- Diagram 1 — Delivery Loop (full width) -->
+        <div style="max-width:640px;margin:0 auto 48px;">
+          <div class="diag-card">
+            <p class="diag-card__title">The Delivery Loop</p>
+            <p class="diag-card__subtitle">Our core quality-first development cycle</p>
+            <svg class="diag-svg" viewBox="0 0 600 430" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;overflow:visible" aria-hidden="true">
+              <defs>
+                <marker id="dl-arr" markerWidth="9" markerHeight="7" refX="8" refY="3.5" orient="auto">
+                  <polygon points="0 0,9 3.5,0 7" fill="#CC2222"/>
+                </marker>
+                <filter id="dl-sh" x="-25%" y="-25%" width="150%" height="150%">
+                  <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="rgba(0,0,0,0.13)"/>
+                </filter>
+              </defs>
+              <!-- Node 1 -->
+              <g class="diag-node" style="animation-delay:0s">
+                <rect x="175" y="20" width="210" height="50" rx="8" fill="#262453" filter="url(#dl-sh)"/>
+                <text x="280" y="50" text-anchor="middle" fill="#fff" font-size="13" font-weight="600" font-family="system-ui,sans-serif" dy="0.35em">Understand Requirements</text>
+              </g>
+              <!-- Arrow 1→2 -->
+              <line class="diag-arrow" style="animation-delay:0.15s" x1="280" y1="70" x2="280" y2="125" stroke="#CC2222" stroke-width="2" marker-end="url(#dl-arr)"/>
+              <!-- Node 2 -->
+              <g class="diag-node" style="animation-delay:0.2s">
+                <rect x="175" y="130" width="210" height="50" rx="8" fill="#262453" filter="url(#dl-sh)"/>
+                <text x="280" y="155" text-anchor="middle" fill="#fff" font-size="13" font-weight="600" font-family="system-ui,sans-serif" dy="0.35em">Code, Compile &amp; Test</text>
+              </g>
+              <!-- Arrow 2→diamond -->
+              <line class="diag-arrow" style="animation-delay:0.35s" x1="280" y1="180" x2="280" y2="217" stroke="#CC2222" stroke-width="2" marker-end="url(#dl-arr)"/>
+              <!-- Diamond (decision) -->
+              <g class="diag-node" style="animation-delay:0.4s">
+                <polygon points="280,217 350,257 280,297 210,257" fill="#CC2222" filter="url(#dl-sh)"/>
+                <text x="280" y="257" text-anchor="middle" fill="#fff" font-size="12" font-weight="700" font-family="system-ui,sans-serif" dy="0.35em">Test Result OK?</text>
+              </g>
+              <!-- YES → Node 5 -->
+              <g class="diag-arrow" style="animation-delay:0.55s">
+                <line x1="350" y1="257" x2="450" y2="257" stroke="#CC2222" stroke-width="2" marker-end="url(#dl-arr)"/>
+                <text x="396" y="248" text-anchor="middle" fill="#22AA55" font-size="13" font-weight="800" font-family="system-ui,sans-serif">Y</text>
+              </g>
+              <!-- NO → Node 4 -->
+              <g class="diag-arrow" style="animation-delay:0.55s">
+                <line x1="280" y1="297" x2="280" y2="345" stroke="#CC2222" stroke-width="2" marker-end="url(#dl-arr)"/>
+                <text x="292" y="325" fill="#CC2222" font-size="13" font-weight="800" font-family="system-ui,sans-serif">N</text>
+              </g>
+              <!-- Node 4 -->
+              <g class="diag-node" style="animation-delay:0.6s">
+                <rect x="175" y="350" width="210" height="50" rx="8" fill="#1e1d45" filter="url(#dl-sh)"/>
+                <text x="280" y="375" text-anchor="middle" fill="#fff" font-size="13" font-weight="600" font-family="system-ui,sans-serif" dy="0.35em">Fix, Recompile &amp; Test</text>
+              </g>
+              <!-- Loop arrow: Node4 back to Node2 via left -->
+              <path class="diag-arrow" style="animation-delay:0.75s" d="M175,375 L100,375 L100,155 L175,155" fill="none" stroke="#CC2222" stroke-width="2" stroke-dasharray="7,4" marker-end="url(#dl-arr)"/>
+              <!-- Node 5 (pill) -->
+              <g class="diag-node" style="animation-delay:0.8s">
+                <rect x="452" y="233" width="140" height="48" rx="24" fill="#CC2222" filter="url(#dl-sh)"/>
+                <text x="522" y="257" text-anchor="middle" fill="#fff" font-size="13" font-weight="700" font-family="system-ui,sans-serif" dy="0.35em">Deliver the Code</text>
+              </g>
+            </svg>
+            <p class="diag-card__takeaway">Every line of code is validated before delivery — quality is non-negotiable.</p>
+          </div>
+        </div>
+
+        <!-- Diagrams 2 &amp; 3 — side by side -->
+        <div class="methodology-pair">
+
+          <!-- Diagram 2: Incremental Development -->
+          <div class="diag-card">
+            <p class="diag-card__title">Incremental Development</p>
+            <p class="diag-card__subtitle">Two parallel tracks converging into production</p>
+            <svg class="diag-svg" viewBox="0 0 560 508" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block" aria-hidden="true">
+              <defs>
+                <marker id="inc-d" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+                  <polygon points="0 0,8 3,0 6" fill="#CC2222"/>
+                </marker>
+                <marker id="inc-r" markerWidth="8" markerHeight="6" refX="1" refY="3" orient="auto">
+                  <polygon points="8 0,0 3,8 6" fill="#CC2222"/>
+                </marker>
+                <filter id="inc-sh" x="-25%" y="-25%" width="150%" height="150%">
+                  <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="rgba(0,0,0,0.12)"/>
+                </filter>
+              </defs>
+              <!-- Track labels -->
+              <text x="110" y="10" text-anchor="middle" fill="#CC2222" font-size="10" font-weight="700" font-family="system-ui,sans-serif" letter-spacing="1.5">TRACK 1</text>
+              <text x="450" y="10" text-anchor="middle" fill="#CC2222" font-size="10" font-weight="700" font-family="system-ui,sans-serif" letter-spacing="1.5">TRACK 2</text>
+              <!-- LEFT nodes (x=10, w=200, h=42, gap=26, rows at y=18,86,154,222,290,358,426) -->
+              <g class="diag-node" style="animation-delay:0s"><rect x="10" y="18" width="200" height="42" rx="7" fill="#262453" filter="url(#inc-sh)"/><text x="110" y="39" text-anchor="middle" fill="#fff" font-size="11.5" font-weight="600" font-family="system-ui,sans-serif" dy="0.35em">System Requirements</text></g>
+              <g class="diag-node" style="animation-delay:0.08s"><rect x="10" y="86" width="200" height="42" rx="7" fill="#262453" filter="url(#inc-sh)"/><text x="110" y="107" text-anchor="middle" fill="#fff" font-size="11" font-weight="600" font-family="system-ui,sans-serif" dy="0.35em">Prelim. Program Design 1</text></g>
+              <g class="diag-node" style="animation-delay:0.16s"><rect x="10" y="154" width="200" height="42" rx="7" fill="#262453" filter="url(#inc-sh)"/><text x="110" y="175" text-anchor="middle" fill="#fff" font-size="11.5" font-weight="600" font-family="system-ui,sans-serif" dy="0.35em">Analysis 1</text></g>
+              <g class="diag-node" style="animation-delay:0.24s"><rect x="10" y="222" width="200" height="42" rx="7" fill="#262453" filter="url(#inc-sh)"/><text x="110" y="243" text-anchor="middle" fill="#fff" font-size="11.5" font-weight="600" font-family="system-ui,sans-serif" dy="0.35em">Program Design 1</text></g>
+              <g class="diag-node" style="animation-delay:0.32s"><rect x="10" y="290" width="200" height="42" rx="7" fill="#262453" filter="url(#inc-sh)"/><text x="110" y="311" text-anchor="middle" fill="#fff" font-size="11.5" font-weight="600" font-family="system-ui,sans-serif" dy="0.35em">Coding 1</text></g>
+              <g class="diag-node" style="animation-delay:0.4s"><rect x="10" y="358" width="200" height="42" rx="7" fill="#262453" filter="url(#inc-sh)"/><text x="110" y="379" text-anchor="middle" fill="#fff" font-size="11.5" font-weight="600" font-family="system-ui,sans-serif" dy="0.35em">Testing 1</text></g>
+              <g class="diag-node" style="animation-delay:0.48s"><rect x="10" y="426" width="200" height="42" rx="7" fill="#262453" filter="url(#inc-sh)"/><text x="110" y="447" text-anchor="middle" fill="#fff" font-size="11.5" font-weight="600" font-family="system-ui,sans-serif" dy="0.35em">Preliminary Usage</text></g>
+              <!-- LEFT down arrows -->
+              <line class="diag-arrow" style="animation-delay:0.56s" x1="110" y1="60" x2="110" y2="82" stroke="#CC2222" stroke-width="1.5" marker-end="url(#inc-d)"/>
+              <line class="diag-arrow" style="animation-delay:0.56s" x1="110" y1="128" x2="110" y2="150" stroke="#CC2222" stroke-width="1.5" marker-end="url(#inc-d)"/>
+              <line class="diag-arrow" style="animation-delay:0.56s" x1="110" y1="196" x2="110" y2="218" stroke="#CC2222" stroke-width="1.5" marker-end="url(#inc-d)"/>
+              <line class="diag-arrow" style="animation-delay:0.56s" x1="110" y1="264" x2="110" y2="286" stroke="#CC2222" stroke-width="1.5" marker-end="url(#inc-d)"/>
+              <line class="diag-arrow" style="animation-delay:0.56s" x1="110" y1="332" x2="110" y2="354" stroke="#CC2222" stroke-width="1.5" marker-end="url(#inc-d)"/>
+              <line class="diag-arrow" style="animation-delay:0.56s" x1="110" y1="400" x2="110" y2="422" stroke="#CC2222" stroke-width="1.5" marker-end="url(#inc-d)"/>
+              <!-- RIGHT nodes (x=350, w=200) -->
+              <g class="diag-node" style="animation-delay:0s"><rect x="350" y="18" width="200" height="42" rx="7" fill="#2d2a66" filter="url(#inc-sh)"/><text x="450" y="39" text-anchor="middle" fill="#fff" font-size="11.5" font-weight="600" font-family="system-ui,sans-serif" dy="0.35em">Software Requirements</text></g>
+              <g class="diag-node" style="animation-delay:0.08s"><rect x="350" y="86" width="200" height="42" rx="7" fill="#2d2a66" filter="url(#inc-sh)"/><text x="450" y="107" text-anchor="middle" fill="#fff" font-size="11" font-weight="600" font-family="system-ui,sans-serif" dy="0.35em">Prelim. Program Design 2</text></g>
+              <g class="diag-node" style="animation-delay:0.16s"><rect x="350" y="154" width="200" height="42" rx="7" fill="#2d2a66" filter="url(#inc-sh)"/><text x="450" y="175" text-anchor="middle" fill="#fff" font-size="11.5" font-weight="600" font-family="system-ui,sans-serif" dy="0.35em">Analysis 2</text></g>
+              <g class="diag-node" style="animation-delay:0.24s"><rect x="350" y="222" width="200" height="42" rx="7" fill="#2d2a66" filter="url(#inc-sh)"/><text x="450" y="243" text-anchor="middle" fill="#fff" font-size="11.5" font-weight="600" font-family="system-ui,sans-serif" dy="0.35em">Program Design 2</text></g>
+              <g class="diag-node" style="animation-delay:0.32s"><rect x="350" y="290" width="200" height="42" rx="7" fill="#2d2a66" filter="url(#inc-sh)"/><text x="450" y="311" text-anchor="middle" fill="#fff" font-size="11.5" font-weight="600" font-family="system-ui,sans-serif" dy="0.35em">Coding 2</text></g>
+              <g class="diag-node" style="animation-delay:0.4s"><rect x="350" y="358" width="200" height="42" rx="7" fill="#2d2a66" filter="url(#inc-sh)"/><text x="450" y="379" text-anchor="middle" fill="#fff" font-size="11.5" font-weight="600" font-family="system-ui,sans-serif" dy="0.35em">Testing 2</text></g>
+              <g class="diag-node" style="animation-delay:0.48s"><rect x="350" y="426" width="200" height="42" rx="7" fill="#CC2222" filter="url(#inc-sh)"/><text x="450" y="447" text-anchor="middle" fill="#fff" font-size="11.5" font-weight="700" font-family="system-ui,sans-serif" dy="0.35em">Operations</text></g>
+              <!-- RIGHT down arrows -->
+              <line class="diag-arrow" style="animation-delay:0.56s" x1="450" y1="60" x2="450" y2="82" stroke="#CC2222" stroke-width="1.5" marker-end="url(#inc-d)"/>
+              <line class="diag-arrow" style="animation-delay:0.56s" x1="450" y1="128" x2="450" y2="150" stroke="#CC2222" stroke-width="1.5" marker-end="url(#inc-d)"/>
+              <line class="diag-arrow" style="animation-delay:0.56s" x1="450" y1="196" x2="450" y2="218" stroke="#CC2222" stroke-width="1.5" marker-end="url(#inc-d)"/>
+              <line class="diag-arrow" style="animation-delay:0.56s" x1="450" y1="264" x2="450" y2="286" stroke="#CC2222" stroke-width="1.5" marker-end="url(#inc-d)"/>
+              <line class="diag-arrow" style="animation-delay:0.56s" x1="450" y1="332" x2="450" y2="354" stroke="#CC2222" stroke-width="1.5" marker-end="url(#inc-d)"/>
+              <line class="diag-arrow" style="animation-delay:0.56s" x1="450" y1="400" x2="450" y2="422" stroke="#CC2222" stroke-width="1.5" marker-end="url(#inc-d)"/>
+              <!-- Connecting arrows (dashed bidirectional) at rows 1, 3, 6 -->
+              <g class="diag-arrow" style="animation-delay:0.65s">
+                <line x1="214" y1="39" x2="346" y2="39" stroke="#CC2222" stroke-width="1.5" stroke-dasharray="5,3" marker-start="url(#inc-r)" marker-end="url(#inc-d)"/>
+              </g>
+              <g class="diag-arrow" style="animation-delay:0.7s">
+                <line x1="214" y1="175" x2="346" y2="175" stroke="#CC2222" stroke-width="1.5" stroke-dasharray="5,3" marker-start="url(#inc-r)" marker-end="url(#inc-d)"/>
+              </g>
+              <g class="diag-arrow" style="animation-delay:0.75s">
+                <line x1="214" y1="379" x2="346" y2="379" stroke="#CC2222" stroke-width="1.5" stroke-dasharray="5,3" marker-start="url(#inc-r)" marker-end="url(#inc-d)"/>
+              </g>
+            </svg>
+            <p class="diag-card__takeaway">Parallel tracks reduce elapsed time without sacrificing rigour or coordination.</p>
+          </div>
+
+          <!-- Diagram 3: Iterative Waterfall -->
+          <div class="diag-card">
+            <p class="diag-card__title">Iterative Waterfall</p>
+            <p class="diag-card__subtitle">Structured phases with continuous feedback loops</p>
+            <svg class="diag-svg" viewBox="-10 0 470 458" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block" aria-hidden="true">
+              <defs>
+                <marker id="wf-d" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+                  <polygon points="0 0,8 3,0 6" fill="#CC2222"/>
+                </marker>
+                <marker id="wf-u" markerWidth="8" markerHeight="6" refX="1" refY="3" orient="auto">
+                  <polygon points="8 0,0 3,8 6" fill="#CC2222"/>
+                </marker>
+                <filter id="wf-sh" x="-25%" y="-25%" width="150%" height="150%">
+                  <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="rgba(0,0,0,0.12)"/>
+                </filter>
+              </defs>
+              <!-- Steps: offset (35, 62) per step; h=44; gap=18 -->
+              <!-- Step 1: x=0 y=10 -->
+              <g class="diag-node" style="animation-delay:0s">
+                <rect x="0" y="10" width="215" height="44" rx="7" fill="#262453" filter="url(#wf-sh)"/>
+                <text x="12" y="32" fill="#CC2222" font-size="12" font-weight="800" font-family="system-ui,sans-serif" dy="0.35em">01</text>
+                <text x="36" y="32" fill="#fff" font-size="12" font-weight="600" font-family="system-ui,sans-serif" dy="0.35em">System Requirements</text>
+              </g>
+              <g class="diag-arrow" style="animation-delay:0.1s">
+                <line x1="132" y1="54" x2="167" y2="72" stroke="#CC2222" stroke-width="1.5" marker-end="url(#wf-d)"/>
+                <line x1="162" y1="72" x2="127" y2="54" stroke="#CC2222" stroke-width="1.5" marker-end="url(#wf-u)" opacity="0.55"/>
+              </g>
+              <!-- Step 2: x=35 y=72 -->
+              <g class="diag-node" style="animation-delay:0.15s">
+                <rect x="35" y="72" width="215" height="44" rx="7" fill="#262453" filter="url(#wf-sh)"/>
+                <text x="47" y="94" fill="#CC2222" font-size="12" font-weight="800" font-family="system-ui,sans-serif" dy="0.35em">02</text>
+                <text x="71" y="94" fill="#fff" font-size="12" font-weight="600" font-family="system-ui,sans-serif" dy="0.35em">Software Requirements</text>
+              </g>
+              <g class="diag-arrow" style="animation-delay:0.25s">
+                <line x1="167" y1="116" x2="202" y2="134" stroke="#CC2222" stroke-width="1.5" marker-end="url(#wf-d)"/>
+                <line x1="197" y1="134" x2="162" y2="116" stroke="#CC2222" stroke-width="1.5" marker-end="url(#wf-u)" opacity="0.55"/>
+              </g>
+              <!-- Step 3: x=70 y=134 -->
+              <g class="diag-node" style="animation-delay:0.3s">
+                <rect x="70" y="134" width="215" height="44" rx="7" fill="#262453" filter="url(#wf-sh)"/>
+                <text x="82" y="156" fill="#CC2222" font-size="12" font-weight="800" font-family="system-ui,sans-serif" dy="0.35em">03</text>
+                <text x="106" y="156" fill="#fff" font-size="12" font-weight="600" font-family="system-ui,sans-serif" dy="0.35em">Analysis</text>
+              </g>
+              <g class="diag-arrow" style="animation-delay:0.4s">
+                <line x1="202" y1="178" x2="237" y2="196" stroke="#CC2222" stroke-width="1.5" marker-end="url(#wf-d)"/>
+                <line x1="232" y1="196" x2="197" y2="178" stroke="#CC2222" stroke-width="1.5" marker-end="url(#wf-u)" opacity="0.55"/>
+              </g>
+              <!-- Step 4: x=105 y=196 -->
+              <g class="diag-node" style="animation-delay:0.45s">
+                <rect x="105" y="196" width="215" height="44" rx="7" fill="#262453" filter="url(#wf-sh)"/>
+                <text x="117" y="218" fill="#CC2222" font-size="12" font-weight="800" font-family="system-ui,sans-serif" dy="0.35em">04</text>
+                <text x="141" y="218" fill="#fff" font-size="12" font-weight="600" font-family="system-ui,sans-serif" dy="0.35em">Program Design</text>
+              </g>
+              <g class="diag-arrow" style="animation-delay:0.55s">
+                <line x1="237" y1="240" x2="272" y2="258" stroke="#CC2222" stroke-width="1.5" marker-end="url(#wf-d)"/>
+                <line x1="267" y1="258" x2="232" y2="240" stroke="#CC2222" stroke-width="1.5" marker-end="url(#wf-u)" opacity="0.55"/>
+              </g>
+              <!-- Step 5: x=140 y=258 -->
+              <g class="diag-node" style="animation-delay:0.6s">
+                <rect x="140" y="258" width="215" height="44" rx="7" fill="#262453" filter="url(#wf-sh)"/>
+                <text x="152" y="280" fill="#CC2222" font-size="12" font-weight="800" font-family="system-ui,sans-serif" dy="0.35em">05</text>
+                <text x="176" y="280" fill="#fff" font-size="12" font-weight="600" font-family="system-ui,sans-serif" dy="0.35em">Coding</text>
+              </g>
+              <g class="diag-arrow" style="animation-delay:0.7s">
+                <line x1="272" y1="302" x2="307" y2="320" stroke="#CC2222" stroke-width="1.5" marker-end="url(#wf-d)"/>
+                <line x1="302" y1="320" x2="267" y2="302" stroke="#CC2222" stroke-width="1.5" marker-end="url(#wf-u)" opacity="0.55"/>
+              </g>
+              <!-- Step 6: x=175 y=320 -->
+              <g class="diag-node" style="animation-delay:0.75s">
+                <rect x="175" y="320" width="215" height="44" rx="7" fill="#262453" filter="url(#wf-sh)"/>
+                <text x="187" y="342" fill="#CC2222" font-size="12" font-weight="800" font-family="system-ui,sans-serif" dy="0.35em">06</text>
+                <text x="211" y="342" fill="#fff" font-size="12" font-weight="600" font-family="system-ui,sans-serif" dy="0.35em">Testing</text>
+              </g>
+              <g class="diag-arrow" style="animation-delay:0.85s">
+                <line x1="307" y1="364" x2="342" y2="382" stroke="#CC2222" stroke-width="1.5" marker-end="url(#wf-d)"/>
+                <line x1="337" y1="382" x2="302" y2="364" stroke="#CC2222" stroke-width="1.5" marker-end="url(#wf-u)" opacity="0.55"/>
+              </g>
+              <!-- Step 7: x=210 y=382 — Operations (red) -->
+              <g class="diag-node" style="animation-delay:0.9s">
+                <rect x="210" y="382" width="215" height="44" rx="7" fill="#CC2222" filter="url(#wf-sh)"/>
+                <text x="222" y="404" fill="#fff" font-size="12" font-weight="800" font-family="system-ui,sans-serif" dy="0.35em">07</text>
+                <text x="246" y="404" fill="#fff" font-size="12" font-weight="700" font-family="system-ui,sans-serif" dy="0.35em">Operations</text>
+              </g>
+            </svg>
+            <p class="diag-card__takeaway">Each phase informs the next — and can refine the last. Progress without rigidity.</p>
+          </div>
+
+        </div><!-- end methodology-pair -->
+      </div>
+    </section>
+
     <!-- Delivery Model -->
-    <section class="section section--alt" aria-labelledby="delivery-title">
+    <section class="section section--alt stack-section" style="--s-z:4;background:#f8f8fc" aria-labelledby="delivery-title">
       <div class="container">
         <div class="section-header section-header--center">
           <span class="eyebrow">Delivery Model</span>
@@ -140,7 +404,7 @@
     </section>
 
     <!-- Competitive Advantages -->
-    <section class="section section--dark" aria-labelledby="advantages-title">
+    <section class="section section--dark stack-section" style="--s-z:5;background:#1e1d45" aria-labelledby="advantages-title">
       <div class="container">
         <div class="section-header section-header--center">
           <span class="eyebrow">Why Orvaal</span>
@@ -176,7 +440,7 @@
       </div>
     </section>
 
-    <section class="cta-banner" aria-labelledby="cta-title">
+    <section class="cta-banner stack-section" style="--s-z:6;background:#262453" aria-labelledby="cta-title">
       <div class="container">
         <div class="cta-banner__content reveal">
           <h2 class="cta-banner__title" id="cta-title">Let's Build Something Great</h2>
@@ -233,5 +497,35 @@
   </footer>
   <script src="js/main.js"></script>
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  <script>
+    (function () {
+      var ss = document.querySelectorAll('.stack-section');
+      if (ss.length < 2) return;
+      var NAV = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--nav-height')) || 64;
+      function tick() {
+        for (var i = 0; i < ss.length - 1; i++) {
+          var nextTop = ss[i + 1].getBoundingClientRect().top;
+          ss[i].classList.toggle('is-stacked', nextTop <= NAV + 4);
+        }
+      }
+      window.addEventListener('scroll', tick, { passive: true });
+      tick();
+    }());
+  </script>
+  <script>
+    (function () {
+      var svgs = document.querySelectorAll('.diag-svg');
+      if (!svgs.length) return;
+      var obs = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) {
+            e.target.classList.add('meth-vis');
+            obs.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.15 });
+      svgs.forEach(function (s) { obs.observe(s); });
+    }());
+  </script>
 </body>
 </html>

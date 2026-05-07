@@ -6,12 +6,35 @@
   <meta name="description" content="Contact Orvaal — get in touch with our team to discuss your project, request a demo, or ask about our services." />
   <title>Contact Us | Orvaal</title>
   <link rel="stylesheet" href="css/style.css?v=3" />
+  <style>
+    /* ── Scroll stack — solid, no bleed-through ── */
+    .stack-section {
+      position: sticky;
+      top: 0;
+      z-index: var(--s-z, 1);
+      will-change: transform;
+      isolation: isolate;
+      overflow: hidden;
+      box-shadow: 0 -8px 30px rgba(0, 0, 0, 0.15);
+      transform-origin: top center;
+      transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .stack-section + .stack-section { border-radius: 16px 16px 0 0; }
+    .stack-section.is-stacked { transform: scale(0.95) translateY(-8px); }
+    @media (prefers-reduced-motion: reduce) {
+      .stack-section { transition: none !important; will-change: auto; }
+      .stack-section.is-stacked { transform: none !important; }
+    }
+  </style>
 </head>
 <body>
   <header>
     <nav class="nav nav--scrolled" role="navigation" aria-label="Main navigation">
       <div class="nav__inner">
-        <a href="index.html" class="nav__logo"><img src="Logo.svg" alt="Orvaal" class="nav__logo-img" /></a>
+        <a href="index.html" class="nav__logo" aria-label="Orvaal — Home">
+          <img src="Logo.svg" alt="Orvaal" class="nav__logo-img" />
+          <span class="nav__logo-tagline">computer sapiens</span>
+        </a>
         <ul class="nav__links" role="list">
           <li><a href="index.html" class="nav__link">Home</a></li>
           <li><a href="approach.html" class="nav__link">Approach</a></li>
@@ -40,7 +63,7 @@
   </header>
 
   <main>
-    <section class="page-hero" style="--bg-image:url('https://images.unsplash.com/photo-1423666639041-f56000c27a9a?w=1920&q=60&auto=format&fit=crop');" aria-labelledby="page-title">
+    <section class="page-hero stack-section" style="--s-z:1;background:#262453;--bg-image:url('https://images.unsplash.com/photo-1423666639041-f56000c27a9a?w=1920&q=60&auto=format&fit=crop');" aria-labelledby="page-title">
       <div class="container">
         <div class="page-hero__content">
           <nav class="page-hero__breadcrumb" aria-label="Breadcrumb">
@@ -55,7 +78,7 @@
     </section>
 
     <!-- Contact Form + Info -->
-    <section class="section" aria-labelledby="contact-form-title">
+    <section class="section stack-section" style="--s-z:2;background:#ffffff" aria-labelledby="contact-form-title">
       <div class="container">
         <div class="contact-grid">
 
@@ -255,6 +278,21 @@
         success.scrollIntoView({ behavior: 'smooth', block: 'center' });
       }
     });
+  </script>
+  <script>
+    (function () {
+      var ss = document.querySelectorAll('.stack-section');
+      if (ss.length < 2) return;
+      var NAV = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--nav-height')) || 64;
+      function tick() {
+        for (var i = 0; i < ss.length - 1; i++) {
+          var nextTop = ss[i + 1].getBoundingClientRect().top;
+          ss[i].classList.toggle('is-stacked', nextTop <= NAV + 4);
+        }
+      }
+      window.addEventListener('scroll', tick, { passive: true });
+      tick();
+    }());
   </script>
 </body>
 </html>

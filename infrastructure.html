@@ -6,12 +6,35 @@
   <meta name="description" content="Orvaal infrastructure — world-class R&D facilities, high-speed global data links, 24/7 security, and VPN connectivity." />
   <title>Infrastructure | Orvaal</title>
   <link rel="stylesheet" href="css/style.css" />
+  <style>
+    /* ── Scroll stack — solid, no bleed-through ── */
+    .stack-section {
+      position: sticky;
+      top: 0;
+      z-index: var(--s-z, 1);
+      will-change: transform;
+      isolation: isolate;
+      overflow: hidden;
+      box-shadow: 0 -8px 30px rgba(0, 0, 0, 0.15);
+      transform-origin: top center;
+      transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .stack-section + .stack-section { border-radius: 16px 16px 0 0; }
+    .stack-section.is-stacked { transform: scale(0.95) translateY(-8px); }
+    @media (prefers-reduced-motion: reduce) {
+      .stack-section { transition: none !important; will-change: auto; }
+      .stack-section.is-stacked { transform: none !important; }
+    }
+  </style>
 </head>
 <body>
   <header>
     <nav class="nav nav--scrolled" role="navigation" aria-label="Main navigation">
       <div class="nav__inner">
-        <a href="index.html" class="nav__logo"><img src="Logo.svg" alt="Orvaal" class="nav__logo-img" /></a>
+        <a href="index.html" class="nav__logo" aria-label="Orvaal — Home">
+          <img src="Logo.svg" alt="Orvaal" class="nav__logo-img" />
+          <span class="nav__logo-tagline">computer sapiens</span>
+        </a>
         <ul class="nav__links" role="list">
           <li><a href="index.html" class="nav__link">Home</a></li>
           <li><a href="approach.html" class="nav__link">Approach</a></li>
@@ -40,7 +63,7 @@
   </header>
 
   <main>
-    <section class="page-hero" style="--bg-image:url('https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1920&q=60&auto=format&fit=crop');" aria-labelledby="page-title">
+    <section class="page-hero stack-section" style="--s-z:1;background:#262453;--bg-image:url('https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1920&q=60&auto=format&fit=crop');" aria-labelledby="page-title">
       <div class="container">
         <div class="page-hero__content">
           <nav class="page-hero__breadcrumb" aria-label="Breadcrumb">
@@ -55,7 +78,7 @@
     </section>
 
     <!-- R&D Centre -->
-    <section class="section" aria-labelledby="rd-title">
+    <section class="section stack-section" style="--s-z:2;background:#ffffff" aria-labelledby="rd-title">
       <div class="container">
         <div class="split">
           <div class="split__image reveal">
@@ -77,7 +100,7 @@
     </section>
 
     <!-- Infrastructure Capabilities -->
-    <section class="section section--alt" aria-labelledby="capabilities-title">
+    <section class="section section--alt stack-section" style="--s-z:3;background:#f8f8fc" aria-labelledby="capabilities-title">
       <div class="container">
         <div class="section-header section-header--center">
           <span class="eyebrow">Technical Capabilities</span>
@@ -120,7 +143,7 @@
     </section>
 
     <!-- Locations -->
-    <section class="section section--dark" aria-labelledby="locations-title">
+    <section class="section section--dark stack-section" style="--s-z:4;background:#1e1d45" aria-labelledby="locations-title">
       <div class="container">
         <div class="section-header section-header--center">
           <span class="eyebrow">Our Locations</span>
@@ -152,7 +175,7 @@
       </div>
     </section>
 
-    <section class="cta-banner" aria-labelledby="cta-title">
+    <section class="cta-banner stack-section" style="--s-z:5;background:#262453" aria-labelledby="cta-title">
       <div class="container">
         <div class="cta-banner__content reveal">
           <h2 class="cta-banner__title" id="cta-title">Infrastructure Built for Your Success</h2>
@@ -179,5 +202,20 @@
   </footer>
   <script src="js/main.js"></script>
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  <script>
+    (function () {
+      var ss = document.querySelectorAll('.stack-section');
+      if (ss.length < 2) return;
+      var NAV = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--nav-height')) || 64;
+      function tick() {
+        for (var i = 0; i < ss.length - 1; i++) {
+          var nextTop = ss[i + 1].getBoundingClientRect().top;
+          ss[i].classList.toggle('is-stacked', nextTop <= NAV + 4);
+        }
+      }
+      window.addEventListener('scroll', tick, { passive: true });
+      tick();
+    }());
+  </script>
 </body>
 </html>

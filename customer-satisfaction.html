@@ -6,12 +6,35 @@
   <meta name="description" content="Orvaal customer satisfaction — our commitment to client success, transparent engagement, and measurable outcomes on every project." />
   <title>Customer Satisfaction | Orvaal</title>
   <link rel="stylesheet" href="css/style.css" />
+  <style>
+    /* ── Scroll stack — solid, no bleed-through ── */
+    .stack-section {
+      position: sticky;
+      top: 0;
+      z-index: var(--s-z, 1);
+      will-change: transform;
+      isolation: isolate;
+      overflow: hidden;
+      box-shadow: 0 -8px 30px rgba(0, 0, 0, 0.15);
+      transform-origin: top center;
+      transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .stack-section + .stack-section { border-radius: 16px 16px 0 0; }
+    .stack-section.is-stacked { transform: scale(0.95) translateY(-8px); }
+    @media (prefers-reduced-motion: reduce) {
+      .stack-section { transition: none !important; will-change: auto; }
+      .stack-section.is-stacked { transform: none !important; }
+    }
+  </style>
 </head>
 <body>
   <header>
     <nav class="nav nav--scrolled" role="navigation" aria-label="Main navigation">
       <div class="nav__inner">
-        <a href="index.html" class="nav__logo"><img src="Logo.svg" alt="Orvaal" class="nav__logo-img" /></a>
+        <a href="index.html" class="nav__logo" aria-label="Orvaal — Home">
+          <img src="Logo.svg" alt="Orvaal" class="nav__logo-img" />
+          <span class="nav__logo-tagline">computer sapiens</span>
+        </a>
         <ul class="nav__links" role="list">
           <li><a href="index.html" class="nav__link">Home</a></li>
           <li><a href="approach.html" class="nav__link">Approach</a></li>
@@ -40,7 +63,7 @@
   </header>
 
   <main>
-    <section class="page-hero" style="--bg-image:url('https://images.unsplash.com/photo-1521791136064-7986c2920216?w=1920&q=60&auto=format&fit=crop');" aria-labelledby="page-title">
+    <section class="page-hero stack-section" style="--s-z:1;background:#262453;--bg-image:url('https://images.unsplash.com/photo-1521791136064-7986c2920216?w=1920&q=60&auto=format&fit=crop');" aria-labelledby="page-title">
       <div class="container">
         <div class="page-hero__content">
           <nav class="page-hero__breadcrumb" aria-label="Breadcrumb">
@@ -55,7 +78,7 @@
     </section>
 
     <!-- Client-First Philosophy -->
-    <section class="section" aria-labelledby="philosophy-title">
+    <section class="section stack-section" style="--s-z:2;background:#ffffff" aria-labelledby="philosophy-title">
       <div class="container">
         <div class="split">
           <div class="split__content reveal">
@@ -75,7 +98,7 @@
     </section>
 
     <!-- Satisfaction Pillars -->
-    <section class="section section--alt" aria-labelledby="pillars-title">
+    <section class="section section--alt stack-section" style="--s-z:3;background:#f8f8fc" aria-labelledby="pillars-title">
       <div class="container">
         <div class="section-header section-header--center">
           <span class="eyebrow">How We Deliver It</span>
@@ -118,7 +141,7 @@
     </section>
 
     <!-- How We Engage -->
-    <section class="section section--dark" aria-labelledby="engage-title">
+    <section class="section section--dark stack-section" style="--s-z:4;background:#1e1d45" aria-labelledby="engage-title">
       <div class="container">
         <div class="split">
           <div class="split__image reveal">
@@ -152,7 +175,7 @@
     </section>
 
     <!-- Satisfaction Guarantee -->
-    <section class="section" aria-labelledby="guarantee-title">
+    <section class="section stack-section" style="--s-z:5;background:#ffffff" aria-labelledby="guarantee-title">
       <div class="container">
         <div class="section-header section-header--center">
           <span class="eyebrow">Our Guarantee</span>
@@ -183,7 +206,7 @@
     </section>
 
     <!-- Metrics -->
-    <section class="section section--alt" aria-labelledby="metrics-title">
+    <section class="section section--alt stack-section" style="--s-z:6;background:#f8f8fc" aria-labelledby="metrics-title">
       <div class="container">
         <div class="section-header section-header--center">
           <span class="eyebrow">Our Track Record</span>
@@ -215,7 +238,7 @@
       </div>
     </section>
 
-    <section class="cta-banner" aria-labelledby="cta-title">
+    <section class="cta-banner stack-section" style="--s-z:7;background:#262453" aria-labelledby="cta-title">
       <div class="container">
         <div class="cta-banner__content reveal">
           <h2 class="cta-banner__title" id="cta-title">Ready to Experience the Orvaal Difference?</h2>
@@ -242,5 +265,20 @@
   </footer>
   <script src="js/main.js"></script>
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  <script>
+    (function () {
+      var ss = document.querySelectorAll('.stack-section');
+      if (ss.length < 2) return;
+      var NAV = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--nav-height')) || 64;
+      function tick() {
+        for (var i = 0; i < ss.length - 1; i++) {
+          var nextTop = ss[i + 1].getBoundingClientRect().top;
+          ss[i].classList.toggle('is-stacked', nextTop <= NAV + 4);
+        }
+      }
+      window.addEventListener('scroll', tick, { passive: true });
+      tick();
+    }());
+  </script>
 </body>
 </html>

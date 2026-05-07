@@ -6,6 +6,64 @@
   <meta name="description" content="Orvaal — Custom software development, application management, and data analytics. High performance closer to you." />
   <title>Orvaal | High Performance Closer to You</title>
   <link rel="stylesheet" href="css/style.css" />
+  <style>
+    /* ── Scroll stack — solid, no bleed-through ── */
+    .stack-section {
+      position: sticky;
+      top: 0;
+      z-index: var(--s-z, 1);
+      will-change: transform;
+      isolation: isolate;
+      overflow: hidden;
+      box-shadow: 0 -8px 30px rgba(0, 0, 0, 0.15);
+      transform-origin: top center;
+      transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    /* Cards 2-6: physical card top edge */
+    .stack-section + .stack-section {
+      border-radius: 16px 16px 0 0;
+    }
+
+    /*
+     * Covered state — transform only.
+     * NO opacity change: keeps background fully opaque
+     * so the incoming card completely covers the one behind it.
+     */
+    .stack-section.is-stacked {
+      transform: scale(0.95) translateY(-8px);
+    }
+
+    /* Reduced-motion: keep sticky layout, disable transforms */
+    @media (prefers-reduced-motion: reduce) {
+      .stack-section {
+        transition: none !important;
+        will-change: auto;
+      }
+      .stack-section.is-stacked {
+        transform: none !important;
+      }
+    }
+
+    /* ── Hero Globe Canvas ── */
+    #hero-globe {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 700px;
+      height: 700px;
+      z-index: 0;
+      opacity: 0;
+      cursor: grab;
+    }
+    #hero-globe:active { cursor: grabbing; }
+    @media (max-width: 767px) {
+      #hero-globe { width: 400px; height: 400px; }
+    }
+  </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/3.0.2/topojson.min.js"></script>
 </head>
 <body>
 
@@ -14,6 +72,7 @@
       <div class="nav__inner">
         <a href="index.html" class="nav__logo" aria-label="Orvaal — Home">
           <img src="Logo.svg" alt="Orvaal" class="nav__logo-img" />
+          <span class="nav__logo-tagline">computer sapiens</span>
         </a>
         <ul class="nav__links" role="list">
           <li><a href="index.html" class="nav__link active">Home</a></li>
@@ -47,29 +106,8 @@
   <main>
 
     <!-- Hero -->
-    <section class="hero" aria-labelledby="hero-title">
-      <div class="hero__bg" style="background-image:url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1920&q=60&auto=format&fit=crop');"></div>
-      <div class="hero__gradient"></div>
-
-      <!-- Animated geometric shapes -->
-      <div class="hero__shapes" aria-hidden="true">
-        <div class="hero__shape" style="--rotate:12deg;--delay:0.3s;left:-5%;top:20%;width:600px;height:140px;">
-          <div class="hero__shape-inner" style="background:linear-gradient(to right,rgba(99,102,241,0.15),transparent);"></div>
-        </div>
-        <div class="hero__shape" style="--rotate:-15deg;--delay:0.5s;right:-2%;top:68%;width:500px;height:120px;">
-          <div class="hero__shape-inner" style="background:linear-gradient(to right,rgba(244,63,94,0.15),transparent);"></div>
-        </div>
-        <div class="hero__shape" style="--rotate:-8deg;--delay:0.4s;left:8%;bottom:8%;width:300px;height:80px;">
-          <div class="hero__shape-inner" style="background:linear-gradient(to right,rgba(139,92,246,0.15),transparent);"></div>
-        </div>
-        <div class="hero__shape" style="--rotate:20deg;--delay:0.6s;right:18%;top:12%;width:200px;height:60px;">
-          <div class="hero__shape-inner" style="background:linear-gradient(to right,rgba(245,158,11,0.15),transparent);"></div>
-        </div>
-        <div class="hero__shape" style="--rotate:-25deg;--delay:0.7s;left:22%;top:8%;width:150px;height:40px;">
-          <div class="hero__shape-inner" style="background:linear-gradient(to right,rgba(6,182,212,0.15),transparent);"></div>
-        </div>
-      </div>
-
+    <section class="hero stack-section" style="--s-z:1;background:#262453" aria-labelledby="hero-title">
+      <canvas id="hero-globe" aria-hidden="true"></canvas>
       <div class="container">
         <div class="hero__content">
           <span class="eyebrow hero__eyebrow">IT Services &amp; Software Development</span>
@@ -77,20 +115,41 @@
           <p class="hero__subtitle">Orvaal brings highly skilled professionals and advanced systems to meet your requirements fully and efficiently — from custom software to enterprise data analytics.</p>
           <div class="hero__actions">
             <a href="services.html" class="btn btn--primary btn--lg">Explore Services</a>
-            <a href="approach.html" class="btn btn--outline btn--lg">Our Approach</a>
+            <a href="approach.html" class="btn btn--outline-dark btn--lg">Our Approach</a>
+          </div>
+          <div class="hero__stats" aria-label="Key statistics">
+            <div class="hero__stat">
+              <div class="hero__stat-number">20+</div>
+              <div class="hero__stat-label">Years of Experience</div>
+            </div>
+            <div class="hero__stat">
+              <div class="hero__stat-number">4</div>
+              <div class="hero__stat-label">Countries</div>
+            </div>
+            <div class="hero__stat">
+              <div class="hero__stat-number">3</div>
+              <div class="hero__stat-label">Core Services</div>
+            </div>
+            <div class="hero__stat">
+              <div class="hero__stat-number">5</div>
+              <div class="hero__stat-label">Products</div>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="hero__scroll-indicator" aria-hidden="true">
-        <div class="hero__scroll-line"></div>
       </div>
     </section>
 
     <!-- Services Strip -->
-    <div class="services-strip" aria-label="Core services">
+    <div class="services-strip stack-section" style="--s-z:2;background:#ffffff" aria-label="Core services">
       <div class="container">
+        <div class="section-header section-header--center" style="margin-bottom:var(--space-10);">
+          <span class="eyebrow">What We Do</span>
+          <h2 class="section-title">Core Services. <span class="text-accent">Real Results.</span></h2>
+          <p class="section-subtitle">Three service lines working together to build, manage, and optimise technology for your business.</p>
+        </div>
         <div class="services-strip__grid">
           <div class="services-strip__item reveal">
+            <div class="services-strip__dot" aria-hidden="true"></div>
             <div class="services-strip__icon">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
             </div>
@@ -100,8 +159,9 @@
             </div>
           </div>
           <div class="services-strip__item reveal reveal-delay-1">
+            <div class="services-strip__dot" aria-hidden="true"></div>
             <div class="services-strip__icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
             </div>
             <div>
               <p class="services-strip__title">Application Management</p>
@@ -109,6 +169,7 @@
             </div>
           </div>
           <div class="services-strip__item reveal reveal-delay-2">
+            <div class="services-strip__dot" aria-hidden="true"></div>
             <div class="services-strip__icon">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
             </div>
@@ -122,12 +183,12 @@
     </div>
 
     <!-- About Split -->
-    <section class="section" aria-labelledby="about-title">
+    <section class="section section--alt stack-section" style="--s-z:3;background:#ffffff" aria-labelledby="about-title">
       <div class="container">
         <div class="split">
           <div class="split__content reveal">
             <span class="eyebrow">About Orvaal</span>
-            <h2 class="section-title" id="about-title">Innovative Services with Deep Business Knowledge</h2>
+            <h2 class="section-title" id="about-title">Innovative Services with <span class="text-accent">Deep Business Knowledge</span></h2>
             <p class="split__body">Orvaal is a UK-based IT services and software development company with regional offices in the Netherlands, Belgium, and Romania. We combine innovative services with deep business knowledge to help our clients stay ahead of the competition.</p>
             <p class="split__body">Our teams deliver tailored solutions that improve operational efficiency, reduce costs, and accelerate time to market — all backed by a commitment to quality that runs through everything we do.</p>
             <div class="split__actions">
@@ -135,44 +196,41 @@
               <a href="services.html" class="btn btn--outline-dark">View Services</a>
             </div>
           </div>
-          <div class="split__image reveal reveal-delay-2">
-            <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=85&auto=format&fit=crop" alt="Orvaal team collaborating on software development" loading="lazy" width="800" height="600" />
+          <div class="stats-block reveal reveal-delay-2">
+            <div class="stats-block__grid">
+              <div class="stats-block__item">
+                <div class="stats-block__number">20+</div>
+                <div class="stats-block__label">Years of Experience</div>
+                <div class="stats-block__desc">Two decades delivering IT excellence</div>
+              </div>
+              <div class="stats-block__item">
+                <div class="stats-block__number">4</div>
+                <div class="stats-block__label">Countries</div>
+                <div class="stats-block__desc">UK · NL · BE · RO</div>
+              </div>
+              <div class="stats-block__item">
+                <div class="stats-block__number">3</div>
+                <div class="stats-block__label">Core Services</div>
+                <div class="stats-block__desc">Dev, Management, Analytics</div>
+              </div>
+              <div class="stats-block__item">
+                <div class="stats-block__number">5</div>
+                <div class="stats-block__label">Products</div>
+                <div class="stats-block__desc">Proprietary business tools</div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Stats -->
-    <div class="stats" aria-label="Company statistics">
-      <div class="container">
-        <div class="stats__grid">
-          <div class="stat-item reveal">
-            <div class="stat-item__number" data-count="20" data-suffix="+">20+</div>
-            <div class="stat-item__label">Years of Experience</div>
-          </div>
-          <div class="stat-item reveal reveal-delay-1">
-            <div class="stat-item__number" data-count="4">4</div>
-            <div class="stat-item__label">Countries</div>
-          </div>
-          <div class="stat-item reveal reveal-delay-2">
-            <div class="stat-item__number" data-count="3">3</div>
-            <div class="stat-item__label">Core Services</div>
-          </div>
-          <div class="stat-item reveal reveal-delay-3">
-            <div class="stat-item__number" data-count="5">5</div>
-            <div class="stat-item__label">Products</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <!-- Products Teaser -->
-    <section class="section section--dark" aria-labelledby="products-title">
+    <section class="section stack-section" style="--s-z:4;background:#ffffff" aria-labelledby="products-title">
       <div class="container">
         <div class="section-header section-header--center">
           <span class="eyebrow">Our Products</span>
-          <h2 class="section-title section-title--light" id="products-title">Built for Modern Business</h2>
-          <p class="section-subtitle section-subtitle--light">Five proprietary products designed to solve real operational challenges — ready to deploy and scale.</p>
+          <h2 class="section-title" id="products-title">Built for <span class="text-accent">Modern Business</span></h2>
+          <p class="section-subtitle">Five proprietary products designed to solve real operational challenges — ready to deploy and scale.</p>
         </div>
         <div class="products-grid">
           <div class="product-card reveal">
@@ -202,17 +260,17 @@
           </div>
         </div>
         <div style="text-align:center;margin-top:var(--space-10);">
-          <a href="products.html" class="btn btn--outline">View All Products</a>
+          <a href="products.html" class="btn btn--outline-dark">View All Products</a>
         </div>
       </div>
     </section>
 
     <!-- Approach Teaser -->
-    <section class="section section--alt" aria-labelledby="approach-title">
+    <section class="section section--alt stack-section" style="--s-z:5;background:#f8f8fc" aria-labelledby="approach-title">
       <div class="container">
         <div class="section-header section-header--center">
           <span class="eyebrow">Our Approach</span>
-          <h2 class="section-title" id="approach-title">Five Pillars of Quality</h2>
+          <h2 class="section-title" id="approach-title">Five Pillars of <span class="text-accent">Quality</span></h2>
           <p class="section-subtitle">Every engagement is guided by these core principles to ensure we deliver exactly what you need.</p>
         </div>
         <div class="pillars-grid">
@@ -249,7 +307,7 @@
     </section>
 
     <!-- CTA -->
-    <section class="cta-banner" aria-labelledby="cta-title">
+    <section class="cta-banner stack-section" style="--s-z:6;background:#262453" aria-labelledby="cta-title">
       <div class="container">
         <div class="cta-banner__content reveal">
           <h2 class="cta-banner__title" id="cta-title">Ready to Get Started?</h2>
@@ -324,5 +382,231 @@
 
   <script src="js/main.js"></script>
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+
+  <script>
+    /* ── Scroll stack: toggle is-stacked on sections as they get covered ── */
+    (function () {
+      var ss = document.querySelectorAll('.stack-section');
+      if (ss.length < 2) return;
+
+      /* nav height from CSS custom property, fallback 64 */
+      var NAV = parseInt(
+        getComputedStyle(document.documentElement)
+          .getPropertyValue('--nav-height')
+      ) || 64;
+
+      function tick() {
+        for (var i = 0; i < ss.length - 1; i++) {
+          /* next section's distance from viewport top */
+          var nextTop = ss[i + 1].getBoundingClientRect().top;
+          /*
+           * Trigger when the incoming card has slid up to the nav bottom.
+           * A small buffer (NAV + 4) starts the transition 4px early so
+           * the scale-down begins just before the card fully locks in.
+           */
+          ss[i].classList.toggle('is-stacked', nextTop <= NAV + 4);
+        }
+      }
+
+      window.addEventListener('scroll', tick, { passive: true });
+      /* Run once on load in case the page was refreshed mid-scroll */
+      tick();
+    }());
+  </script>
+
+  <script>
+    /* ── Hero stat count-up animation ── */
+    (function () {
+      var statEls = document.querySelectorAll('.hero__stat-number');
+      if (!statEls.length) return;
+
+      var stats = Array.from(statEls).map(function (el) {
+        var text = el.textContent.trim();
+        var m = text.match(/^(\d+)(.*)$/);
+        return { el: el, target: m ? +m[1] : 0, suffix: m ? m[2] : '' };
+      });
+
+      var DURATION = 2000;
+      var STAGGER  = 200;
+      var animated = false;
+
+      function easeOut(t) { return 1 - Math.pow(1 - t, 3); }
+
+      function animateStat(stat, delay) {
+        var startTime = null;
+        function step(ts) {
+          if (startTime === null) startTime = ts + delay;
+          var elapsed = ts - startTime;
+          if (elapsed < 0) { requestAnimationFrame(step); return; }
+          var progress = Math.min(elapsed / DURATION, 1);
+          stat.el.textContent = Math.round(easeOut(progress) * stat.target) + stat.suffix;
+          if (progress < 1) requestAnimationFrame(step);
+        }
+        requestAnimationFrame(step);
+      }
+
+      var observer = new IntersectionObserver(function (entries) {
+        if (entries[0].isIntersecting && !animated) {
+          animated = true;
+          stats.forEach(function (s, i) { animateStat(s, i * STAGGER); });
+          observer.disconnect();
+        }
+      }, { threshold: 0.5 });
+
+      var container = document.querySelector('.hero__stats');
+      if (container) observer.observe(container);
+    }());
+  </script>
+
+  <script>
+    /* ── Hero wireframe globe ── */
+    (function () {
+      if (typeof d3 === 'undefined') return;
+
+      var MOBILE = window.matchMedia('(max-width: 767px)').matches;
+      var SIZE   = MOBILE ? 400 : 700;
+
+      var canvas = document.getElementById('hero-globe');
+      if (!canvas) return;
+      canvas.width  = SIZE;
+      canvas.height = SIZE;
+
+      var ctx        = canvas.getContext('2d');
+      var rotation   = [20, -25, 0];
+      var autoRotate = true;
+      var isDragging = false;
+      var dragStart, rotStart, resumeTimer;
+      var landData   = null;
+      var landDots   = [];
+
+      var projection = d3.geoOrthographic()
+        .scale(SIZE / 2 - 10)
+        .translate([SIZE / 2, SIZE / 2])
+        .clipAngle(90)
+        .rotate(rotation);
+
+      var pathGen   = d3.geoPath(projection, ctx);
+      var graticule = d3.geoGraticule()();
+      var sphere    = { type: 'Sphere' };
+
+      /* Pre-compute visible land dots (runs once after data loads) */
+      function generateDots() {
+        var step = 2.5;
+        var dots = [];
+        for (var lat = -90; lat <= 90; lat += step) {
+          for (var lng = -180; lng <= 180; lng += step) {
+            if (d3.geoContains(landData, [lng, lat])) {
+              dots.push([lng, lat]);
+            }
+          }
+        }
+        landDots = dots;
+      }
+
+      function render() {
+        ctx.clearRect(0, 0, SIZE, SIZE);
+
+        /* Globe outline */
+        ctx.beginPath();
+        pathGen(sphere);
+        ctx.strokeStyle = 'rgba(204,34,34,0.4)';
+        ctx.lineWidth   = 1.2;
+        ctx.stroke();
+
+        /* Graticule grid */
+        ctx.beginPath();
+        pathGen(graticule);
+        ctx.strokeStyle = 'rgba(204,34,34,0.15)';
+        ctx.lineWidth   = 0.5;
+        ctx.stroke();
+
+        /* Land outline */
+        ctx.beginPath();
+        pathGen(landData);
+        ctx.strokeStyle = 'rgba(204,34,34,0.5)';
+        ctx.lineWidth   = 0.8;
+        ctx.stroke();
+
+        /* Land dots */
+        ctx.fillStyle = 'rgba(204,34,34,0.6)';
+        for (var i = 0; i < landDots.length; i++) {
+          var p = projection(landDots[i]);
+          if (!p) continue;
+          ctx.beginPath();
+          ctx.arc(p[0], p[1], 1.8, 0, Math.PI * 2);
+          ctx.fill();
+        }
+      }
+
+      function animate() {
+        if (autoRotate) {
+          rotation[0] += 0.25;
+          projection.rotate(rotation);
+        }
+        render();
+        requestAnimationFrame(animate);
+      }
+
+      /* Drag – mouse */
+      canvas.addEventListener('mousedown', function (e) {
+        isDragging = true;
+        autoRotate = false;
+        clearTimeout(resumeTimer);
+        dragStart = [e.clientX, e.clientY];
+        rotStart  = projection.rotate().slice();
+      });
+      window.addEventListener('mousemove', function (e) {
+        if (!isDragging) return;
+        var dx = (e.clientX - dragStart[0]) * 0.3;
+        var dy = (e.clientY - dragStart[1]) * 0.3;
+        rotation = [rotStart[0] + dx, rotStart[1] - dy, 0];
+        projection.rotate(rotation);
+      });
+      window.addEventListener('mouseup', function () {
+        if (!isDragging) return;
+        isDragging = false;
+        resumeTimer = setTimeout(function () { autoRotate = true; }, 2000);
+      });
+
+      /* Drag – touch */
+      canvas.addEventListener('touchstart', function (e) {
+        isDragging = true;
+        autoRotate = false;
+        clearTimeout(resumeTimer);
+        dragStart = [e.touches[0].clientX, e.touches[0].clientY];
+        rotStart  = projection.rotate().slice();
+      }, { passive: true });
+      canvas.addEventListener('touchmove', function (e) {
+        if (!isDragging) return;
+        e.preventDefault();
+        var dx = (e.touches[0].clientX - dragStart[0]) * 0.3;
+        var dy = (e.touches[0].clientY - dragStart[1]) * 0.3;
+        rotation = [rotStart[0] + dx, rotStart[1] - dy, 0];
+        projection.rotate(rotation);
+      }, { passive: false });
+      canvas.addEventListener('touchend', function () {
+        isDragging = false;
+        resumeTimer = setTimeout(function () { autoRotate = true; }, 2000);
+      });
+
+      /* Load land GeoJSON, generate dots, fade in, start animation */
+      fetch('https://raw.githubusercontent.com/martynafford/natural-earth-geojson/refs/heads/master/110m/physical/ne_110m_land.json')
+        .then(function (r) { return r.json(); })
+        .then(function (data) {
+          landData = data;
+          generateDots();
+          /* Fade in once first frame is rendered */
+          requestAnimationFrame(function () {
+            render();
+            canvas.style.transition = 'opacity 1.2s ease';
+            canvas.style.opacity    = MOBILE ? '0.12' : '0.18';
+            animate();
+          });
+        })
+        .catch(function (err) {
+          console.warn('Orvaal globe: land data unavailable', err);
+        });
+    }());
+  </script>
 </body>
 </html>
