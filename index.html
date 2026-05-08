@@ -395,7 +395,11 @@
           .getPropertyValue('--nav-height')
       ) || 64;
 
+      function clearStack() {
+        for (var i = 0; i < ss.length; i++) { ss[i].classList.remove('is-stacked'); }
+      }
       function tick() {
+        if (window.innerWidth <= 768) { clearStack(); return; }
         for (var i = 0; i < ss.length - 1; i++) {
           /* next section's distance from viewport top */
           var nextTop = ss[i + 1].getBoundingClientRect().top;
@@ -409,6 +413,7 @@
       }
 
       window.addEventListener('scroll', tick, { passive: true });
+      window.addEventListener('resize', tick, { passive: true });
       /* Run once on load in case the page was refreshed mid-scroll */
       tick();
     }());

@@ -202,13 +202,18 @@
       var ss = document.querySelectorAll('.stack-section');
       if (ss.length < 2) return;
       var NAV = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--nav-height')) || 64;
+      function clearStack() {
+        for (var i = 0; i < ss.length; i++) { ss[i].classList.remove('is-stacked'); }
+      }
       function tick() {
+        if (window.innerWidth <= 768) { clearStack(); return; }
         for (var i = 0; i < ss.length - 1; i++) {
           var nextTop = ss[i + 1].getBoundingClientRect().top;
           ss[i].classList.toggle('is-stacked', nextTop <= NAV + 4);
         }
       }
       window.addEventListener('scroll', tick, { passive: true });
+      window.addEventListener('resize', tick, { passive: true });
       tick();
     }());
   </script>
