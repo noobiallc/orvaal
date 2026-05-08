@@ -1072,7 +1072,22 @@ select.form-control { cursor: pointer; background-image: url("data:image/svg+xml
   }
 }
 
-/* ── Mobile: disable scroll-stack, restore natural flow ── */
+/* ── Stack effect removed globally — sections scroll naturally everywhere ── */
+.stack-section,
+.stack-section + .stack-section,
+.stack-section.is-stacked {
+  position: relative !important;
+  top: auto !important;
+  transform: none !important;
+  overflow: visible !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  will-change: auto !important;
+  isolation: auto !important;
+  transition: none !important;
+}
+
+/* ── Mobile: additional layout resets ── */
 @media (max-width: 768px) {
   /* Kill sticky stacking — sections flow normally */
   .stack-section {

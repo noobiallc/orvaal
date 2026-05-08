@@ -401,41 +401,6 @@
   <script src="js/main.js"></script>
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 
-  <script>
-    /* ── Scroll stack: toggle is-stacked on sections as they get covered ── */
-    (function () {
-      var ss = document.querySelectorAll('.stack-section');
-      if (ss.length < 2) return;
-
-      /* nav height from CSS custom property, fallback 64 */
-      var NAV = parseInt(
-        getComputedStyle(document.documentElement)
-          .getPropertyValue('--nav-height')
-      ) || 64;
-
-      function clearStack() {
-        for (var i = 0; i < ss.length; i++) { ss[i].classList.remove('is-stacked'); }
-      }
-      function tick() {
-        if (window.innerWidth <= 768) { clearStack(); return; }
-        for (var i = 0; i < ss.length - 1; i++) {
-          /* next section's distance from viewport top */
-          var nextTop = ss[i + 1].getBoundingClientRect().top;
-          /*
-           * Trigger when the incoming card has slid up to the nav bottom.
-           * A small buffer (NAV + 4) starts the transition 4px early so
-           * the scale-down begins just before the card fully locks in.
-           */
-          ss[i].classList.toggle('is-stacked', nextTop <= NAV + 4);
-        }
-      }
-
-      window.addEventListener('scroll', tick, { passive: true });
-      window.addEventListener('resize', tick, { passive: true });
-      /* Run once on load in case the page was refreshed mid-scroll */
-      tick();
-    }());
-  </script>
 
   <script>
     /* ── Hero stat count-up animation ── */
