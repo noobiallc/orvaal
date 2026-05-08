@@ -40,7 +40,7 @@
   --space-24: 96px;
 
   --max-width: 1200px;
-  --nav-height: 160px;
+  --nav-height: 250px;
 
   --radius-sm:   4px;
   --radius-md:   8px;
@@ -166,12 +166,12 @@ p { line-height: 1.75; }
 @media (min-width: 768px)  { .nav__inner { padding: 0 var(--space-8); } }
 @media (min-width: 1280px) { .nav__inner { padding: 0 var(--space-12); } }
 
-.nav__logo { display: flex; flex-direction: column; align-items: flex-start; text-decoration: none; flex-shrink: 0; gap: 2px; }
-.nav__logo-tagline { display: none; }
-.nav__logo-img { height: 140px; width: auto; display: block; object-fit: contain; }
+.nav__logo { display: flex; flex-direction: column; align-items: center; text-decoration: none; flex-shrink: 0; gap: 4px; }
+.nav__logo-tagline { display: block; font-size: 0.625rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.55); text-align: center; line-height: 1; font-weight: 500; }
+.nav__logo-img { height: 224px; width: auto; max-width: 380px; display: block; object-fit: contain; }
 @media (max-width: 767px) {
-  :root { --nav-height: 110px; }
-  .nav__logo-img { height: 90px; }
+  :root { --nav-height: 140px; }
+  .nav__logo-img { height: 120px; max-width: 200px; }
   .nav__inner { padding: 0 var(--space-5); }
 }
 
