@@ -59,8 +59,8 @@
 
 /* ---- Reset ---- */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { font-size: 16px; scroll-behavior: smooth; -webkit-tap-highlight-color: transparent; }
-body { font-family: var(--font-sans); color: var(--color-text); background: var(--color-bg); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+html { font-size: 16px; scroll-behavior: smooth; -webkit-tap-highlight-color: transparent; overflow-x: hidden; }
+body { font-family: var(--font-sans); color: var(--color-text); background: var(--color-bg); line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
 img { display: block; max-width: 100%; height: auto; }
 a { color: inherit; text-decoration: none; }
 ul { list-style: none; }
@@ -205,6 +205,10 @@ p { line-height: 1.75; }
   gap: 5px;
   padding: var(--space-2);
   border-radius: var(--radius-md);
+  min-height: 44px;
+  min-width: 44px;
+  justify-content: center;
+  align-items: center;
 }
 @media (min-width: 1060px) { .nav__hamburger { display: none; } }
 .nav__hamburger span { display: block; width: 22px; height: 2px; background: #ffffff; border-radius: 2px; transition: var(--transition-base); }
@@ -636,6 +640,7 @@ p { line-height: 1.75; }
 .product-card:hover::before { transform: scaleY(1); }
 .product-card__badge {
   display: inline-block;
+  align-self: flex-start;
   font-size: 0.6875rem;
   font-weight: 600;
   letter-spacing: 0.08em;
@@ -793,6 +798,7 @@ p { line-height: 1.75; }
 @media (min-width: 1024px) { .footer__grid { grid-template-columns: 2fr 1fr 1fr 1.5fr; } }
 .footer__brand-name { font-family: var(--font-serif); font-size: 1.25rem; font-weight: 700; color: var(--color-white); margin-bottom: var(--space-3); }
 .footer__logo-img { height: 224px; width: auto; max-width: 380px; display: block; margin-bottom: var(--space-3); object-fit: contain; }
+@media (max-width: 767px) { .footer__logo-img { height: 120px; max-width: 200px; } }
 .footer__brand-desc { font-size: 0.875rem; color: rgba(255,255,255,0.45); line-height: 1.75; margin-bottom: var(--space-5); }
 .footer__badge {
   display: inline-flex; align-items: center; gap: var(--space-2);
@@ -899,6 +905,7 @@ p { line-height: 1.75; }
 textarea.form-control { resize: vertical; min-height: 148px; line-height: 1.7; }
 select.form-control { cursor: pointer; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2364748B' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; padding-right: 40px; }
 
+.form-control.is-invalid { border-color: #cc2222; box-shadow: 0 0 0 3px rgba(204,34,34,0.12); }
 .form-submit { margin-top: var(--space-2); }
 
 /* Success state */
@@ -1088,6 +1095,8 @@ select.form-control { cursor: pointer; background-image: url("data:image/svg+xml
   isolation: auto !important;
   transition: none !important;
 }
+/* CTA banner must keep overflow:hidden so its ::before circle doesn't bleed */
+.cta-banner { overflow: hidden !important; }
 
 /* ── Mobile: additional layout resets ── */
 @media (max-width: 768px) {
@@ -1107,12 +1116,11 @@ select.form-control { cursor: pointer; background-image: url("data:image/svg+xml
   .stack-section.is-stacked {
     transform: none !important;
   }
-  /* Remove overflow hidden from every section type */
+  /* Remove overflow hidden from every section type except CTA banner */
   .section,
   .section--alt,
   .section--dark,
   .page-hero,
-  .cta-banner,
   .hero {
     overflow: visible !important;
     height: auto !important;

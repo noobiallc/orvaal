@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Contact Orvaal — get in touch with our team to discuss your project, request a demo, or ask about our services." />
   <title>Contact Us | Orvaal</title>
-  <link rel="stylesheet" href="css/style.css?v=3" />
+  <link rel="stylesheet" href="css/style.css" />
   <style>
     /* ── Scroll stack — solid, no bleed-through ── */
     .stack-section {
@@ -242,9 +242,88 @@
         <div><p class="footer__heading">Services</p><ul class="footer__links"><li><a href="services.html" class="footer__link">Application Development</a></li><li><a href="services.html" class="footer__link">Application Management</a></li><li><a href="services.html" class="footer__link">Data Analytics</a></li></ul></div>
         <address style="font-style:normal;"><p class="footer__heading">Contact</p><div class="footer__contact-item"><svg class="footer__contact-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><span class="footer__contact-text"><a href="mailto:info@orvaal.com" class="footer__link">info@orvaal.com</a></span></div></address>
       </div>
-      <div class="footer__bottom"><p>© <span id="year">2025</span> Orvaal. All rights reserved.</p><p>UK · Netherlands · Belgium · Romania</p></div>
+      <div class="footer__bottom"><p>© <span id="year">2026</span> Orvaal. All rights reserved.</p><p>UK · Netherlands · Belgium · Romania</p></div>
     </div>
   </footer>
   <script src="js/main.js"></script>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Contact form handler
+    (function () {
+      var form    = document.getElementById('contactForm');
+      var success = document.getElementById('contactSuccess');
+      var btn     = document.getElementById('submitBtn');
+      var text    = document.getElementById('submitText');
+      var spinner = document.getElementById('submitSpinner');
+      if (!form) return;
+
+      function showError(input, msg) {
+        input.classList.add('is-invalid');
+        var err = input.parentNode.querySelector('.form-error');
+        if (!err) {
+          err = document.createElement('span');
+          err.className = 'form-error';
+          err.style.cssText = 'display:block;color:#cc2222;font-size:.8125rem;margin-top:.25rem;';
+          input.parentNode.appendChild(err);
+        }
+        err.textContent = msg;
+      }
+
+      function clearErrors() {
+        form.querySelectorAll('.is-invalid').forEach(function (el) { el.classList.remove('is-invalid'); });
+        form.querySelectorAll('.form-error').forEach(function (el) { el.remove(); });
+      }
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        clearErrors();
+        var name    = document.getElementById('fullName');
+        var email   = document.getElementById('email');
+        var message = document.getElementById('message');
+        var valid   = true;
+
+        if (!name.value.trim())  { showError(name, 'Full name is required.'); valid = false; }
+        if (!email.value.trim()) { showError(email, 'Email address is required.'); valid = false; }
+        else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim())) { showError(email, 'Please enter a valid email address.'); valid = false; }
+        if (!message.value.trim()) { showError(message, 'Please enter a message.'); valid = false; }
+        if (!valid) return;
+
+        btn.disabled  = true;
+        text.style.display    = 'none';
+        spinner.style.display = 'inline';
+
+        // POST to Formspree (replace YOUR_FORM_ID with real endpoint when ready)
+        var endpoint = form.dataset.endpoint || '';
+        if (endpoint) {
+          fetch(endpoint, { method: 'POST', headers: { 'Accept': 'application/json' }, body: new FormData(form) })
+            .then(function (r) { return r.ok ? showSuccess() : showFallback(); })
+            .catch(showFallback);
+        } else {
+          // No endpoint configured — show success for demo
+          setTimeout(showSuccess, 800);
+        }
+      });
+
+      function showSuccess() {
+        form.style.display    = 'none';
+        success.style.display = 'block';
+      }
+
+      function showFallback() {
+        btn.disabled  = false;
+        text.style.display    = 'inline';
+        spinner.style.display = 'none';
+        var fb = form.querySelector('.form-fallback');
+        if (!fb) {
+          fb = document.createElement('p');
+          fb.className = 'form-fallback';
+          fb.style.cssText = 'color:#cc2222;margin-top:1rem;font-size:.9rem;';
+          fb.innerHTML = 'Could not send the message. Please email us directly at <a href="mailto:info@orvaal.com">info@orvaal.com</a>.';
+          form.appendChild(fb);
+        }
+      }
+    }());
+  </script>
 </body>
 </html>

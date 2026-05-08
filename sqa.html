@@ -58,7 +58,7 @@
           <li><a href="approach.html" class="nav__link">Approach</a></li>
           <li><a href="services.html" class="nav__link">Services</a></li>
           <li><a href="products.html" class="nav__link">Products</a></li>
-          <li><a href="sqa.html" class="nav__link active">SQA</a></li>
+          <li><a href="sqa.html" class="nav__link active" aria-current="page">SQA</a></li>
           <li><a href="infrastructure.html" class="nav__link">Infrastructure</a></li>
           <li><a href="customer-satisfaction.html" class="nav__link">Customer Satisfaction</a></li>
         </ul>
@@ -135,7 +135,7 @@
             <p class="info-card__desc">Peer code reviews, static analysis, and coding standards enforcement ensure that every line of code meets our quality bar before it reaches testing environments.</p>
           </div>
           <div class="info-card reveal reveal-delay-2">
-            <div class="info-card__icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 11.08 22 12 12 22 2 12V2l10-10 7 7"/><polyline points="16 8 11.5 12.5"/></svg></div>
+            <div class="info-card__icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v11m0 0H5a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2h-4m-6 0h6"/><line x1="9" y1="12" x2="15" y2="12"/></svg></div>
             <h3 class="info-card__title">Test Engineering</h3>
             <p class="info-card__desc">Structured test plans, automated regression suites, performance testing, and user acceptance testing ensure comprehensive coverage before every release.</p>
           </div>
@@ -163,7 +163,71 @@
       <div class="container">
         <div class="split">
           <div class="split__image reveal">
-            <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?w=800&q=85&auto=format&fit=crop" alt="Systematic problem solving and quality assurance" loading="lazy" width="800" height="600" />
+            <svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;display:block;" aria-label="Systematic problem resolution process diagram" role="img">
+              <rect width="800" height="600" fill="#16153a"/>
+              <!-- Grid lines -->
+              <line x1="0" y1="150" x2="800" y2="150" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+              <line x1="0" y1="300" x2="800" y2="300" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+              <line x1="0" y1="450" x2="800" y2="450" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+              <line x1="200" y1="0" x2="200" y2="600" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+              <line x1="400" y1="0" x2="400" y2="600" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+              <line x1="600" y1="0" x2="600" y2="600" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+              <!-- Process flow -->
+              <g transform="translate(80, 180)">
+                <!-- Step 1: Detect -->
+                <rect x="0" y="0" width="120" height="80" rx="8" fill="rgba(204,34,34,0.15)" stroke="#CC2222" stroke-width="1.5"/>
+                <text x="60" y="30" text-anchor="middle" font-family="system-ui,sans-serif" font-size="11" fill="rgba(255,255,255,0.5)" font-weight="600" letter-spacing="1">DETECT</text>
+                <text x="60" y="50" text-anchor="middle" font-family="system-ui,sans-serif" font-size="20" fill="#CC2222">⚑</text>
+                <!-- Arrow -->
+                <line x1="120" y1="40" x2="155" y2="40" stroke="#CC2222" stroke-width="1.5" stroke-dasharray="4,3"/>
+                <polygon points="155,36 163,40 155,44" fill="#CC2222"/>
+                <!-- Step 2: Analyse -->
+                <rect x="163" y="0" width="120" height="80" rx="8" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.2)" stroke-width="1.5"/>
+                <text x="223" y="30" text-anchor="middle" font-family="system-ui,sans-serif" font-size="11" fill="rgba(255,255,255,0.5)" font-weight="600" letter-spacing="1">ANALYSE</text>
+                <text x="223" y="52" text-anchor="middle" font-family="system-ui,sans-serif" font-size="18" fill="rgba(255,255,255,0.7)">◎</text>
+                <!-- Arrow -->
+                <line x1="283" y1="40" x2="318" y2="40" stroke="rgba(255,255,255,0.3)" stroke-width="1.5" stroke-dasharray="4,3"/>
+                <polygon points="318,36 326,40 318,44" fill="rgba(255,255,255,0.3)"/>
+                <!-- Step 3: Resolve -->
+                <rect x="326" y="0" width="120" height="80" rx="8" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.2)" stroke-width="1.5"/>
+                <text x="386" y="30" text-anchor="middle" font-family="system-ui,sans-serif" font-size="11" fill="rgba(255,255,255,0.5)" font-weight="600" letter-spacing="1">RESOLVE</text>
+                <text x="386" y="52" text-anchor="middle" font-family="system-ui,sans-serif" font-size="18" fill="rgba(255,255,255,0.7)">✓</text>
+                <!-- Arrow -->
+                <line x1="446" y1="40" x2="481" y2="40" stroke="rgba(255,255,255,0.3)" stroke-width="1.5" stroke-dasharray="4,3"/>
+                <polygon points="481,36 489,40 481,44" fill="rgba(255,255,255,0.3)"/>
+                <!-- Step 4: Verify -->
+                <rect x="489" y="0" width="120" height="80" rx="8" fill="rgba(34,160,80,0.12)" stroke="rgba(34,160,80,0.5)" stroke-width="1.5"/>
+                <text x="549" y="30" text-anchor="middle" font-family="system-ui,sans-serif" font-size="11" fill="rgba(255,255,255,0.5)" font-weight="600" letter-spacing="1">VERIFY</text>
+                <text x="549" y="52" text-anchor="middle" font-family="system-ui,sans-serif" font-size="18" fill="rgba(34,200,80,0.9)">✔</text>
+              </g>
+              <!-- Log entries -->
+              <g transform="translate(80, 320)">
+                <rect x="0" y="0" width="620" height="36" rx="4" fill="rgba(204,34,34,0.08)" stroke="rgba(204,34,34,0.2)" stroke-width="1"/>
+                <text x="14" y="23" font-family="monospace" font-size="11" fill="#CC2222">■</text>
+                <text x="34" y="23" font-family="monospace" font-size="11" fill="rgba(255,255,255,0.4)">ISSUE DETECTED</text>
+                <text x="200" y="23" font-family="monospace" font-size="11" fill="rgba(255,255,255,0.6)">Root cause identified — scope confirmed</text>
+                <rect x="500" y="10" width="104" height="16" rx="3" fill="rgba(204,34,34,0.3)"/>
+                <text x="552" y="22" text-anchor="middle" font-family="monospace" font-size="9" fill="#CC2222" font-weight="700">IN PROGRESS</text>
+              </g>
+              <g transform="translate(80, 368)">
+                <rect x="0" y="0" width="620" height="36" rx="4" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+                <text x="14" y="23" font-family="monospace" font-size="11" fill="rgba(255,255,255,0.3)">■</text>
+                <text x="34" y="23" font-family="monospace" font-size="11" fill="rgba(255,255,255,0.35)">REGRESSION CHECK</text>
+                <text x="200" y="23" font-family="monospace" font-size="11" fill="rgba(255,255,255,0.4)">All related test suites passing</text>
+                <rect x="500" y="10" width="104" height="16" rx="3" fill="rgba(34,160,80,0.2)"/>
+                <text x="552" y="22" text-anchor="middle" font-family="monospace" font-size="9" fill="rgba(34,200,80,0.9)" font-weight="700">COMPLETE</text>
+              </g>
+              <g transform="translate(80, 416)">
+                <rect x="0" y="0" width="620" height="36" rx="4" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+                <text x="14" y="23" font-family="monospace" font-size="11" fill="rgba(255,255,255,0.3)">■</text>
+                <text x="34" y="23" font-family="monospace" font-size="11" fill="rgba(255,255,255,0.35)">DOCUMENTATION</text>
+                <text x="200" y="23" font-family="monospace" font-size="11" fill="rgba(255,255,255,0.4)">Lessons learned logged — process updated</text>
+                <rect x="500" y="10" width="104" height="16" rx="3" fill="rgba(34,160,80,0.2)"/>
+                <text x="552" y="22" text-anchor="middle" font-family="monospace" font-size="9" fill="rgba(34,200,80,0.9)" font-weight="700">COMPLETE</text>
+              </g>
+              <!-- Label -->
+              <text x="400" y="520" text-anchor="middle" font-family="system-ui,sans-serif" font-size="10" fill="rgba(255,255,255,0.2)" letter-spacing="2" font-weight="600">SYSTEMATIC PROBLEM RESOLUTION</text>
+            </svg>
           </div>
           <div class="split__content reveal reveal-delay-1">
             <span class="eyebrow">Problem Solving</span>
@@ -210,7 +274,7 @@
         <div><p class="footer__heading">Services</p><ul class="footer__links"><li><a href="services.html" class="footer__link">Application Development</a></li><li><a href="services.html" class="footer__link">Application Management</a></li><li><a href="services.html" class="footer__link">Data Analytics</a></li></ul></div>
         <address style="font-style:normal;"><p class="footer__heading">Contact</p><div class="footer__contact-item"><svg class="footer__contact-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><span class="footer__contact-text"><a href="mailto:info@orvaal.com" class="footer__link">info@orvaal.com</a></span></div></address>
       </div>
-      <div class="footer__bottom"><p>© <span id="year">2025</span> Orvaal. All rights reserved.</p><p>UK · Netherlands · Belgium · Romania</p></div>
+      <div class="footer__bottom"><p>© <span id="year">2026</span> Orvaal. All rights reserved.</p><p>UK · Netherlands · Belgium · Romania</p></div>
     </div>
   </footer>
   <script src="js/main.js"></script>
