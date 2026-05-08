@@ -50,8 +50,8 @@
     <nav class="nav nav--scrolled" role="navigation" aria-label="Main navigation">
       <div class="nav__inner">
         <a href="index.html" class="nav__logo" aria-label="Orvaal — Home">
-          <img src="Logo.png" alt="Orvaal" class="nav__logo-img" />
-          <span class="nav__logo-tagline">computer sapiens</span>
+          <img src="assets/images/orvaal-logo.png" alt="Orvaal" class="nav__logo-img" />
+
         </a>
         <ul class="nav__links" role="list">
           <li><a href="index.html" class="nav__link">Home</a></li>
@@ -124,19 +124,193 @@
       <div class="container">
         <div class="split split--reverse">
           <div class="split__content reveal">
-            <span class="product-card__badge" style="margin-bottom:var(--space-4);display:inline-block;">Marketing</span>
+            <span class="product-card__badge" style="margin-bottom:var(--space-4);display:inline-block;">Mobile Operators</span>
             <h2 class="section-title" id="vmm-title">Viral Marketing Master</h2>
-            <p class="split__body">VMM (Viral Marketing Master) is a social network marketing platform that turns your existing customers into a powerful acquisition channel. The platform enables person-to-person recommendations with a built-in customer referral rewards system.</p>
-            <p class="split__body">By making it easy and incentivising for satisfied customers to recommend your services, VMM creates a self-sustaining growth loop that drives new business without traditional advertising spend.</p>
+            <p class="split__body">Operator revenues from voice services have declined. Operators must explore opportunities for revenue creation in Multimedia and Value Added Services markets.</p>
+            <p class="split__body">Viral Marketing Master (VMM) develops the means for mobile operators to stimulate service usage through a natural social network — using SMS notifications and background algorithms, not social media platforms.</p>
+            <p class="split__body">VMM allows end users to recommend operator services to their contacts via SMS. When recipients share their recommendations further, overall growth snowballs quickly and boosts service revenues — at the lowest possible marketing cost.</p>
+            <p class="split__body">Designed for mobile operators such as Verizon. For more information: <a href="mailto:info@orvaal.com" style="color:var(--color-accent);">info@orvaal.com</a></p>
             <div class="tag-list">
+              <span class="tag">SMS-Based</span>
+              <span class="tag">Mobile Operators</span>
               <span class="tag">P2P Recommendations</span>
-              <span class="tag">Referral Rewards</span>
-              <span class="tag">Social Integration</span>
-              <span class="tag">Campaign Analytics</span>
+              <span class="tag">Algorithm-Driven</span>
+              <span class="tag">Revenue Growth</span>
             </div>
           </div>
           <div class="split__image reveal reveal-delay-1">
-            <img src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=800&q=85&auto=format&fit=crop" alt="VMM viral marketing platform" loading="lazy" width="800" height="600" />
+            <!-- VMM network illustration — no brand logos -->
+            <svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;display:block;" aria-label="VMM SMS network effect visualization" role="img">
+              <defs>
+                <marker id="vmm-arr-r" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+                  <polygon points="0 0,8 3,0 6" fill="#CC2222"/>
+                </marker>
+                <marker id="vmm-arr-w" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+                  <polygon points="0 0,8 3,0 6" fill="rgba(255,255,255,0.35)"/>
+                </marker>
+                <pattern id="vmm-grid" x="0" y="0" width="32" height="32" patternUnits="userSpaceOnUse">
+                  <circle cx="16" cy="16" r="1" fill="rgba(255,255,255,0.055)"/>
+                </pattern>
+                <radialGradient id="vmm-glow" cx="46%" cy="50%" r="45%">
+                  <stop offset="0%" stop-color="#CC2222" stop-opacity="0.13"/>
+                  <stop offset="100%" stop-color="#CC2222" stop-opacity="0"/>
+                </radialGradient>
+              </defs>
+
+              <!-- Background -->
+              <rect width="800" height="600" fill="#262453"/>
+              <rect width="800" height="600" fill="url(#vmm-grid)"/>
+
+              <!-- Soft red glow behind phone -->
+              <ellipse cx="358" cy="292" rx="195" ry="175" fill="url(#vmm-glow)"/>
+
+              <!-- ── SMS signal arcs emanating rightward ── -->
+              <path d="M412,192 A100,100 0 0,1 412,392" fill="none" stroke="#CC2222" stroke-width="2.5" stroke-dasharray="10,7" stroke-linecap="round" opacity="0.55"/>
+              <path d="M422,158 A140,140 0 0,1 422,426" fill="none" stroke="#CC2222" stroke-width="1.5" stroke-dasharray="8,9" stroke-linecap="round" opacity="0.32"/>
+              <path d="M432,122 A182,182 0 0,1 432,462" fill="none" stroke="#CC2222" stroke-width="1" stroke-dasharray="5,11" stroke-linecap="round" opacity="0.16"/>
+
+              <!-- ── Connection lines: Operator → Phone ── -->
+              <line x1="172" y1="230" x2="302" y2="262" stroke="rgba(255,255,255,0.28)" stroke-width="1.5" stroke-dasharray="6,5" marker-end="url(#vmm-arr-w)"/>
+              <line x1="172" y1="355" x2="302" y2="322" stroke="rgba(255,255,255,0.28)" stroke-width="1.5" stroke-dasharray="6,5" marker-end="url(#vmm-arr-w)"/>
+
+              <!-- ── Connection lines: Phone → Recipients ── -->
+              <line x1="422" y1="232" x2="572" y2="158" stroke="#CC2222" stroke-width="2" stroke-dasharray="7,5" marker-end="url(#vmm-arr-r)" opacity="0.85"/>
+              <line x1="422" y1="292" x2="576" y2="292" stroke="#CC2222" stroke-width="2" stroke-dasharray="7,5" marker-end="url(#vmm-arr-r)" opacity="0.85"/>
+              <line x1="422" y1="352" x2="572" y2="422" stroke="#CC2222" stroke-width="2" stroke-dasharray="7,5" marker-end="url(#vmm-arr-r)" opacity="0.85"/>
+
+              <!-- ── Viral spread from recipients outward ── -->
+              <line x1="638" y1="152" x2="710" y2="102" stroke="rgba(255,255,255,0.22)" stroke-width="1.5" stroke-dasharray="5,5" marker-end="url(#vmm-arr-w)"/>
+              <line x1="638" y1="172" x2="710" y2="210" stroke="rgba(255,255,255,0.22)" stroke-width="1.5" stroke-dasharray="5,5" marker-end="url(#vmm-arr-w)"/>
+              <line x1="642" y1="286" x2="710" y2="248" stroke="rgba(255,255,255,0.22)" stroke-width="1.5" stroke-dasharray="5,5" marker-end="url(#vmm-arr-w)"/>
+              <line x1="642" y1="298" x2="710" y2="332" stroke="rgba(255,255,255,0.22)" stroke-width="1.5" stroke-dasharray="5,5" marker-end="url(#vmm-arr-w)"/>
+              <line x1="638" y1="416" x2="710" y2="386" stroke="rgba(255,255,255,0.22)" stroke-width="1.5" stroke-dasharray="5,5" marker-end="url(#vmm-arr-w)"/>
+              <line x1="638" y1="432" x2="710" y2="466" stroke="rgba(255,255,255,0.22)" stroke-width="1.5" stroke-dasharray="5,5" marker-end="url(#vmm-arr-w)"/>
+
+              <!-- ── Phone body ── -->
+              <rect x="298" y="158" width="124" height="222" rx="18" fill="#1A1840" stroke="rgba(255,255,255,0.38)" stroke-width="2.5"/>
+              <!-- Screen area -->
+              <rect x="308" y="176" width="104" height="178" rx="7" fill="#0E0D28"/>
+              <!-- Top speaker slit -->
+              <rect x="336" y="166" width="48" height="5" rx="2.5" fill="rgba(255,255,255,0.3)"/>
+              <!-- Home/nav bar -->
+              <rect x="330" y="364" width="60" height="5" rx="2.5" fill="rgba(255,255,255,0.2)"/>
+
+              <!-- Screen: SMS speech bubble -->
+              <rect x="315" y="184" width="90" height="64" rx="8" fill="#CC2222"/>
+              <path d="M320,248 L313,266 L338,248 Z" fill="#CC2222"/>
+              <!-- Text lines in bubble -->
+              <rect x="323" y="197" width="72" height="4" rx="2" fill="rgba(255,255,255,0.88)"/>
+              <rect x="323" y="208" width="56" height="4" rx="2" fill="rgba(255,255,255,0.7)"/>
+              <rect x="323" y="219" width="64" height="4" rx="2" fill="rgba(255,255,255,0.55)"/>
+              <rect x="323" y="230" width="46" height="4" rx="2" fill="rgba(255,255,255,0.38)"/>
+
+              <!-- Screen: Signal / strength bars -->
+              <rect x="315" y="297" width="7" height="13" rx="2" fill="#CC2222" opacity="0.55"/>
+              <rect x="326" y="291" width="7" height="19" rx="2" fill="#CC2222" opacity="0.7"/>
+              <rect x="337" y="284" width="7" height="26" rx="2" fill="#CC2222" opacity="0.85"/>
+              <rect x="348" y="276" width="7" height="34" rx="2" fill="#CC2222"/>
+
+              <!-- Screen: algorithm readout -->
+              <text x="365" y="296" font-family="monospace" font-size="8" fill="rgba(255,255,255,0.42)">SND ▶</text>
+              <text x="365" y="308" font-family="monospace" font-size="8" fill="rgba(255,255,255,0.42)">RCV ▶</text>
+              <text x="365" y="320" font-family="monospace" font-size="8" fill="rgba(255,255,255,0.42)">FWD ▶</text>
+              <rect x="363" y="328" width="40" height="3" rx="1.5" fill="#CC2222" opacity="0.45"/>
+              <rect x="363" y="334" width="32" height="3" rx="1.5" fill="#CC2222" opacity="0.62"/>
+              <rect x="363" y="340" width="38" height="3" rx="1.5" fill="#CC2222" opacity="0.52"/>
+
+              <!-- ── SMS label badges on signal arcs ── -->
+              <rect x="438" y="178" width="46" height="20" rx="4" fill="rgba(204,34,34,0.22)" stroke="rgba(204,34,34,0.45)" stroke-width="1"/>
+              <text x="461" y="193" text-anchor="middle" font-family="monospace" font-size="10" fill="#CC2222" font-weight="700">SMS</text>
+              <rect x="438" y="392" width="46" height="20" rx="4" fill="rgba(204,34,34,0.22)" stroke="rgba(204,34,34,0.45)" stroke-width="1"/>
+              <text x="461" y="407" text-anchor="middle" font-family="monospace" font-size="10" fill="#CC2222" font-weight="700">SMS</text>
+
+              <!-- ── Person node: Operator (left-top, red accent) ── -->
+              <circle cx="132" cy="230" r="33" fill="#1e1d45" stroke="#CC2222" stroke-width="2.5"/>
+              <circle cx="132" cy="218" r="10" fill="white" opacity="0.92"/>
+              <path d="M116,248 Q116,233 132,233 Q148,233 148,248" fill="white" opacity="0.92"/>
+              <text x="132" y="278" text-anchor="middle" font-family="system-ui,sans-serif" font-size="10" fill="#CC2222" font-weight="700" letter-spacing="0.5">OPERATOR</text>
+
+              <!-- Person node: Subscriber (left-bottom, muted) -->
+              <circle cx="132" cy="355" r="30" fill="#1e1d45" stroke="rgba(255,255,255,0.28)" stroke-width="2"/>
+              <circle cx="132" cy="344" r="9" fill="white" opacity="0.78"/>
+              <path d="M118,371 Q118,358 132,358 Q146,358 146,371" fill="white" opacity="0.78"/>
+              <text x="132" y="398" text-anchor="middle" font-family="system-ui,sans-serif" font-size="10" fill="rgba(255,255,255,0.48)" font-weight="500">SUBSCRIBER</text>
+
+              <!-- ── Recipient node 1 (top-right) ── -->
+              <circle cx="606" cy="160" r="28" fill="#1e1d45" stroke="rgba(255,255,255,0.3)" stroke-width="2"/>
+              <circle cx="606" cy="150" r="8.5" fill="white" opacity="0.85"/>
+              <path d="M593,173 Q593,161 606,161 Q619,161 619,173" fill="white" opacity="0.85"/>
+
+              <!-- Recipient node 2 (mid-right) -->
+              <circle cx="610" cy="292" r="28" fill="#1e1d45" stroke="rgba(255,255,255,0.3)" stroke-width="2"/>
+              <circle cx="610" cy="282" r="8.5" fill="white" opacity="0.85"/>
+              <path d="M597,305 Q597,293 610,293 Q623,293 623,305" fill="white" opacity="0.85"/>
+
+              <!-- Recipient node 3 (bottom-right) -->
+              <circle cx="606" cy="424" r="28" fill="#1e1d45" stroke="rgba(255,255,255,0.3)" stroke-width="2"/>
+              <circle cx="606" cy="414" r="8.5" fill="white" opacity="0.85"/>
+              <path d="M593,437 Q593,425 606,425 Q619,425 619,437" fill="white" opacity="0.85"/>
+
+              <!-- ── Secondary spread mini-nodes ── -->
+              <circle cx="730" cy="98"  r="16" fill="#1e1d45" stroke="rgba(255,255,255,0.18)" stroke-width="1.5"/>
+              <circle cx="730" cy="93"  r="5"  fill="white" opacity="0.55"/>
+              <path d="M722,105 Q722,99 730,99 Q738,99 738,105" fill="white" opacity="0.55"/>
+
+              <circle cx="730" cy="213" r="16" fill="#1e1d45" stroke="rgba(255,255,255,0.18)" stroke-width="1.5"/>
+              <circle cx="730" cy="208" r="5"  fill="white" opacity="0.55"/>
+              <path d="M722,220 Q722,214 730,214 Q738,214 738,220" fill="white" opacity="0.55"/>
+
+              <circle cx="730" cy="248" r="16" fill="#1e1d45" stroke="rgba(255,255,255,0.18)" stroke-width="1.5"/>
+              <circle cx="730" cy="243" r="5"  fill="white" opacity="0.55"/>
+              <path d="M722,255 Q722,249 730,249 Q738,249 738,255" fill="white" opacity="0.55"/>
+
+              <circle cx="730" cy="332" r="16" fill="#1e1d45" stroke="rgba(255,255,255,0.18)" stroke-width="1.5"/>
+              <circle cx="730" cy="327" r="5"  fill="white" opacity="0.55"/>
+              <path d="M722,339 Q722,333 730,333 Q738,333 738,339" fill="white" opacity="0.55"/>
+
+              <circle cx="730" cy="384" r="16" fill="#1e1d45" stroke="rgba(255,255,255,0.18)" stroke-width="1.5"/>
+              <circle cx="730" cy="379" r="5"  fill="white" opacity="0.55"/>
+              <path d="M722,391 Q722,385 730,385 Q738,385 738,391" fill="white" opacity="0.55"/>
+
+              <circle cx="730" cy="468" r="16" fill="#1e1d45" stroke="rgba(255,255,255,0.18)" stroke-width="1.5"/>
+              <circle cx="730" cy="463" r="5"  fill="white" opacity="0.55"/>
+              <path d="M722,475 Q722,469 730,469 Q738,469 738,475" fill="white" opacity="0.55"/>
+
+              <!-- ── Bottom info bar ── -->
+              <rect x="44" y="522" width="712" height="50" rx="8" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.07)" stroke-width="1"/>
+
+              <!-- Viral growth mini bar chart -->
+              <text x="62" y="540" font-family="system-ui,sans-serif" font-size="8.5" fill="rgba(255,255,255,0.32)" font-weight="700" letter-spacing="1.2">REVENUE GROWTH</text>
+              <rect x="62"  y="546" width="12" height="14" rx="2" fill="#CC2222" opacity="0.32"/>
+              <rect x="78"  y="542" width="12" height="18" rx="2" fill="#CC2222" opacity="0.48"/>
+              <rect x="94"  y="538" width="12" height="22" rx="2" fill="#CC2222" opacity="0.64"/>
+              <rect x="110" y="533" width="12" height="27" rx="2" fill="#CC2222" opacity="0.82"/>
+              <rect x="126" y="527" width="12" height="33" rx="2" fill="#CC2222"/>
+
+              <!-- Algorithm flow -->
+              <text x="170" y="540" font-family="system-ui,sans-serif" font-size="8.5" fill="rgba(255,255,255,0.32)" font-weight="700" letter-spacing="1.2">BACKGROUND ALGORITHM</text>
+              <circle cx="330" cy="547" r="4.5" fill="#CC2222" opacity="0.8"/>
+              <line x1="337" y1="547" x2="347" y2="547" stroke="rgba(255,255,255,0.22)" stroke-width="1.5" marker-end="url(#vmm-arr-r)"/>
+              <circle cx="356" cy="547" r="4.5" fill="#CC2222" opacity="0.62"/>
+              <line x1="363" y1="547" x2="373" y2="547" stroke="rgba(255,255,255,0.22)" stroke-width="1.5" marker-end="url(#vmm-arr-r)"/>
+              <circle cx="382" cy="547" r="4.5" fill="#CC2222" opacity="0.8"/>
+              <line x1="389" y1="547" x2="399" y2="547" stroke="rgba(255,255,255,0.22)" stroke-width="1.5" marker-end="url(#vmm-arr-r)"/>
+              <circle cx="408" cy="547" r="4.5" fill="#CC2222"/>
+              <line x1="415" y1="547" x2="425" y2="547" stroke="rgba(255,255,255,0.22)" stroke-width="1.5" marker-end="url(#vmm-arr-r)"/>
+              <circle cx="434" cy="547" r="4.5" fill="#CC2222" opacity="0.88"/>
+
+              <!-- No social platforms label -->
+              <text x="468" y="540" font-family="system-ui,sans-serif" font-size="8.5" fill="rgba(255,255,255,0.32)" font-weight="700" letter-spacing="1.2">NO SOCIAL PLATFORMS</text>
+              <circle cx="640" cy="547" r="9" fill="rgba(204,34,34,0.15)" stroke="rgba(204,34,34,0.35)" stroke-width="1.5"/>
+              <line x1="634" y1="541" x2="646" y2="553" stroke="rgba(255,255,255,0.45)" stroke-width="2" stroke-linecap="round"/>
+              <line x1="646" y1="541" x2="634" y2="553" stroke="rgba(255,255,255,0.45)" stroke-width="2" stroke-linecap="round"/>
+              <circle cx="662" cy="547" r="9" fill="rgba(204,34,34,0.15)" stroke="rgba(204,34,34,0.35)" stroke-width="1.5"/>
+              <line x1="656" y1="541" x2="668" y2="553" stroke="rgba(255,255,255,0.45)" stroke-width="2" stroke-linecap="round"/>
+              <line x1="668" y1="541" x2="656" y2="553" stroke="rgba(255,255,255,0.45)" stroke-width="2" stroke-linecap="round"/>
+              <circle cx="684" cy="547" r="9" fill="rgba(204,34,34,0.15)" stroke="rgba(204,34,34,0.35)" stroke-width="1.5"/>
+              <line x1="678" y1="541" x2="690" y2="553" stroke="rgba(255,255,255,0.45)" stroke-width="2" stroke-linecap="round"/>
+              <line x1="690" y1="541" x2="678" y2="553" stroke="rgba(255,255,255,0.45)" stroke-width="2" stroke-linecap="round"/>
+            </svg>
           </div>
         </div>
       </div>
@@ -230,7 +404,7 @@
   <footer class="footer" role="contentinfo">
     <div class="container">
       <div class="footer__grid">
-        <div><img src="Logo.png" alt="Orvaal" class="footer__logo-img" /><p class="footer__brand-desc">UK-based IT services and software development company with offices across Europe.</p></div>
+        <div><img src="assets/images/orvaal-logo.png" alt="Orvaal" class="footer__logo-img" /><p class="footer__brand-desc">UK-based IT services and software development company with offices across Europe.</p></div>
         <nav aria-label="Footer navigation"><p class="footer__heading">Pages</p><ul class="footer__links"><li><a href="index.html" class="footer__link">Home</a></li><li><a href="approach.html" class="footer__link">Approach</a></li><li><a href="services.html" class="footer__link">Services</a></li><li><a href="products.html" class="footer__link">Products</a></li><li><a href="sqa.html" class="footer__link">SQA</a></li><li><a href="infrastructure.html" class="footer__link">Infrastructure</a></li><li><a href="customer-satisfaction.html" class="footer__link">Customer Satisfaction</a></li></ul></nav>
         <div><p class="footer__heading">Products</p><ul class="footer__links"><li><a href="products.html" class="footer__link">Blendys</a></li><li><a href="products.html" class="footer__link">VMM</a></li><li><a href="products.html" class="footer__link">Epic</a></li><li><a href="products.html" class="footer__link">SOL</a></li><li><a href="products.html" class="footer__link">Dallya</a></li></ul></div>
         <address style="font-style:normal;"><p class="footer__heading">Contact</p><div class="footer__contact-item"><svg class="footer__contact-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><span class="footer__contact-text"><a href="mailto:info@orvaal.com" class="footer__link">info@orvaal.com</a></span></div></address>

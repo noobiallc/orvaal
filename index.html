@@ -79,6 +79,70 @@
         transform: none !important;
       }
     }
+
+    /* ── Hero Show More / Show Less ── */
+    .hero__collapse-wrap {
+      position: relative;
+      overflow: hidden;
+      max-height: 5.25em;
+      transition: max-height 0.4s ease;
+      animation: heroFadeUp 0.7s cubic-bezier(0.22,1,0.36,1) 0.40s both;
+    }
+    .hero__collapse-wrap.is-expanded { max-height: 600px; }
+    .hero__collapse-wrap .hero__subtitle {
+      animation: none;
+      opacity: 1;
+      transform: none;
+      margin-bottom: 0;
+    }
+    .hero__collapse-fade {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 3em;
+      background: linear-gradient(transparent, #262453);
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+    .hero__collapse-wrap.is-expanded .hero__collapse-fade { opacity: 0; }
+    .hero__toggle-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: transparent;
+      color: #ffffff;
+      border: 1.5px solid rgba(255,255,255,0.45);
+      font-size: 0.875rem;
+      font-weight: 500;
+      padding: 9px 22px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-family: var(--font-sans);
+      margin-top: var(--space-4);
+      margin-bottom: var(--space-6);
+      transition: background 200ms ease, color 200ms ease, border-color 200ms ease;
+      animation: heroFadeUp 0.6s cubic-bezier(0.22,1,0.36,1) 0.50s both;
+    }
+    .hero__toggle-btn:hover { background: rgba(255,255,255,0.12); border-color: rgba(255,255,255,0.7); }
+    .hero__ncage-badge {
+      display: inline-flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin-top: var(--space-6);
+      padding: 8px 16px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 6px;
+      font-size: 0.8125rem;
+      color: rgba(255,255,255,0.75);
+      line-height: 1.55;
+      text-align: left;
+    }
+    .hero__ncage-badge svg { flex-shrink: 0; margin-top: 2px; color: rgba(255,255,255,0.5); }
+    @media (prefers-reduced-motion: reduce) {
+      .hero__collapse-wrap,
+      .hero__toggle-btn { animation: none; opacity: 1; transform: none; }
+      .hero__collapse-wrap { transition: none; }
+    }
 </style>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/3.0.2/topojson.min.js"></script>
@@ -89,8 +153,8 @@
     <nav class="nav nav--transparent" role="navigation" aria-label="Main navigation">
       <div class="nav__inner">
         <a href="index.html" class="nav__logo" aria-label="Orvaal — Home">
-          <img src="Logo.png" alt="Orvaal" class="nav__logo-img" />
-          <span class="nav__logo-tagline">computer sapiens</span>
+          <img src="assets/images/orvaal-logo.png" alt="Orvaal" class="nav__logo-img" />
+
         </a>
         <ul class="nav__links" role="list">
           <li><a href="index.html" class="nav__link active">Home</a></li>
@@ -130,7 +194,16 @@
         <div class="hero__content">
           <span class="eyebrow hero__eyebrow">IT Services &amp; Software Development</span>
           <h1 class="hero__title" id="hero-title">High Performance<br /><span>Closer to You.</span></h1>
-          <p class="hero__subtitle">Orvaal brings highly skilled professionals and advanced systems to meet your requirements fully and efficiently — from custom software to enterprise data analytics.</p>
+          <div class="hero__collapse-wrap" id="heroCollapseWrap">
+            <p class="hero__subtitle">Orvaal brings together highly skilled professionals and advanced systems to meet client requirements fully and efficiently. By combining our technical knowledge and offshore development experience we add value to your IT development, implementation, and operations. We work with global companies and provide outsourced services spanning complete life cycle of products and applications: Requirements capture, design, build, testing, implementation, and operational support.</p>
+            <p class="hero__subtitle" style="margin-top:var(--space-4);">We specialize in building bespoke applications, and in auditing and optimizing performance of your current applications. Dedicated teams are focused on technology areas which enable Orvaal to build high competency across multiple development architectures. Orvaal is headquartered in the UK but also operates locally in Netherlands, Belgium and Romania.</p>
+            <div class="hero__ncage-badge">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              <span>Orvaal Ltd is a registered contractor of the United States Defense Supply Center.<br /><strong style="color:#fff;letter-spacing:0.02em;">NCAGE: U03V0 &middot; DUNS: 719305737</strong></span>
+            </div>
+            <div class="hero__collapse-fade" aria-hidden="true"></div>
+          </div>
+          <button class="hero__toggle-btn" id="heroToggle" type="button" aria-expanded="false" aria-controls="heroCollapseWrap">Read More ↓</button>
           <div class="hero__actions">
             <a href="services.html" class="btn btn--primary btn--lg">Explore Services</a>
             <a href="approach.html" class="btn btn--outline-dark btn--lg">Our Approach</a>
@@ -347,7 +420,7 @@
     <div class="container">
       <div class="footer__grid">
         <div>
-          <img src="Logo.png" alt="Orvaal" class="footer__logo-img" />
+          <img src="assets/images/orvaal-logo.png" alt="Orvaal" class="footer__logo-img" />
           <p class="footer__brand-desc">UK-based IT services and software development company with offices across Europe. High performance closer to you.</p>
           <div style="margin-top:var(--space-4);">
             <span class="footer__badge">UK Headquartered</span>
@@ -400,6 +473,21 @@
 
   <script src="js/main.js"></script>
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  <script>
+    /* ── Hero Read More / Show Less toggle ── */
+    (function () {
+      var wrap   = document.getElementById('heroCollapseWrap');
+      var btn    = document.getElementById('heroToggle');
+      if (!wrap || !btn) return;
+      var expanded = false;
+      btn.addEventListener('click', function () {
+        expanded = !expanded;
+        wrap.classList.toggle('is-expanded', expanded);
+        btn.textContent = expanded ? 'Show Less ↑' : 'Read More ↓';
+        btn.setAttribute('aria-expanded', expanded);
+      });
+    }());
+  </script>
 
 
   <script>
