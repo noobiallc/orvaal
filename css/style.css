@@ -1074,6 +1074,7 @@ select.form-control { cursor: pointer; background-image: url("data:image/svg+xml
 
 /* ── Mobile: disable scroll-stack, restore natural flow ── */
 @media (max-width: 768px) {
+  /* Kill sticky stacking — sections flow normally */
   .stack-section {
     position: relative !important;
     top: auto !important;
@@ -1084,25 +1085,30 @@ select.form-control { cursor: pointer; background-image: url("data:image/svg+xml
     box-shadow: none !important;
     border-radius: 0 !important;
     will-change: auto !important;
+    isolation: auto !important;
   }
-  /* Sections scroll normally — no clipping */
+  .stack-section.is-stacked {
+    transform: none !important;
+  }
+  /* Remove overflow hidden from every section type */
   .section,
   .section--alt,
   .section--dark,
   .page-hero,
-  .cta-banner {
+  .cta-banner,
+  .hero {
     overflow: visible !important;
     height: auto !important;
     min-height: auto !important;
   }
-  /* Comfortable vertical padding on every section */
+  /* Comfortable vertical padding on content sections */
   .section,
   .section--alt,
   .section--dark {
     padding-top: 60px !important;
     padding-bottom: 60px !important;
   }
-  /* Hero sections keep their own padding intact */
+  /* Hero sections: preserve nav-height offset */
   .page-hero {
     padding-top: calc(var(--nav-height) + 40px) !important;
     padding-bottom: 60px !important;

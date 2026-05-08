@@ -61,7 +61,25 @@
     @media (max-width: 767px) {
       #hero-globe { width: 400px; height: 400px; }
     }
-  </style>
+      /* ── Mobile: fully disable scroll-stack ── */
+    @media (max-width: 768px) {
+      .stack-section {
+        position: relative !important;
+        top: auto !important;
+        transform: none !important;
+        height: auto !important;
+        min-height: auto !important;
+        overflow: visible !important;
+        box-shadow: none !important;
+        border-radius: 0 !important;
+        will-change: auto !important;
+        isolation: auto !important;
+      }
+      .stack-section.is-stacked {
+        transform: none !important;
+      }
+    }
+</style>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/3.0.2/topojson.min.js"></script>
 </head>
