@@ -40,7 +40,7 @@
   --space-24: 96px;
 
   --max-width: 1200px;
-  --nav-height: 136px;
+  --nav-height: 172px;
 
   --radius-sm:   4px;
   --radius-md:   8px;
@@ -167,10 +167,10 @@ p { line-height: 1.75; }
 
 .nav__logo { display: flex; flex-direction: column; align-items: flex-start; text-decoration: none; flex-shrink: 0; gap: 2px; }
 .nav__logo-tagline { display: none; }
-.nav__logo-img { height: 120px; width: auto; display: block; object-fit: contain; }
+.nav__logo-img { height: 156px; width: auto; display: block; object-fit: contain; }
 @media (max-width: 767px) {
-  :root { --nav-height: 96px; }
-  .nav__logo-img { height: 80px; }
+  :root { --nav-height: 120px; }
+  .nav__logo-img { height: 104px; }
   .nav__inner { padding: 0 var(--space-5); }
 }
 
