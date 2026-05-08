@@ -144,21 +144,36 @@
           </div>
         </div>
 
-        <div class="pillars-grid" style="margin-top:var(--space-16);">
-          <div class="pillar-card reveal">
-            <div class="pillar-card__number">03</div>
-            <h3 class="pillar-card__title">Speed</h3>
-            <p class="pillar-card__desc">Fast, timely project delivery that respects your schedule and business urgency. We plan realistically and execute with discipline so you never wait longer than necessary.</p>
+        <div class="split reveal" style="margin-top:var(--space-16);">
+          <div class="split__content">
+            <span class="eyebrow">Pillar 03</span>
+            <h3 class="section-title" style="font-size:1.75rem;">Speed</h3>
+            <p class="split__body">Fast, timely project delivery that respects your schedule and business urgency. We plan realistically and execute with discipline so you never wait longer than necessary.</p>
           </div>
-          <div class="pillar-card reveal reveal-delay-1">
-            <div class="pillar-card__number">04</div>
-            <h3 class="pillar-card__title">Communication</h3>
-            <p class="pillar-card__desc">Clear, transparent communication at every project stage. You always know where things stand, what's coming next, and who to talk to — with a dedicated point of contact throughout.</p>
+          <div class="split__image">
+            <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=800&q=85&auto=format&fit=crop" alt="Fast and disciplined software delivery" loading="lazy" width="800" height="600" />
           </div>
-          <div class="pillar-card reveal reveal-delay-2">
-            <div class="pillar-card__number">05</div>
-            <h3 class="pillar-card__title">Competitive Pricing</h3>
-            <p class="pillar-card__desc">Cost-effective solutions that maximise value for your investment. We offer offshore expertise combined with onsite project management so you get the best of both worlds.</p>
+        </div>
+
+        <div class="split split--reverse reveal" style="margin-top:var(--space-16);">
+          <div class="split__content">
+            <span class="eyebrow">Pillar 04</span>
+            <h3 class="section-title" style="font-size:1.75rem;">Communication</h3>
+            <p class="split__body">Clear, transparent communication at every project stage. You always know where things stand, what's coming next, and who to talk to — with a dedicated point of contact throughout.</p>
+          </div>
+          <div class="split__image">
+            <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&q=85&auto=format&fit=crop" alt="Clear team communication and collaboration" loading="lazy" width="800" height="600" />
+          </div>
+        </div>
+
+        <div class="split reveal" style="margin-top:var(--space-16);">
+          <div class="split__content">
+            <span class="eyebrow">Pillar 05</span>
+            <h3 class="section-title" style="font-size:1.75rem;">Competitive Pricing</h3>
+            <p class="split__body">Cost-effective solutions that maximise value for your investment. We offer offshore expertise combined with onsite project management so you get the best of both worlds.</p>
+          </div>
+          <div class="split__image">
+            <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=800&q=85&auto=format&fit=crop" alt="Cost-effective IT investment and pricing" loading="lazy" width="800" height="600" />
           </div>
         </div>
       </div>
@@ -528,6 +543,38 @@
         });
       }, { threshold: 0.15 });
       svgs.forEach(function (s) { obs.observe(s); });
+    }());
+  </script>
+  <script>
+    (function () {
+      var els = document.querySelectorAll('.milestone-item__percent');
+      if (!els.length) return;
+      var DURATION = 1600, STAGGER = 200, animated = false;
+      function easeOut(t) { return 1 - Math.pow(1 - t, 3); }
+      function animatePct(el, target, delay) {
+        var startTime = null;
+        function step(ts) {
+          if (startTime === null) startTime = ts + delay;
+          var elapsed = ts - startTime;
+          if (elapsed < 0) { requestAnimationFrame(step); return; }
+          var progress = Math.min(elapsed / DURATION, 1);
+          el.textContent = Math.round(easeOut(progress) * target) + '%';
+          if (progress < 1) requestAnimationFrame(step);
+        }
+        requestAnimationFrame(step);
+      }
+      var targets = Array.from(els).map(function (el) {
+        return { el: el, val: parseInt(el.textContent) };
+      });
+      var obs = new IntersectionObserver(function (entries) {
+        if (entries[0].isIntersecting && !animated) {
+          animated = true;
+          targets.forEach(function (t, i) { animatePct(t.el, t.val, i * STAGGER); });
+          obs.disconnect();
+        }
+      }, { threshold: 0.4 });
+      var list = document.querySelector('.milestone-list');
+      if (list) obs.observe(list);
     }());
   </script>
 </body>
