@@ -42,7 +42,7 @@
   --space-24: 96px;
 
   --max-width: 1200px;
-  --nav-height: 94px;
+  --nav-height: 250px;
 
   --radius-sm:   4px;
   --radius-md:   8px;
@@ -171,10 +171,10 @@ p { line-height: 1.75; }
 
 .nav__logo { display: flex; flex-direction: column; align-items: center; text-decoration: none; flex-shrink: 0; gap: 3px; }
 .nav__logo-tagline { display: block; font-size: 0.625rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.55); text-align: center; line-height: 1; font-weight: 500; }
-.nav__logo-img { height: 56px; width: auto; max-width: 130px; display: block; object-fit: contain; }
+.nav__logo-img { height: 224px; width: auto; max-width: 380px; display: block; object-fit: contain; }
 @media (max-width: 767px) {
-  :root { --nav-height: 52px; }
-  .nav__logo-img { height: 30px; max-width: 75px; }
+  :root { --nav-height: 140px; }
+  .nav__logo-img { height: 120px; max-width: 200px; }
   .nav__inner { padding: 0 var(--space-5); }
 }
 
