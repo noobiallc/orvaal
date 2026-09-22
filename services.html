@@ -3,21 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Orvaal services — Application Development, Application Management & Support, and Data Analytics & Monetization." />
+  <meta name="description" content="Orvaal services — Application Development, Application Development &amp; Support, and Data Analytics and Monetization." />
   <title>Services | Orvaal</title>
-  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/style.css?v=5" />
   <style>
-    /* ── Scroll stack — solid, no bleed-through ── */
+    /* ── Hero stack ── */
     .stack-section {
-      position: sticky;
-      top: 0;
-      z-index: var(--s-z, 1);
-      will-change: transform;
-      isolation: isolate;
-      overflow: hidden;
-      box-shadow: 0 -8px 30px rgba(0, 0, 0, 0.15);
+      position: sticky; top: 0; z-index: var(--s-z, 1);
+      will-change: transform; isolation: isolate; overflow: hidden;
+      box-shadow: 0 -8px 30px rgba(0,0,0,0.15);
       transform-origin: top center;
-      transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+      transition: transform 0.5s cubic-bezier(0.22,1,0.36,1);
     }
     .stack-section + .stack-section { border-radius: 16px 16px 0 0; }
     .stack-section.is-stacked { transform: scale(0.95) translateY(-8px); }
@@ -25,34 +21,103 @@
       .stack-section { transition: none !important; will-change: auto; }
       .stack-section.is-stacked { transform: none !important; }
     }
-      /* ── Mobile: fully disable scroll-stack ── */
     @media (max-width: 768px) {
       .stack-section {
-        position: relative !important;
-        top: auto !important;
-        transform: none !important;
-        height: auto !important;
-        min-height: auto !important;
-        overflow: visible !important;
-        box-shadow: none !important;
-        border-radius: 0 !important;
-        will-change: auto !important;
-        isolation: auto !important;
+        position: relative !important; top: auto !important;
+        transform: none !important; height: auto !important;
+        min-height: auto !important; overflow: visible !important;
+        box-shadow: none !important; border-radius: 0 !important;
+        will-change: auto !important; isolation: auto !important;
       }
-      .stack-section.is-stacked {
-        transform: none !important;
-      }
+      .stack-section.is-stacked { transform: none !important; }
     }
-</style>
+
+    /* ── Service tab bar ── */
+    .svc-tabs-bar {
+      background: #ffffff;
+      border-bottom: 2px solid rgba(38,36,83,0.1);
+    }
+    .svc-tabs-inner {
+      display: flex;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+    .svc-tabs-inner::-webkit-scrollbar { display: none; }
+    .svc-tab {
+      flex-shrink: 0;
+      background: transparent;
+      border: none;
+      border-bottom: 3px solid transparent;
+      padding: 20px 28px;
+      font-family: var(--font-sans);
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: #262453;
+      cursor: pointer;
+      transition: color 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
+      white-space: nowrap;
+      margin-bottom: -2px;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .svc-tab { transition: none; }
+    }
+    .svc-tab:hover {
+      color: #CC2222;
+      border-bottom-color: #CC2222;
+      background-color: rgba(204,34,34,0.04);
+    }
+    .svc-tab[aria-selected="true"] {
+      color: #CC2222;
+      border-bottom-color: #CC2222;
+      font-weight: 600;
+      background-color: transparent;
+    }
+    .svc-tab:focus-visible {
+      outline: 2px solid #262453;
+      outline-offset: -2px;
+      border-radius: 2px;
+    }
+
+    /* ── Panel visibility ── */
+    .svc-panel[hidden] { display: none; }
+
+    /* Contained image within panels */
+    .svc-panel .split__image {
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 6px 32px rgba(38,36,83,0.1);
+      align-self: start;
+    }
+    .svc-panel .split__image img { width: 100%; height: auto; display: block; }
+
+    /* Services intro — 5 paragraphs */
+    .svc-intro-paras { display: flex; flex-direction: column; gap: 18px; margin-top: 24px; }
+    .svc-intro-paras p {
+      font-family: var(--font-sans);
+      font-size: 1rem;
+      line-height: 1.85;
+      color: rgba(38,36,83,0.72);
+      margin: 0;
+    }
+
+    /* Disable scroll-reveal inside tab panels — content must be visible on tab switch */
+    .svc-panel .reveal,
+    .svc-panel .reveal-delay-1 { opacity: 1 !important; transform: none !important; transition: none !important; }
+
+    @media (max-width: 640px) {
+      .svc-tab { padding: 15px 16px; font-size: 0.7rem; letter-spacing: 0.05em; }
+    }
+  </style>
 </head>
 <body>
   <header>
     <nav class="nav nav--scrolled" role="navigation" aria-label="Main navigation">
       <div class="nav__inner">
         <a href="index.html" class="nav__logo" aria-label="Orvaal — Home">
-          <img src="assets/images/orvaal-logo.png" alt="Orvaal" class="nav__logo-img" />
-          <span class="nav__logo-tagline">computer sapiens</span>
-
+          <img src="assets/images/orvaal-logo.svg" alt="Orvaal" class="nav__logo-img" />
         </a>
         <ul class="nav__links" role="list">
           <li><a href="index.html" class="nav__link">Home</a></li>
@@ -64,7 +129,7 @@
           <li><a href="customer-satisfaction.html" class="nav__link">Customer Satisfaction</a></li>
         </ul>
         <div class="nav__actions">
-          <a href="contact.html" class="btn btn--primary btn--sm">Contact Us</a>
+          <a href="contact.html" class="btn btn--primary btn--sm">Get in Touch</a>
           <button class="nav__hamburger" aria-label="Toggle mobile menu" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
         </div>
       </div>
@@ -77,131 +142,177 @@
       <a href="sqa.html" class="nav__mobile-link">SQA</a>
       <a href="infrastructure.html" class="nav__mobile-link">Infrastructure</a>
       <a href="customer-satisfaction.html" class="nav__mobile-link">Customer Satisfaction</a>
-      <a href="contact.html" class="btn btn--primary nav__mobile-cta">Contact Us</a>
+      <a href="contact.html" class="btn btn--primary nav__mobile-cta">Get in Touch</a>
     </div>
   </header>
 
   <main>
+    <!-- Hero -->
     <section class="page-hero stack-section" style="--s-z:1;background:#262453;--bg-image:url('https://images.unsplash.com/photo-1518770660439-4636190af475?w=1920&q=60&auto=format&fit=crop');" aria-labelledby="page-title">
       <div class="container">
         <div class="page-hero__content">
           <nav class="page-hero__breadcrumb" aria-label="Breadcrumb">
             <a href="index.html">Home</a>
-            <span class="page-hero__breadcrumb-sep">/</span>
+            <span class="page-hero__breadcrumb-sep" aria-hidden="true">/</span>
             <span aria-current="page">Services</span>
           </nav>
           <h1 class="page-hero__title" id="page-title">Our Services</h1>
+          <!-- COPY PENDING CLIENT APPROVAL -->
           <p class="page-hero__subtitle">Three core service areas built to help your organisation develop, manage, and extract value from technology.</p>
         </div>
       </div>
     </section>
 
-    <!-- Application Development -->
-    <section class="section stack-section" style="--s-z:2;background:#ffffff" aria-labelledby="appdev-title">
+    <!-- Tab navigation -->
+    <div class="svc-tabs-bar">
       <div class="container">
-        <div class="split">
-          <div class="split__image reveal">
-            <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&q=85&auto=format&fit=crop" alt="Software development team coding" loading="lazy" width="800" height="600" />
+        <div class="svc-tabs-inner" role="tablist" aria-label="Service sections">
+          <button class="svc-tab" role="tab" id="tab-services" aria-selected="true" aria-controls="panel-services" tabindex="0">Services</button>
+          <button class="svc-tab" role="tab" id="tab-appdev" aria-selected="false" aria-controls="panel-appdev" tabindex="-1">Application Development</button>
+          <button class="svc-tab" role="tab" id="tab-appsupport" aria-selected="false" aria-controls="panel-appsupport" tabindex="-1">Application Development &amp; Support</button>
+          <button class="svc-tab" role="tab" id="tab-data" aria-selected="false" aria-controls="panel-data" tabindex="-1">Data Analytics and Monetization</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Panel 1: SERVICES -->
+    <div role="tabpanel" id="panel-services" class="svc-panel" aria-labelledby="tab-services">
+      <section class="section">
+        <div class="container">
+          <div class="split">
+            <div class="split__content reveal">
+              <span class="eyebrow">Our Services</span>
+              <h2 class="section-title">Services</h2>
+              <div class="svc-intro-paras">
+                <p>Our services have proved to be a differentiating factor offering expertise in latest technology and rapid project execution at advantageous cost.</p>
+                <p>Orvaal works with global companies and provides them with outsourced software services spanning over complete life cycle of products and applications.</p>
+                <p>Dedicated teams are focused on Technology areas which enable Orvaal to build high competency in each distinct development architecture.</p>
+                <p>On site Project and Program Managers are available to interact closely with our clients. The on site team members ensure optimal communication maintained for successful project delivery.</p>
+                <p>Software development services are undertaken offshore and high quality solutions and support is provided to customers through development process, utilizing cost-effective methods.</p>
+              </div>
+            </div>
+            <div class="split__image reveal reveal-delay-1">
+              <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=85&auto=format&fit=crop" alt="Professional software services team" width="800" height="600" />
+            </div>
           </div>
-          <div class="split__content reveal reveal-delay-1">
-            <span class="eyebrow">Service 01</span>
-            <h2 class="section-title" id="appdev-title">Application Development</h2>
-            <p class="split__body">We design and build software that is purpose-built for your business — not generic, off-the-shelf tools adapted to fit. From greenfield projects to legacy platform migrations, our development teams bring deep technical expertise and business domain knowledge to every engagement.</p>
-            <div class="feature-list mt-6">
-              <div class="feature-item">
-                <div class="feature-item__icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="20" height="18" rx="3" fill="currentColor" fill-opacity="0.08"/><polyline points="9 13 6 16 9 19"/><polyline points="15 13 18 16 15 19"/><line x1="11.5" y1="8" x2="12.5" y2="8"/></svg></div>
-                <div><p class="feature-item__title">New Development</p><p class="feature-item__desc">Custom applications built from the ground up to match your exact operational requirements.</p></div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Panel 2: APPLICATION DEVELOPMENT -->
+    <div role="tabpanel" id="panel-appdev" class="svc-panel" aria-labelledby="tab-appdev">
+      <section class="section">
+        <div class="container">
+          <div class="split">
+            <div class="split__content reveal">
+              <span class="eyebrow">Service 01</span>
+              <h2 class="section-title">Application Development</h2>
+              <p class="split__body">Orvaal is specialized in taking full responsibility for developing and maintaining entire applications. Our services include development of new applications, maintenance, support and upgrade of existing applications, porting applications to new platforms. Customer requirements are analyzed and translated into technical solutions that are integrated as part of the existing system architecture. As a dedicated service company, Orvaal has an extensive track record in performing high quality applications development for:</p>
+              <div class="feature-list mt-6">
+                <div class="feature-item">
+                  <div class="feature-item__icon">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="currentColor" fill-opacity="0.07"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                  </div>
+                  <div><p class="feature-item__title">E-Business solutions offered to customers for business functions integration through a common platform.</p></div>
+                </div>
+                <div class="feature-item">
+                  <div class="feature-item__icon">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2" fill="currentColor" fill-opacity="0.08"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                  </div>
+                  <div><p class="feature-item__title">Web enabled application.</p></div>
+                </div>
               </div>
-              <div class="feature-item">
-                <div class="feature-item__icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg></div>
-                <div><p class="feature-item__title">Platform Migration</p><p class="feature-item__desc">Seamless migration of legacy systems to modern platforms with minimal disruption.</p></div>
-              </div>
-              <div class="feature-item">
-                <div class="feature-item__icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="currentColor" fill-opacity="0.07"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
-                <div><p class="feature-item__title">E-Business &amp; Web Applications</p><p class="feature-item__desc">Web-enabled applications and e-business solutions designed for scale and performance.</p></div>
-              </div>
-              <div class="feature-item">
-                <div class="feature-item__icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div>
-                <div><p class="feature-item__title">Maintenance &amp; Upgrades</p><p class="feature-item__desc">Ongoing maintenance, version upgrades, and continuous improvement of existing applications.</p></div>
+            </div>
+            <div class="split__image reveal reveal-delay-1">
+              <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&q=85&auto=format&fit=crop" alt="Software development" width="800" height="600" />
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Panel 3: APPLICATION DEVELOPMENT & SUPPORT -->
+    <!-- ⚠ DUPLICATION FLAG: Client document supplies identical content to Panel 2.        -->
+    <!-- Requires client clarification before this panel can be updated with distinct copy. -->
+    <div role="tabpanel" id="panel-appsupport" class="svc-panel" aria-labelledby="tab-appsupport">
+      <section class="section section--alt">
+        <div class="container">
+          <div class="split split--reverse">
+            <div class="split__image reveal">
+              <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&q=85&auto=format&fit=crop" alt="Application development and support" width="800" height="600" />
+            </div>
+            <div class="split__content reveal reveal-delay-1">
+              <span class="eyebrow">Service 02</span>
+              <h2 class="section-title">Application Development &amp; Support</h2>
+              <p class="split__body">Orvaal is specialized in taking full responsibility for developing and maintaining entire applications. Our services include development of new applications, maintenance, support and upgrade of existing applications, porting applications to new platforms. Customer requirements are analyzed and translated into technical solutions that are integrated as part of the existing system architecture. As a dedicated service company, Orvaal has an extensive track record in performing high quality applications development for:</p>
+              <div class="feature-list mt-6">
+                <div class="feature-item">
+                  <div class="feature-item__icon">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="currentColor" fill-opacity="0.07"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                  </div>
+                  <div><p class="feature-item__title">E-Business solutions offered to customers for business functions integration through a common platform.</p></div>
+                </div>
+                <div class="feature-item">
+                  <div class="feature-item__icon">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2" fill="currentColor" fill-opacity="0.08"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                  </div>
+                  <div><p class="feature-item__title">Web enabled application.</p></div>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
 
-    <!-- Application Management -->
-    <section class="section section--alt stack-section" style="--s-z:3;background:#f8f8fc" aria-labelledby="appmgmt-title">
-      <div class="container">
-        <div class="split split--reverse">
-          <div class="split__content reveal">
-            <span class="eyebrow">Service 02</span>
-            <h2 class="section-title" id="appmgmt-title">Application Management &amp; Support</h2>
-            <p class="split__body">Once your application is live, it needs to perform reliably — every hour of every day. Our application management service provides a single point of contact for all support needs, backed by 24/7 remote monitoring and a team that knows your systems inside out.</p>
-            <div class="feature-list mt-6">
-              <div class="feature-item">
-                <div class="feature-item__icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="currentColor" fill-opacity="0.08"/><polyline points="12 6 12 12 16 14"/></svg></div>
-                <div><p class="feature-item__title">24/7 Remote Monitoring</p><p class="feature-item__desc">Round-the-clock system monitoring with immediate alerting and incident response.</p></div>
-              </div>
-              <div class="feature-item">
-                <div class="feature-item__icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="7" r="4" fill="currentColor" fill-opacity="0.1"/><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-                <div><p class="feature-item__title">Single Point of Contact</p><p class="feature-item__desc">One dedicated contact for all support, maintenance, and escalation needs — no queue-jumping required.</p></div>
-              </div>
-              <div class="feature-item">
-                <div class="feature-item__icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
-                <div><p class="feature-item__title">Performance Monitoring</p><p class="feature-item__desc">Continuous tracking of application performance metrics with proactive optimisation.</p></div>
-              </div>
-              <div class="feature-item">
-                <div class="feature-item__icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" fill="currentColor" fill-opacity="0.1"/><polyline points="14 2 14 8 20 8"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="12" y2="17"/></svg></div>
-                <div><p class="feature-item__title">Technical Documentation</p><p class="feature-item__desc">Full documentation maintained and updated alongside every change to your systems.</p></div>
+    <!-- Panel 4: DATA ANALYTICS AND MONETIZATION -->
+    <div role="tabpanel" id="panel-data" class="svc-panel" aria-labelledby="tab-data">
+      <section class="section">
+        <div class="container">
+          <div class="split">
+            <div class="split__content reveal">
+              <span class="eyebrow">Service 03</span>
+              <h2 class="section-title">Data Analytics and Monetization</h2>
+              <p class="split__body">Orvaal maintains in house expertise in data handling and analytics. We enable our clients to collect, clean, analyze, and process information from all available sources to help answer specific questions and find solution to specific problems. We utilize state of the art techniques and technologies in AI and predictive analytics to allow our clients to enhance their product, improve their customer care, increase revenues, and increase competitiveness. Our services include:</p>
+              <div class="feature-list mt-6">
+                <div class="feature-item">
+                  <div class="feature-item__icon">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 2 7 12 12 22 7 12 2" fill="currentColor" fill-opacity="0.12"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+                  </div>
+                  <div><p class="feature-item__title">Analysis of the enterprise data landscape</p></div>
+                </div>
+                <div class="feature-item">
+                  <div class="feature-item__icon">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2" fill="currentColor" fill-opacity="0.08"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
+                  </div>
+                  <div><p class="feature-item__title">Propose potential infrastructure and architecture solutions for data collection and handling</p></div>
+                </div>
+                <div class="feature-item">
+                  <div class="feature-item__icon">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="10" width="4" height="11" rx="1" fill="currentColor" fill-opacity="0.1"/><rect x="9" y="4" width="4" height="17" rx="1" fill="currentColor" fill-opacity="0.18"/><rect x="15" y="7" width="4" height="14" rx="1" fill="currentColor" fill-opacity="0.1"/><line x1="2" y1="21" x2="22" y2="21"/></svg>
+                  </div>
+                  <div><p class="feature-item__title">Develop and promote specific toolsets for data collection, analytics and reporting</p></div>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="split__image reveal reveal-delay-1">
-            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=85&auto=format&fit=crop" alt="Application monitoring and support dashboard" loading="lazy" width="800" height="600" />
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Data Analytics -->
-    <section class="section stack-section" style="--s-z:4;background:#ffffff" aria-labelledby="data-title">
-      <div class="container">
-        <div class="split">
-          <div class="split__image reveal">
-            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=85&auto=format&fit=crop" alt="Data analytics and business intelligence dashboard" loading="lazy" width="800" height="600" />
-          </div>
-          <div class="split__content reveal reveal-delay-1">
-            <span class="eyebrow">Service 03</span>
-            <h2 class="section-title" id="data-title">Data Analytics &amp; Monetization</h2>
-            <p class="split__body">Data is your most valuable asset — if you know how to use it. Our data analytics practice helps organisations analyse their enterprise data landscape, implement AI-powered predictive models, and build custom reporting toolsets that turn raw data into actionable business intelligence.</p>
-            <div class="feature-list mt-6">
-              <div class="feature-item">
-                <div class="feature-item__icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 2 7 12 12 22 7 12 2" fill="currentColor" fill-opacity="0.12"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg></div>
-                <div><p class="feature-item__title">AI &amp; Predictive Analytics</p><p class="feature-item__desc">Machine learning models that forecast trends, detect anomalies, and support smarter decisions.</p></div>
-              </div>
-              <div class="feature-item">
-                <div class="feature-item__icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2" fill="currentColor" fill-opacity="0.08"/><path d="M3 9h18"/><path d="M9 21V9"/></svg></div>
-                <div><p class="feature-item__title">Enterprise Data Landscape Analysis</p><p class="feature-item__desc">End-to-end mapping of your data infrastructure with actionable recommendations.</p></div>
-              </div>
-              <div class="feature-item">
-                <div class="feature-item__icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="10" width="4" height="11" rx="1" fill="currentColor" fill-opacity="0.1"/><rect x="9" y="4" width="4" height="17" rx="1" fill="currentColor" fill-opacity="0.18"/><rect x="15" y="7" width="4" height="14" rx="1" fill="currentColor" fill-opacity="0.1"/><line x1="2" y1="21" x2="22" y2="21"/></svg></div>
-                <div><p class="feature-item__title">Custom Reporting Toolsets</p><p class="feature-item__desc">Bespoke dashboards and reporting tools tailored to your business metrics and KPIs.</p></div>
-              </div>
+            <div class="split__image reveal reveal-delay-1">
+              <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=85&auto=format&fit=crop" alt="Data analytics dashboard" width="800" height="600" />
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
 
-    <section class="cta-banner stack-section" style="--s-z:5;background:#262453" aria-labelledby="cta-title">
+    <!-- CTA — COPY PENDING CLIENT APPROVAL -->
+    <section class="cta-banner cta-banner--light" aria-labelledby="cta-title">
       <div class="container">
-        <div class="cta-banner__content reveal">
+        <div class="cta-banner__content">
+          <!-- COPY PENDING CLIENT APPROVAL: heading and subtitle require client-provided final wording -->
           <h2 class="cta-banner__title" id="cta-title">Discuss Your Requirements</h2>
           <p class="cta-banner__subtitle">Tell us about your project and we'll identify the right services to move you forward.</p>
           <div class="cta-banner__actions">
             <a href="contact.html" class="btn btn--primary btn--lg">Get in Touch</a>
-            <a href="products.html" class="btn btn--outline btn--lg">View Our Products</a>
+            <a href="products.html" class="btn btn--outline-dark btn--lg">View Our Products</a>
           </div>
         </div>
       </div>
@@ -211,15 +322,78 @@
   <footer class="footer" role="contentinfo">
     <div class="container">
       <div class="footer__grid">
-        <div><img src="assets/images/orvaal-logo.png" alt="Orvaal" class="footer__logo-img" /><p class="footer__brand-desc">UK-based IT services and software development company with offices across Europe.</p></div>
-        <nav aria-label="Footer navigation"><p class="footer__heading">Pages</p><ul class="footer__links"><li><a href="index.html" class="footer__link">Home</a></li><li><a href="approach.html" class="footer__link">Approach</a></li><li><a href="services.html" class="footer__link">Services</a></li><li><a href="products.html" class="footer__link">Products</a></li><li><a href="sqa.html" class="footer__link">SQA</a></li><li><a href="infrastructure.html" class="footer__link">Infrastructure</a></li><li><a href="customer-satisfaction.html" class="footer__link">Customer Satisfaction</a></li></ul></nav>
-        <div><p class="footer__heading">Services</p><ul class="footer__links"><li><a href="services.html" class="footer__link">Application Development</a></li><li><a href="services.html" class="footer__link">Application Management</a></li><li><a href="services.html" class="footer__link">Data Analytics</a></li></ul></div>
-        <address style="font-style:normal;"><p class="footer__heading">Contact</p><div class="footer__contact-item"><svg class="footer__contact-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><span class="footer__contact-text"><a href="mailto:info@orvaal.com" class="footer__link">info@orvaal.com</a></span></div></address>
+        <div>
+          <img src="assets/images/orvaal-logo.svg" alt="Orvaal" class="footer__logo-img" />
+          <p class="footer__brand-desc">UK-based IT services and software development company with offices across Europe.</p>
+        </div>
+        <nav aria-label="Footer navigation">
+          <p class="footer__heading">Pages</p>
+          <ul class="footer__links">
+            <li><a href="index.html" class="footer__link">Home</a></li>
+            <li><a href="approach.html" class="footer__link">Approach</a></li>
+            <li><a href="services.html" class="footer__link">Services</a></li>
+            <li><a href="products.html" class="footer__link">Products</a></li>
+            <li><a href="sqa.html" class="footer__link">SQA</a></li>
+            <li><a href="infrastructure.html" class="footer__link">Infrastructure</a></li>
+            <li><a href="customer-satisfaction.html" class="footer__link">Customer Satisfaction</a></li>
+          </ul>
+        </nav>
+        <div>
+          <p class="footer__heading">Services</p>
+          <ul class="footer__links">
+            <li><a href="services.html" class="footer__link">Application Development</a></li>
+            <li><a href="services.html" class="footer__link">Application Management</a></li>
+            <li><a href="services.html" class="footer__link">Data Analytics</a></li>
+          </ul>
+        </div>
+        <address style="font-style:normal;">
+          <p class="footer__heading">Contact</p>
+          <div class="footer__contact-item">
+            <svg class="footer__contact-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <span class="footer__contact-text"><a href="mailto:info@orvaal.com" class="footer__link">info@orvaal.com</a></span>
+          </div>
+        </address>
       </div>
-      <div class="footer__bottom"><p>© <span id="year">2026</span> Orvaal. All rights reserved.</p><p>UK · Netherlands · Belgium · Romania</p></div>
+      <div class="footer__bottom">
+        <p>© <span id="year">2026</span> Orvaal. All rights reserved.</p>
+        <p>UK · Netherlands · Belgium · Romania</p>
+      </div>
     </div>
   </footer>
+
   <script src="js/main.js"></script>
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  <script>
+    (function () {
+      var tabs   = Array.prototype.slice.call(document.querySelectorAll('.svc-tab'));
+      var panels = Array.prototype.slice.call(document.querySelectorAll('.svc-panel'));
+
+      /* Init: hide panels 2-4; panel 1 already visible */
+      panels.forEach(function (p, i) { if (i > 0) p.hidden = true; });
+
+      function activateTab(index) {
+        tabs.forEach(function (t, i) {
+          t.setAttribute('aria-selected', i === index ? 'true' : 'false');
+          t.tabIndex = i === index ? 0 : -1;
+        });
+        panels.forEach(function (p, i) { p.hidden = i !== index; });
+      }
+
+      tabs.forEach(function (tab, i) {
+        tab.addEventListener('click', function () { activateTab(i); });
+        tab.addEventListener('keydown', function (e) {
+          var n;
+          if (e.key === 'ArrowRight') n = (i + 1) % tabs.length;
+          else if (e.key === 'ArrowLeft') n = (i - 1 + tabs.length) % tabs.length;
+          else if (e.key === 'Home') n = 0;
+          else if (e.key === 'End') n = tabs.length - 1;
+          else return;
+          e.preventDefault();
+          tabs[n].focus();
+          activateTab(n);
+        });
+      });
+    }());
+  </script>
 </body>
 </html>
