@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Orvaal products — Blendys, Viral Marketing Master, Epic, SOL, and Dallya. Proprietary platforms solving real business challenges." />
+  <meta name="description" content="Orvaal products — Viral Marketing Master, Epic, and SOL. Proprietary platforms solving real business challenges." />
   <title>Products | Orvaal</title>
   <link rel="stylesheet" href="css/style.css?v=5" />
   <style>
@@ -34,7 +34,7 @@
 
     /* ── Product tab bar — matches Services exactly ── */
     .prd-tabs-bar { background: #ffffff; border-bottom: 2px solid rgba(38,36,83,0.1); }
-    .prd-tabs-inner { display: flex; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+    .prd-tabs-inner { display: flex; justify-content: center; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
     .prd-tabs-inner::-webkit-scrollbar { display: none; }
     .prd-tab {
       flex-shrink: 0; background: transparent; border: none;
@@ -52,6 +52,7 @@
     .prd-tab[aria-selected="true"] { color: #CC2222; border-bottom-color: #CC2222; font-weight: 600; background-color: transparent; }
     .prd-tab:focus-visible { outline: 2px solid #262453; outline-offset: -2px; border-radius: 2px; }
     @media (max-width: 640px) {
+      .prd-tabs-inner { justify-content: flex-start; }
       .prd-tab { padding: 15px 14px; font-size: 0.68rem; letter-spacing: 0.05em; }
     }
 
@@ -102,15 +103,6 @@
     }
     @media (max-width: 900px) { .sol-grid { grid-template-columns: repeat(2, 1fr); } }
     @media (max-width: 560px) { .sol-grid { grid-template-columns: 1fr; } }
-
-    /* Blendys notification list */
-    .notif-list { list-style: none; padding: 0; margin: 20px 0 0; display: flex; flex-direction: column; gap: 10px; }
-    .notif-list li {
-      display: flex; align-items: center; gap: 12px;
-      padding: 12px 16px; background: #f8f8fc; border-radius: 8px;
-      font-family: var(--font-sans); font-size: 0.9rem; color: rgba(38,36,83,0.75); line-height: 1.4;
-    }
-    .notif-list li::before { content: ''; width: 8px; height: 8px; background: #C5973A; border-radius: 50%; flex-shrink: 0; }
 
     /* Enterprise / subsection divider */
     .prd-subsection { margin-top: 56px; padding-top: 48px; border-top: 1px solid rgba(38,36,83,0.1); }
@@ -211,7 +203,7 @@
           </nav>
           <h1 class="page-hero__title" id="page-title">Our Products</h1>
           <!-- COPY PENDING CLIENT APPROVAL -->
-          <p class="page-hero__subtitle">Five proprietary platforms built to solve real operational challenges — ready to deploy, ready to scale.</p>
+          <p class="page-hero__subtitle">Three proprietary platforms built to solve real operational challenges — ready to deploy, ready to scale.</p>
         </div>
       </div>
     </section>
@@ -221,11 +213,9 @@
       <div class="container">
         <div class="prd-tabs-inner" role="tablist" aria-label="Product sections">
           <button class="prd-tab" role="tab" id="tab-products"  aria-selected="true"  aria-controls="panel-products"  tabindex="0">Products</button>
-          <button class="prd-tab" role="tab" id="tab-blendys"   aria-selected="false" aria-controls="panel-blendys"   tabindex="-1">Blendys</button>
-          <button class="prd-tab" role="tab" id="tab-vmm"       aria-selected="false" aria-controls="panel-vmm"       tabindex="-1">Viral Marketing Master</button>
           <button class="prd-tab" role="tab" id="tab-epic"      aria-selected="false" aria-controls="panel-epic"      tabindex="-1">Epic</button>
           <button class="prd-tab" role="tab" id="tab-sol"       aria-selected="false" aria-controls="panel-sol"       tabindex="-1">SOL</button>
-          <button class="prd-tab" role="tab" id="tab-dallya"    aria-selected="false" aria-controls="panel-dallya"    tabindex="-1">Dallya Mobile Matching</button>
+          <button class="prd-tab" role="tab" id="tab-vmm"       aria-selected="false" aria-controls="panel-vmm"       tabindex="-1">Viral Marketing Master</button>
         </div>
       </div>
     </div>
@@ -242,12 +232,8 @@
               <h2 class="section-title">Products</h2>
               <div class="prd-intro-paras">
                 <p>We work with leading software companies and deploy the latest technologies and trends in developing software products.</p>
-                <!-- ⚠ FLAG: www.blendys.com and www.dallya.com — verify URLs are operational before converting to live external links -->
-                <p>Our most recent smartphone applications can be found at www.blendys.com and www.dallya.com.</p>
                 <p>Our products are designed with flexible and robust architectures that allow us to customize each release according to customer's specific requirements.</p>
                 <p>Whether specific products built on demand, or "off the shelf" applications, we do have the solutions that fulfill your needs.</p>
-                <!-- ⚠ FLAG: BlendysStore / BlendysClient AppStore availability — verify current status before publishing -->
-                <p>BlendysStore and BlendysClient are now available in AppStore.</p>
               </div>
             </div>
             <div class="split__image reveal reveal-delay-1">
@@ -259,80 +245,180 @@
     </div>
 
     <!-- ═══════════════════════════════════════════════
-         PANEL 2 — BLENDYS
+         PANEL 2 — EPIC
+         ⚠ REMOVED: Developer-added tags: "API Management", "High Throughput", "Fault Tolerant" (not in client copy)
+         ⚠ FLAG: Orvaal Cloud availability — verify before publishing
     ══════════════════════════════════════════════════ -->
-    <div role="tabpanel" id="panel-blendys" class="prd-panel" aria-labelledby="tab-blendys" hidden>
+    <div role="tabpanel" id="panel-epic" class="prd-panel" aria-labelledby="tab-epic" hidden>
       <section class="section">
         <div class="container">
           <div class="split">
             <div class="split__image reveal">
-              <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&q=85&auto=format&fit=crop" alt="Blendys mobile notification platform" loading="lazy" width="800" height="600" />
+              <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&q=85&auto=format&fit=crop" alt="Epic enterprise integration platform" loading="lazy" width="800" height="600" />
             </div>
             <div class="split__content reveal reveal-delay-1">
               <span class="eyebrow">Product 1</span>
-              <h2 class="section-title">Blendys</h2>
-              <p class="split__body">Orvaal is engaged in Blendys project to develop the most advanced tracking and notification tool. Blendys runs on smart phones and provides a large business community and their customers with an easy, fast and secure way to communicate. With a simple touch, every business unit can notify their customers instantly on their order completion:</p>
-              <ul class="notif-list">
-                <li>Your car fixing/revision is done</li>
-                <li>The furniture you ordered arrived</li>
-                <li>Your laundries are ready</li>
-                <li>The jacket you ordered is ready</li>
-              </ul>
-            </div>
-          </div>
-
-          <!-- Blendys Enterprise -->
-          <div class="prd-subsection">
-            <h3 class="prd-subsection__title">Blendys Enterprise</h3>
-            <!-- ⚠ FLAG: "millions of subscribers" — verify scale claim before publishing -->
-            <p class="prd-subsection__body">Blendys Enterprise is specifically designed to help mobile operators to notify their subscribers of any particular event. Every service, product and promotion campaign can be advertised in one go to millions of subscribers.</p>
-            <div class="prd-feature-grid">
-              <!-- Feature 1 -->
-              <div class="prd-feature-item">
-                <div class="prd-feature-icon">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+              <h2 class="section-title">Epic</h2>
+              <p class="split__body">The Enterprise Platform for Integration &amp; Connectivity is a robust middleware, flexible, scalable and customizable according to the specific needs of each peripheral system. Supports multiple technologies in terms for data flows across systems and data storage.</p>
+              <p class="split__body">Supports the implementation of security in compliance with industry standards and specific requirements.</p>
+              <div class="prd-feature-grid" style="margin-top:32px;">
+                <!-- ⚠ FLAG: Orvaal Cloud availability — verify before publishing -->
+                <div class="prd-feature-item">
+                  <div class="prd-feature-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
+                  </div>
+                  <p class="prd-feature-text">Can be implemented on Premise or on Cloud</p>
                 </div>
-                <p class="prd-feature-text">Bulk notification using a DB, MSISDN ranges or CSV files as input</p>
-              </div>
-              <!-- Feature 2 -->
-              <div class="prd-feature-item">
-                <div class="prd-feature-icon">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+                <div class="prd-feature-item">
+                  <div class="prd-feature-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                  </div>
+                  <p class="prd-feature-text">Can be implemented on Orvaal Cloud or any cloud provider</p>
                 </div>
-                <p class="prd-feature-text">Fully customizable notifications. The operator can compose notifications including logo, pics, text, hyperlinks, etc.</p>
-              </div>
-              <!-- Feature 3 -->
-              <div class="prd-feature-item">
-                <div class="prd-feature-icon">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                </div>
-                <p class="prd-feature-text">Embedded scheduler allowing the notifications to be planned ahead</p>
-              </div>
-              <!-- Feature 4 -->
-              <div class="prd-feature-item">
-                <div class="prd-feature-icon">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>
-                </div>
-                <p class="prd-feature-text">Product rebranding according to operator's specifics</p>
               </div>
             </div>
-            <p class="prd-subsection__close">Blendys Enterprise is the advanced tool that provides a high success rate of mass notification/advertisement. This is the advantage that any operator can take to move from classic advertisement using SMS, website, bus station posters, or TV spots towards the modern and efficient way that Blendys Enterprise provides.</p>
           </div>
         </div>
       </section>
     </div>
 
-    <!-- ═══════════════════════════════════════════════
-         PANEL 3 — VIRAL MARKETING MASTER
-         ⚠ REMOVED: Developer-added Verizon reference ("Designed for mobile operators such as Verizon")
-         ⚠ REMOVED: Unsupported "SMS-only operation" and "background algorithms" claims from copy
-         ⚠ REMOVED: "NO SOCIAL PLATFORMS" and "BACKGROUND ALGORITHM" labels from SVG (not in client copy)
-         ⚠ REMOVED: "SMS" label badges from SVG (not in client copy)
+<!-- ═══════════════════════════════════════════════
+         PANEL 3 — SOL
+         ⚠ REMOVED: Developer-invented summary copy (split__body paragraphs and tag badges)
+    ══════════════════════════════════════════════════ -->
+    <div role="tabpanel" id="panel-sol" class="prd-panel prd-panel--alt" aria-labelledby="tab-sol" hidden>
+      <section class="section section--alt">
+        <div class="container">
+          <div class="split split--reverse">
+            <div class="split__content reveal">
+              <span class="eyebrow">Product 2</span>
+              <h2 class="section-title">SOL</h2>
+              <p class="split__body">Smart Object Listing is a next generation application, which enables the classification of different data objects and the establishment of business rules and process flows, in order to automate functionalities that enhance the capabilities of existing BSS/OSS infrastructure.</p>
+            </div>
+            <div class="split__image reveal reveal-delay-1">
+              <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&q=85&auto=format&fit=crop" alt="SOL smart object listing platform" loading="lazy" width="800" height="600" />
+            </div>
+          </div>
+
+          <!-- SOL 15 features -->
+          <div class="sol-grid">
+            <!-- 1 -->
+            <div class="prd-feature-item">
+              <div class="prd-feature-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              </div>
+              <p class="prd-feature-text">Customer black listing (Churn, Fraud, Dunning, etc.)</p>
+            </div>
+            <!-- 2 -->
+            <div class="prd-feature-item">
+              <div class="prd-feature-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+              </div>
+              <p class="prd-feature-text">Device black listing (e.g. Mobile Devices, SIM Cards, CPE, IMEI, etc.)</p>
+            </div>
+            <!-- 3 -->
+            <div class="prd-feature-item">
+              <div class="prd-feature-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+              </div>
+              <p class="prd-feature-text">Automated update and notification</p>
+            </div>
+            <!-- 4 -->
+            <div class="prd-feature-item">
+              <div class="prd-feature-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+              </div>
+              <p class="prd-feature-text">Compliance with Local Regulation</p>
+            </div>
+            <!-- 5 -->
+            <div class="prd-feature-item">
+              <div class="prd-feature-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+              </div>
+              <p class="prd-feature-text">Compliance with Company policies and processes</p>
+            </div>
+            <!-- 6 -->
+            <div class="prd-feature-item">
+              <div class="prd-feature-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+              </div>
+              <p class="prd-feature-text">Automated and on demand reporting</p>
+            </div>
+            <!-- 7 -->
+            <div class="prd-feature-item">
+              <div class="prd-feature-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              </div>
+              <p class="prd-feature-text">Report scheduling</p>
+            </div>
+            <!-- 8 -->
+            <div class="prd-feature-item">
+              <div class="prd-feature-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+              </div>
+              <p class="prd-feature-text">Reporting for DWH</p>
+            </div>
+            <!-- 9 -->
+            <div class="prd-feature-item">
+              <div class="prd-feature-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 3 21 3 21 8"/><line x1="4" y1="20" x2="21" y2="3"/><polyline points="21 16 21 21 16 21"/><line x1="15" y1="15" x2="21" y2="21"/></svg>
+              </div>
+              <p class="prd-feature-text">Notifications and process flow setup</p>
+            </div>
+            <!-- 10 -->
+            <div class="prd-feature-item">
+              <div class="prd-feature-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/></svg>
+              </div>
+              <p class="prd-feature-text">Custom configuration of lists and processes</p>
+            </div>
+            <!-- 11 -->
+            <div class="prd-feature-item">
+              <div class="prd-feature-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+              </div>
+              <p class="prd-feature-text">OOB Data cleansing and Archiving</p>
+            </div>
+            <!-- 12 -->
+            <div class="prd-feature-item">
+              <div class="prd-feature-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              </div>
+              <p class="prd-feature-text">Cleansing scheduling</p>
+            </div>
+            <!-- 13 -->
+            <div class="prd-feature-item">
+              <div class="prd-feature-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+              </div>
+              <p class="prd-feature-text">API and file based integration for internal systems (BSS/OSS)</p>
+            </div>
+            <!-- 14 -->
+            <div class="prd-feature-item">
+              <div class="prd-feature-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="2"/><circle cx="2" cy="12" r="2"/><circle cx="22" cy="12" r="2"/><line x1="4" y1="12" x2="10" y2="12"/><line x1="14" y1="12" x2="20" y2="12"/></svg>
+              </div>
+              <p class="prd-feature-text">Integration with third party systems and central databases</p>
+            </div>
+            <!-- 15 -->
+            <div class="prd-feature-item">
+              <div class="prd-feature-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+              </div>
+              <p class="prd-feature-text">GUI for configuration and administration</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+<!-- ═══════════════════════════════════════════════
+         PANEL 4 — VIRAL MARKETING MASTER
     ══════════════════════════════════════════════════ -->
     <div role="tabpanel" id="panel-vmm" class="prd-panel prd-panel--alt" aria-labelledby="tab-vmm" hidden>
       <section class="section section--alt">
         <div class="container">
-          <span class="eyebrow">Product 2</span>
+          <span class="eyebrow">Product 3</span>
           <h2 class="section-title">Viral Marketing Master</h2>
           <p class="split__body" style="max-width:780px;">Operator revenues from voice services have declined. Operators must explore opportunities for revenue creation in Multimedia and Value Added Services markets. Success here depends on the marketing strategy developed to push and sell (both existing and new) services. This must address the following challenges faced by operators:</p>
           <div class="vmm-challenges">
@@ -490,220 +576,6 @@
       </section>
     </div>
 
-    <!-- ═══════════════════════════════════════════════
-         PANEL 4 — EPIC
-         ⚠ REMOVED: Developer-added tags: "API Management", "High Throughput", "Fault Tolerant" (not in client copy)
-         ⚠ FLAG: Orvaal Cloud availability — verify before publishing
-    ══════════════════════════════════════════════════ -->
-    <div role="tabpanel" id="panel-epic" class="prd-panel" aria-labelledby="tab-epic" hidden>
-      <section class="section">
-        <div class="container">
-          <div class="split">
-            <div class="split__image reveal">
-              <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&q=85&auto=format&fit=crop" alt="Epic enterprise integration platform" loading="lazy" width="800" height="600" />
-            </div>
-            <div class="split__content reveal reveal-delay-1">
-              <span class="eyebrow">Product 3</span>
-              <h2 class="section-title">Epic</h2>
-              <p class="split__body">The Enterprise Platform for Integration &amp; Connectivity is a robust middleware, flexible, scalable and customizable according to the specific needs of each peripheral system. Supports multiple technologies in terms for data flows across systems and data storage.</p>
-              <p class="split__body">Supports the implementation of security in compliance with industry standards and specific requirements.</p>
-              <div class="prd-feature-grid" style="margin-top:32px;">
-                <!-- ⚠ FLAG: Orvaal Cloud availability — verify before publishing -->
-                <div class="prd-feature-item">
-                  <div class="prd-feature-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
-                  </div>
-                  <p class="prd-feature-text">Can be implemented on Premise or on Cloud</p>
-                </div>
-                <div class="prd-feature-item">
-                  <div class="prd-feature-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-                  </div>
-                  <p class="prd-feature-text">Can be implemented on Orvaal Cloud or any cloud provider</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-    </div>
-
-    <!-- ═══════════════════════════════════════════════
-         PANEL 5 — SOL
-         ⚠ REMOVED: Developer-invented summary copy (split__body paragraphs and tag badges)
-    ══════════════════════════════════════════════════ -->
-    <div role="tabpanel" id="panel-sol" class="prd-panel prd-panel--alt" aria-labelledby="tab-sol" hidden>
-      <section class="section section--alt">
-        <div class="container">
-          <div class="split split--reverse">
-            <div class="split__content reveal">
-              <span class="eyebrow">Product 4</span>
-              <h2 class="section-title">SOL</h2>
-              <p class="split__body">Smart Object Listing is a next generation application, which enables the classification of different data objects and the establishment of business rules and process flows, in order to automate functionalities that enhance the capabilities of existing BSS/OSS infrastructure.</p>
-            </div>
-            <div class="split__image reveal reveal-delay-1">
-              <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&q=85&auto=format&fit=crop" alt="SOL smart object listing platform" loading="lazy" width="800" height="600" />
-            </div>
-          </div>
-
-          <!-- SOL 15 features -->
-          <div class="sol-grid">
-            <!-- 1 -->
-            <div class="prd-feature-item">
-              <div class="prd-feature-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-              </div>
-              <p class="prd-feature-text">Customer black listing (Churn, Fraud, Dunning, etc.)</p>
-            </div>
-            <!-- 2 -->
-            <div class="prd-feature-item">
-              <div class="prd-feature-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
-              </div>
-              <p class="prd-feature-text">Device black listing (e.g. Mobile Devices, SIM Cards, CPE, IMEI, etc.)</p>
-            </div>
-            <!-- 3 -->
-            <div class="prd-feature-item">
-              <div class="prd-feature-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
-              </div>
-              <p class="prd-feature-text">Automated update and notification</p>
-            </div>
-            <!-- 4 -->
-            <div class="prd-feature-item">
-              <div class="prd-feature-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-              </div>
-              <p class="prd-feature-text">Compliance with Local Regulation</p>
-            </div>
-            <!-- 5 -->
-            <div class="prd-feature-item">
-              <div class="prd-feature-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
-              </div>
-              <p class="prd-feature-text">Compliance with Company policies and processes</p>
-            </div>
-            <!-- 6 -->
-            <div class="prd-feature-item">
-              <div class="prd-feature-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
-              </div>
-              <p class="prd-feature-text">Automated and on demand reporting</p>
-            </div>
-            <!-- 7 -->
-            <div class="prd-feature-item">
-              <div class="prd-feature-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-              </div>
-              <p class="prd-feature-text">Report scheduling</p>
-            </div>
-            <!-- 8 -->
-            <div class="prd-feature-item">
-              <div class="prd-feature-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
-              </div>
-              <p class="prd-feature-text">Reporting for DWH</p>
-            </div>
-            <!-- 9 -->
-            <div class="prd-feature-item">
-              <div class="prd-feature-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 3 21 3 21 8"/><line x1="4" y1="20" x2="21" y2="3"/><polyline points="21 16 21 21 16 21"/><line x1="15" y1="15" x2="21" y2="21"/></svg>
-              </div>
-              <p class="prd-feature-text">Notifications and process flow setup</p>
-            </div>
-            <!-- 10 -->
-            <div class="prd-feature-item">
-              <div class="prd-feature-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/></svg>
-              </div>
-              <p class="prd-feature-text">Custom configuration of lists and processes</p>
-            </div>
-            <!-- 11 -->
-            <div class="prd-feature-item">
-              <div class="prd-feature-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-              </div>
-              <p class="prd-feature-text">OOB Data cleansing and Archiving</p>
-            </div>
-            <!-- 12 -->
-            <div class="prd-feature-item">
-              <div class="prd-feature-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-              </div>
-              <p class="prd-feature-text">Cleansing scheduling</p>
-            </div>
-            <!-- 13 -->
-            <div class="prd-feature-item">
-              <div class="prd-feature-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
-              </div>
-              <p class="prd-feature-text">API and file based integration for internal systems (BSS/OSS)</p>
-            </div>
-            <!-- 14 -->
-            <div class="prd-feature-item">
-              <div class="prd-feature-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="2"/><circle cx="2" cy="12" r="2"/><circle cx="22" cy="12" r="2"/><line x1="4" y1="12" x2="10" y2="12"/><line x1="14" y1="12" x2="20" y2="12"/></svg>
-              </div>
-              <p class="prd-feature-text">Integration with third party systems and central databases</p>
-            </div>
-            <!-- 15 -->
-            <div class="prd-feature-item">
-              <div class="prd-feature-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-              </div>
-              <p class="prd-feature-text">GUI for configuration and administration</p>
-            </div>
-          </div>
-        </div>
-      </section>
-    </div>
-
-    <!-- ═══════════════════════════════════════════════
-         PANEL 6 — DALLYA MOBILE MATCHING
-         ⚠ TYPO FLAG: "Dallya is s the only application" — apparent source typo, preserved verbatim pending client approval
-         ⚠ FLAG: "the only application with indoor localization" — exclusive claim, verify before publishing
-         ⚠ FLAG: "Guaranteed privacy" — absolute claim, verify before publishing
-         ⚠ REMOVED: Developer-invented tags: "Real-Time Matching", "Location Intelligence", "event networking", "smart logistics"
-    ══════════════════════════════════════════════════ -->
-    <div role="tabpanel" id="panel-dallya" class="prd-panel" aria-labelledby="tab-dallya" hidden>
-      <section class="section">
-        <div class="container">
-          <div class="split">
-            <div class="split__image reveal">
-              <img src="https://images.unsplash.com/photo-1526367790999-0150786686a2?w=800&q=85&auto=format&fit=crop" alt="Dallya mobile location matching platform" loading="lazy" width="800" height="600" />
-            </div>
-            <div class="split__content reveal reveal-delay-1">
-              <span class="eyebrow">Product 5</span>
-              <h2 class="section-title">Dallya Mobile Matching</h2>
-              <!-- ⚠ TYPO: "is s the only" — preserved verbatim; ⚠ FLAG: exclusive claim "the only application" requires verification -->
-              <p class="split__body">Mobile matching is a huge market with many web based and mobile apps available. Dallya is s the only application with indoor localization and proximity awareness. It is designed to also work at indoor locations where classic applications would fail. Dallya is the application that will help you best in finding your match no matter where you are, at the shopping centre, in bars, clubs, cinemas, or theatres. The users tell Dallya who they are looking for, and as soon as Dallya finds a match in the vicinity, it notifies the user, and it offers the possibility to start chatting. At any point in time, the user can go invisible. The users of Dallya will always be anonymous and their privacy will stay intact. Main features</p>
-              <div class="prd-feature-grid" style="margin-top:28px;">
-                <div class="prd-feature-item">
-                  <div class="prd-feature-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>
-                  </div>
-                  <p class="prd-feature-text">Indoor &amp; outdoor instant scanning</p>
-                </div>
-                <!-- ⚠ FLAG: "Guaranteed privacy" — absolute claim, verify before publishing -->
-                <div class="prd-feature-item">
-                  <div class="prd-feature-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-                  </div>
-                  <p class="prd-feature-text">Guaranteed privacy</p>
-                </div>
-                <div class="prd-feature-item">
-                  <div class="prd-feature-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                  </div>
-                  <p class="prd-feature-text">Easy setup and use</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-    </div>
-
     <!-- CTA — outside all panels -->
     <!-- COPY PENDING CLIENT APPROVAL: heading and subtitle require client-provided final wording -->
     <section class="cta-banner cta-banner--light" aria-labelledby="cta-title">
@@ -742,11 +614,9 @@
         <div>
           <p class="footer__heading">Products</p>
           <ul class="footer__links">
-            <li><a href="products.html#blendys" class="footer__link">Blendys</a></li>
-            <li><a href="products.html#vmm" class="footer__link">VMM</a></li>
             <li><a href="products.html#epic" class="footer__link">Epic</a></li>
             <li><a href="products.html#sol" class="footer__link">SOL</a></li>
-            <li><a href="products.html#dallya" class="footer__link">Dallya</a></li>
+            <li><a href="products.html#vmm" class="footer__link">VMM</a></li>
           </ul>
         </div>
         <address style="font-style:normal;">
@@ -772,7 +642,7 @@
     (function () {
       var tabs   = Array.prototype.slice.call(document.querySelectorAll('.prd-tab'));
       var panels = Array.prototype.slice.call(document.querySelectorAll('.prd-panel'));
-      var hashes = ['products', 'blendys', 'vmm', 'epic', 'sol', 'dallya'];
+      var hashes = ['products', 'epic', 'sol', 'vmm'];
 
       panels.forEach(function (p, i) { if (i > 0) p.hidden = true; });
 
