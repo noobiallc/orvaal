@@ -350,7 +350,51 @@
       border: 1px solid rgba(38, 36, 83, 0.1);
       border-radius: 4px;
       display: block;
+      cursor: zoom-in;
     }
+
+    /* ── Lightbox ── */
+    .sqa-lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 9000;
+      background: rgba(10, 10, 20, 0.88);
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .sqa-lightbox.is-open { display: flex; }
+    .sqa-lightbox__img {
+      max-width: min(90vw, 900px);
+      max-height: 85vh;
+      width: auto;
+      height: auto;
+      border-radius: 6px;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.6);
+      display: block;
+    }
+    .sqa-lightbox__close {
+      position: fixed;
+      top: 16px;
+      right: 20px;
+      width: 40px;
+      height: 40px;
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.3);
+      border-radius: 50%;
+      color: #fff;
+      font-size: 1.2rem;
+      line-height: 1;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      transition: background 0.15s;
+    }
+    .sqa-lightbox__close:hover { background: rgba(255,255,255,0.28); }
     .sqa-process-fig figcaption {
       font-size: 0.82rem;
       color: #777;
@@ -882,7 +926,7 @@
 
             <p>This is the model of developing computer software in the early days of the computers, when the software development was considered more like a magic art than an engineering discipline.</p>
 
-            <figure class="sqa-process-fig">
+            <figure class="sqa-process-fig" style="max-width:380px;margin-left:auto;margin-right:auto;">
               <img src="assets/images/code-fix-model.png" alt="Code and Fix model diagram" width="724" height="543" loading="lazy" />
               <figcaption>The "Code and Fix" model</figcaption>
             </figure>
@@ -906,7 +950,7 @@
                 <figcaption>Benington's 9-Phase SW Development Model (1956)</figcaption>
               </figure>
               <figure class="sqa-process-fig" style="margin:0;flex:1;min-width:280px;max-width:380px;">
-                <img src="assets/images/mod3.gif" alt="Software process model diagram" width="350" height="300" loading="lazy" />
+                <img src="assets/images/sw-process-model.png" alt="Software process model diagram" width="724" height="543" loading="lazy" />
                 <figcaption>Further SW process model</figcaption>
               </figure>
             </div>
@@ -1136,6 +1180,12 @@
     </div>
   </footer>
 
+  <!-- Lightbox overlay -->
+  <div class="sqa-lightbox" id="sqa-lightbox" role="dialog" aria-modal="true" aria-label="Expanded diagram">
+    <button class="sqa-lightbox__close" id="sqa-lightbox-close" aria-label="Close">&#x2715;</button>
+    <img class="sqa-lightbox__img" id="sqa-lightbox-img" src="" alt="" />
+  </div>
+
   <script src="js/main.js"></script>
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
   <script>
@@ -1171,6 +1221,35 @@
           activateTab(n);
         });
       });
+    }());
+  </script>
+  <script>
+    /* Process-figure lightbox */
+    (function () {
+      var lb      = document.getElementById('sqa-lightbox');
+      var lbImg   = document.getElementById('sqa-lightbox-img');
+      var lbClose = document.getElementById('sqa-lightbox-close');
+
+      function open(img) {
+        lbImg.src = img.src;
+        lbImg.alt = img.alt;
+        lb.classList.add('is-open');
+        document.body.style.overflow = 'hidden';
+        lbClose.focus();
+      }
+      function close() {
+        lb.classList.remove('is-open');
+        document.body.style.overflow = '';
+        lbImg.src = '';
+      }
+
+      document.querySelectorAll('.sqa-process-fig img').forEach(function (img) {
+        img.addEventListener('click', function () { open(img); });
+      });
+
+      lbClose.addEventListener('click', close);
+      lb.addEventListener('click', function (e) { if (e.target === lb) close(); });
+      document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && lb.classList.contains('is-open')) close(); });
     }());
   </script>
 </body>

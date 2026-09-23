@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Orvaal infrastructure — world-class R&D facilities, high-speed global data links, 24/7 security, and VPN connectivity." />
+  <meta name="description" content="Orvaal's main R&D office is in Bucharest, Romania — scientifically designed workspace with high-speed data-communication links, VPN secure remote connectivity, and round-the-clock security." />
   <title>Infrastructure | Orvaal</title>
   <link rel="stylesheet" href="css/style.css?v=5" />
   <style>
@@ -42,6 +42,24 @@
       .stack-section.is-stacked {
         transform: none !important;
       }
+    }
+
+    /* ── 5-card centered flex grid ── */
+    .infra-cap-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      justify-content: center;
+    }
+    .infra-cap-grid .info-card {
+      flex: 0 0 calc(33.333% - 16px);
+      min-width: 240px;
+    }
+    @media (max-width: 1023px) {
+      .infra-cap-grid .info-card { flex: 0 0 calc(50% - 12px); }
+    }
+    @media (max-width: 639px) {
+      .infra-cap-grid .info-card { flex: 0 0 100%; min-width: 0; }
     }
 </style>
 </head>
@@ -91,7 +109,8 @@
             <span aria-current="page">Infrastructure</span>
           </nav>
           <h1 class="page-hero__title" id="page-title">Infrastructure</h1>
-          <p class="page-hero__subtitle">World-class facilities, global connectivity, and round-the-clock operational capability — the backbone behind everything Orvaal delivers.</p>
+          <!-- ⚠ Hero subtitle is an editorial label drawn from confirmed client copy — pending client approval -->
+          <p class="page-hero__subtitle">A scientifically designed workspace in Bucharest, Romania — connected and networked to the rest of the world.</p>
         </div>
       </div>
     </section>
@@ -101,17 +120,14 @@
       <div class="container">
         <div class="split">
           <div class="split__image reveal">
-            <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=800&q=85&auto=format&fit=crop" alt="Orvaal R&D office Bucharest Romania" loading="lazy" width="800" height="600" />
+            <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=800&q=85&auto=format&fit=crop" alt="Modern open-plan office workspace" loading="lazy" width="800" height="600" />
           </div>
           <div class="split__content reveal reveal-delay-1">
             <span class="eyebrow">Main R&amp;D Centre</span>
             <h2 class="section-title" id="rd-title">Bucharest, Romania</h2>
-            <p class="split__body">Our main Research &amp; Development office is based in Bucharest, Romania — a scientifically designed workspace built to support the high-performance technical work our teams deliver. The facility is purpose-engineered for software development, with an environment that promotes focus, collaboration, and innovation.</p>
-            <p class="split__body">Bucharest places Orvaal at the heart of one of Europe's fastest-growing technology talent pools, giving our clients access to top-tier engineers and developers at globally competitive rates.</p>
+            <p class="split__body">Our main R&amp;D office is located in Bucharest, Romania and networked to the rest of the world.</p>
             <div class="tag-list mt-6">
               <span class="tag">Bucharest, Romania</span>
-              <span class="tag">Purpose-Built Workspace</span>
-              <span class="tag">Top Engineering Talent</span>
             </div>
           </div>
         </div>
@@ -121,84 +137,56 @@
     <!-- Infrastructure Capabilities -->
     <section class="section section--alt stack-section" style="--s-z:3;background:#f8f8fc" aria-labelledby="capabilities-title">
       <div class="container">
+        <!-- ⚠ Section heading "Built for Reliability & Security" is an editorial label — pending client approval -->
         <div class="section-header section-header--center">
           <span class="eyebrow">Technical Capabilities</span>
           <h2 class="section-title" id="capabilities-title">Built for Reliability &amp; Security</h2>
-          <p class="section-subtitle">Our infrastructure is designed to support continuous operations, secure remote delivery, and global client connectivity.</p>
         </div>
-        <div class="info-grid">
+        <div class="infra-cap-grid">
+          <!-- Card 1: verbatim client copy -->
           <div class="info-card reveal">
+            <div class="info-card__icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2" fill="currentColor" fill-opacity="0.07"/><path d="M3 9h18M9 21V9"/></svg></div>
+            <h3 class="info-card__title">Designed Workspace</h3>
+            <p class="info-card__desc">Scientifically designed workspace with full support services.</p>
+          </div>
+          <!-- Card 2: verbatim client copy -->
+          <div class="info-card reveal reveal-delay-1">
             <div class="info-card__icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="currentColor" fill-opacity="0.07"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
-            <h3 class="info-card__title">High-Speed Global Data Links</h3>
-            <p class="info-card__desc">Enterprise-grade, high-bandwidth data communication links connecting our offices to clients and partners worldwide — with redundancy built in at every layer.</p>
+            <h3 class="info-card__title">Global Data Links</h3>
+            <p class="info-card__desc">High speed data-communication links provide connectivity to portfolio world-wide.</p>
           </div>
-          <div class="info-card reveal reveal-delay-1">
-            <div class="info-card__icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" fill="currentColor" fill-opacity="0.1"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/><circle cx="12" cy="16" r="1" fill="currentColor"/></svg></div>
-            <h3 class="info-card__title">24/7 Security Monitoring</h3>
-            <p class="info-card__desc">Round-the-clock physical and digital security monitoring across all facilities. Access controls, surveillance, and incident response protocols protect our operations and your data.</p>
-          </div>
+          <!-- Card 3: verbatim client copy -->
           <div class="info-card reveal reveal-delay-2">
-            <div class="info-card__icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" fill="currentColor" fill-opacity="0.1"/><path d="M9 12l2 2 4-4"/></svg></div>
-            <h3 class="info-card__title">VPN Secure Connectivity</h3>
-            <p class="info-card__desc">All remote access to client systems and internal infrastructure is managed through enterprise VPN with multi-factor authentication and encrypted tunnels as standard.</p>
+            <div class="info-card__icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" fill="currentColor" fill-opacity="0.1"/></svg></div>
+            <h3 class="info-card__title">Security</h3>
+            <p class="info-card__desc">Round the clock security.</p>
           </div>
+          <!-- Card 4: verbatim client copy -->
           <div class="info-card reveal">
-            <div class="info-card__icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2" fill="currentColor" fill-opacity="0.1"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
-            <h3 class="info-card__title">24/7 Support Capability</h3>
-            <p class="info-card__desc">Our operational model supports round-the-clock delivery and support across multiple time zones — ensuring that your project keeps moving and your systems stay running regardless of the hour.</p>
+            <div class="info-card__icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" fill="currentColor" fill-opacity="0.1"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/><circle cx="12" cy="16" r="1" fill="currentColor"/></svg></div>
+            <h3 class="info-card__title">VPN Connectivity</h3>
+            <p class="info-card__desc">VPN secure remote connectivity to customer networks and systems.</p>
           </div>
+          <!-- Card 5: verbatim client copy -->
           <div class="info-card reveal reveal-delay-1">
-            <div class="info-card__icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
-            <h3 class="info-card__title">Performance Monitoring</h3>
-            <p class="info-card__desc">Continuous monitoring of all infrastructure components with automated alerting and rapid escalation ensures issues are identified and resolved before they impact delivery.</p>
-          </div>
-          <div class="info-card reveal reveal-delay-2">
-            <div class="info-card__icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg></div>
-            <h3 class="info-card__title">Multi-Office Redundancy</h3>
-            <p class="info-card__desc">With offices in the UK, Netherlands, Belgium, and Romania, Orvaal has built-in geographic redundancy. Operations can be maintained across locations if any single office is affected.</p>
+            <div class="info-card__icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="8" rx="2" fill="currentColor" fill-opacity="0.07"/><rect x="2" y="14" width="20" height="8" rx="2" fill="currentColor" fill-opacity="0.07"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg></div>
+            <h3 class="info-card__title">Dedicated Hardware</h3>
+            <p class="info-card__desc">Dedicated HW.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Locations -->
-    <section class="section section--alt stack-section" style="--s-z:4" aria-labelledby="locations-title">
-      <div class="container">
-        <div class="section-header section-header--center">
-          <span class="eyebrow">Our Locations</span>
-          <h2 class="section-title" id="locations-title">High Performance Closer to You</h2>
-          <p class="section-subtitle">Offices across Europe mean we're always within reach — delivering the responsiveness of a local partner with the scale of an international operation.</p>
-        </div>
-        <div class="products-grid" style="margin-top:var(--space-10);">
-          <div class="product-card reveal">
-            <span class="product-card__badge">Headquarters</span>
-            <h3 class="product-card__title">United Kingdom</h3>
-            <p class="product-card__desc">Our UK headquarters serves as the primary client-facing hub, home to account management, commercial operations, and senior leadership.</p>
-          </div>
-          <div class="product-card reveal reveal-delay-1">
-            <span class="product-card__badge">Regional Office</span>
-            <h3 class="product-card__title">Netherlands</h3>
-            <p class="product-card__desc">Our Netherlands office supports Western European client engagements with a team experienced in European enterprise and public-sector requirements.</p>
-          </div>
-          <div class="product-card reveal reveal-delay-2">
-            <span class="product-card__badge">Regional Office</span>
-            <h3 class="product-card__title">Belgium</h3>
-            <p class="product-card__desc">The Belgium office provides close proximity to EU institutions and multinational clients requiring on-site engagement in the Brussels region.</p>
-          </div>
-          <div class="product-card reveal">
-            <span class="product-card__badge">R&amp;D Centre</span>
-            <h3 class="product-card__title">Romania</h3>
-            <p class="product-card__desc">Our main technical delivery centre in Bucharest houses the majority of our engineering talent, operating 24/7 to support projects across all time zones.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+    <!-- ⚠ Locations section removed: UK/NL/BE locations are referenced in index.html but no
+         client-confirmed descriptions of those offices exist. Romania is covered by the R&D
+         section above. Removed to avoid empty or invented location cards. -->
 
-    <section class="cta-banner cta-banner--light stack-section" style="--s-z:5" aria-labelledby="cta-title">
+    <section class="cta-banner cta-banner--light stack-section" style="--s-z:4" aria-labelledby="cta-title">
       <div class="container">
         <div class="cta-banner__content reveal">
+          <!-- ⚠ CTA heading "Infrastructure Built for Your Success" is an editorial label — pending client approval -->
           <h2 class="cta-banner__title" id="cta-title">Infrastructure Built for Your Success</h2>
-          <p class="cta-banner__subtitle">Contact us to learn how Orvaal's infrastructure and global reach can support your project requirements.</p>
+          <p class="cta-banner__subtitle">Contact us to discuss how Orvaal's infrastructure can support your project requirements.</p>
           <div class="cta-banner__actions">
             <a href="contact.html" class="btn btn--primary btn--lg">Get in Touch</a>
             <a href="services.html" class="btn btn--outline-dark btn--lg">View Services</a>
