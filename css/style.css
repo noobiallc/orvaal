@@ -929,6 +929,7 @@ select.form-control { cursor: pointer; background-image: url("data:image/svg+xml
   border-radius: 50%;
   display: flex; align-items: center; justify-content: center;
   margin: 0 auto var(--space-6);
+  color: #fff;
 }
 .contact-success__title { font-family: var(--font-serif); font-size: 1.75rem; font-weight: 700; color: var(--color-primary); margin-bottom: var(--space-3); }
 .contact-success__text { color: var(--color-text-muted); font-size: 1rem; line-height: 1.75; }
