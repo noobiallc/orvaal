@@ -223,7 +223,7 @@
               <div class="hero__stat-label">Core Services</div>
             </div>
             <div class="hero__stat">
-              <div class="hero__stat-number">3</div>
+              <div class="hero__stat-number">4</div>
               <div class="hero__stat-label">Products</div>
             </div>
           </div>
@@ -317,7 +317,7 @@
                 <div class="stats-block__desc">Dev, Management, Analytics</div>
               </div>
               <div class="stats-block__item">
-                <div class="stats-block__number">3</div>
+                <div class="stats-block__number">4</div>
                 <div class="stats-block__label">Products</div>
                 <div class="stats-block__desc">Proprietary business tools</div>
               </div>
@@ -333,7 +333,7 @@
         <div class="section-header section-header--center">
           <span class="eyebrow">Our Products</span>
           <h2 class="section-title" id="products-title">Built for <span class="text-accent">Modern Business</span></h2>
-          <p class="section-subtitle">Three proprietary products designed to solve real operational challenges — ready to deploy and scale.</p>
+          <p class="section-subtitle">Four proprietary products designed to solve real operational challenges — ready to deploy and scale.</p>
         </div>
         <div class="products-grid">
           <div class="product-card reveal">
@@ -350,6 +350,11 @@
             <span class="product-card__badge">Marketing</span>
             <h3 class="product-card__title">VMM</h3>
             <p class="product-card__desc">Viral Marketing Master — social network platform enabling person-to-person recommendations with customer referral rewards.</p>
+          </div>
+          <div class="product-card reveal reveal-delay-3">
+            <span class="product-card__badge">Mobile Matching</span>
+            <h3 class="product-card__title">Dallya</h3>
+            <p class="product-card__desc">Mobile matching application with indoor localization, proximity awareness, anonymous matching, and chat functionality.</p>
           </div>
         </div>
         <div style="text-align:center;margin-top:var(--space-10);">
@@ -399,18 +404,36 @@
       </div>
     </section>
 
-    <!-- CTA -->
-    <section class="cta-banner cta-banner--light stack-section" style="--s-z:6" aria-labelledby="cta-title">
+    <section class="lead-form-section stack-section" style="--s-z:6" aria-labelledby="lf-heading-hp">
       <div class="container">
-        <div class="cta-banner__content reveal">
-          <h2 class="cta-banner__title" id="cta-title">Ready to Get Started?</h2>
-          <p class="cta-banner__subtitle">Tell us about your project and we'll show you how Orvaal can help you achieve more.</p>
-          <div class="cta-banner__actions">
-            <a href="contact.html" class="btn btn--primary btn--lg">Get in Touch</a>
-            <a href="mailto:hire@orvaal.com" class="cta-banner__email">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2" fill="currentColor" fill-opacity="0.08"/><polyline points="22,6 12,13 2,6"/></svg>
-              Careers: hire@orvaal.com
-            </a>
+        <div class="lead-form-section__inner">
+          <div class="lead-form-section__intro">
+            <h2 class="lead-form-section__heading" id="lf-heading-hp">Let's Talk About Your Project</h2>
+            <p class="lead-form-section__copy">Tell us about your project, requirements, or questions and our team will get back to you.</p>
+          </div>
+          <div class="lead-form-section__form">
+            <form id="lead-form-homepage" class="lead-form" action="contact-submit.php" method="post" novalidate>
+              <input type="hidden" name="source_page" value="homepage" />
+              <div class="form-group">
+                <label class="form-label" for="lf-name-hp">Full Name <span aria-hidden="true">*</span></label>
+                <input class="form-control" type="text" id="lf-name-hp" name="full_name" placeholder="Jane Smith" autocomplete="name" required />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="lf-email-hp">Email Address <span aria-hidden="true">*</span></label>
+                <input class="form-control" type="email" id="lf-email-hp" name="email" placeholder="jane@company.com" autocomplete="email" required />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="lf-company-hp">Company Name</label>
+                <input class="form-control" type="text" id="lf-company-hp" name="company" placeholder="Your company" autocomplete="organization" />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="lf-message-hp">Message <span aria-hidden="true">*</span></label>
+                <textarea class="form-control" id="lf-message-hp" name="message" placeholder="Tell us about your project, requirements, or questions…" rows="5" required></textarea>
+              </div>
+              <div class="form-submit">
+                <button type="submit" class="btn btn--primary btn--lg">Send Message</button>
+              </div>
+            </form>
           </div>
         </div>
       </div>

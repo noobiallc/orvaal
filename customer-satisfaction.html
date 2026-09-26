@@ -403,17 +403,36 @@
          page. The previously shown stats (years of delivery, European offices, support hours)
          were developer-created and are not documented in the Customer Satisfaction source. -->
 
-    <!-- ⚠ CTA heading and subtitle are editorial — pending client approval -->
-    <section class="cta-banner cta-banner--light stack-section" style="--s-z:6" aria-labelledby="cta-title">
+    <section class="lead-form-section stack-section" style="--s-z:6" aria-labelledby="lf-heading-cs">
       <div class="container">
-        <div class="cta-banner__content reveal">
-          <!-- ⚠ "Ready to Experience the Orvaal Difference?" is an editorial heading — pending client approval -->
-          <h2 class="cta-banner__title" id="cta-title">Ready to Experience the Orvaal Difference?</h2>
-          <!-- ⚠ Subtitle is editorial — pending client approval -->
-          <p class="cta-banner__subtitle">Talk to us about your project and discover what a client-first IT partner can achieve for your organisation.</p>
-          <div class="cta-banner__actions">
-            <a href="contact.html" class="btn btn--primary btn--lg">Get in Touch</a>
-            <a href="approach.html" class="btn btn--outline-dark btn--lg">Our Approach</a>
+        <div class="lead-form-section__inner">
+          <div class="lead-form-section__intro">
+            <h2 class="lead-form-section__heading" id="lf-heading-cs">Let's Talk About Your Project</h2>
+            <p class="lead-form-section__copy">Tell us about your project, requirements, or questions and our team will get back to you.</p>
+          </div>
+          <div class="lead-form-section__form">
+            <form id="lead-form-cs" class="lead-form" action="contact-submit.php" method="post" novalidate>
+              <input type="hidden" name="source_page" value="customer-satisfaction" />
+              <div class="form-group">
+                <label class="form-label" for="lf-name-cs">Full Name <span aria-hidden="true">*</span></label>
+                <input class="form-control" type="text" id="lf-name-cs" name="full_name" placeholder="Jane Smith" autocomplete="name" required />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="lf-email-cs">Email Address <span aria-hidden="true">*</span></label>
+                <input class="form-control" type="email" id="lf-email-cs" name="email" placeholder="jane@company.com" autocomplete="email" required />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="lf-company-cs">Company Name</label>
+                <input class="form-control" type="text" id="lf-company-cs" name="company" placeholder="Your company" autocomplete="organization" />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="lf-message-cs">Message <span aria-hidden="true">*</span></label>
+                <textarea class="form-control" id="lf-message-cs" name="message" placeholder="Tell us about your project, requirements, or questions…" rows="5" required></textarea>
+              </div>
+              <div class="form-submit">
+                <button type="submit" class="btn btn--primary btn--lg">Send Message</button>
+              </div>
+            </form>
           </div>
         </div>
       </div>
