@@ -340,7 +340,13 @@ p { line-height: 1.75; }
   letter-spacing: 0.02em;
 }
 @media (max-width: 600px) {
-  .hero__stats { gap: var(--space-6); }
+  /* Both hero CTAs fill their stacked row — equal width regardless of font rendering */
+  .hero__actions .btn { width: 100%; }
+  .hero__stats {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-6);
+  }
   .hero__stat-number { font-size: 1.5rem; }
 }
 
@@ -831,6 +837,9 @@ p { line-height: 1.75; }
 @media (max-width: 640px) {
   .lead-form-section { padding: var(--space-16) 0; }
   .lead-form-section .form-submit .btn { width: 100%; justify-content: center; }
+  /* Mobile: clearer vertical hierarchy — heading > copy > form */
+  .lead-form-section__heading { margin-bottom: var(--space-5); }
+  .lead-form-section__copy { margin-bottom: var(--space-4); }
 }
 
 /* ---- Footer ---- */
