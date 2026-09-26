@@ -181,15 +181,36 @@
          client-confirmed descriptions of those offices exist. Romania is covered by the R&D
          section above. Removed to avoid empty or invented location cards. -->
 
-    <section class="cta-banner cta-banner--light stack-section" style="--s-z:4" aria-labelledby="cta-title">
+    <section class="lead-form-section stack-section" style="--s-z:4" aria-labelledby="lf-heading-in">
       <div class="container">
-        <div class="cta-banner__content reveal">
-          <!-- ⚠ CTA heading "Infrastructure Built for Your Success" is an editorial label — pending client approval -->
-          <h2 class="cta-banner__title" id="cta-title">Infrastructure Built for Your Success</h2>
-          <p class="cta-banner__subtitle">Contact us to discuss how Orvaal's infrastructure can support your project requirements.</p>
-          <div class="cta-banner__actions">
-            <a href="contact.html" class="btn btn--primary btn--lg">Get in Touch</a>
-            <a href="services.html" class="btn btn--outline-dark btn--lg">View Services</a>
+        <div class="lead-form-section__inner">
+          <div class="lead-form-section__intro">
+            <h2 class="lead-form-section__heading" id="lf-heading-in">Let's Talk About Your Project</h2>
+            <p class="lead-form-section__copy">Tell us about your project, requirements, or questions and our team will get back to you.</p>
+          </div>
+          <div class="lead-form-section__form">
+            <form id="lead-form-infrastructure" class="lead-form" action="contact-submit.php" method="post" novalidate>
+              <input type="hidden" name="source_page" value="infrastructure" />
+              <div class="form-group">
+                <label class="form-label" for="lf-name-in">Full Name <span aria-hidden="true">*</span></label>
+                <input class="form-control" type="text" id="lf-name-in" name="full_name" placeholder="Jane Smith" autocomplete="name" required />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="lf-email-in">Email Address <span aria-hidden="true">*</span></label>
+                <input class="form-control" type="email" id="lf-email-in" name="email" placeholder="jane@company.com" autocomplete="email" required />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="lf-company-in">Company Name</label>
+                <input class="form-control" type="text" id="lf-company-in" name="company" placeholder="Your company" autocomplete="organization" />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="lf-message-in">Message <span aria-hidden="true">*</span></label>
+                <textarea class="form-control" id="lf-message-in" name="message" placeholder="Tell us about your project, requirements, or questions…" rows="5" required></textarea>
+              </div>
+              <div class="form-submit">
+                <button type="submit" class="btn btn--primary btn--lg">Send Message</button>
+              </div>
+            </form>
           </div>
         </div>
       </div>

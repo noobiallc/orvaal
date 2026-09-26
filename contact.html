@@ -106,17 +106,9 @@
             <span class="eyebrow">Send Us a Message</span>
             <h2 class="section-title" id="contact-form-title" style="margin-bottom:var(--space-8);">Let's Start a Conversation</h2>
 
-            <!-- Success message (hidden until form submitted) -->
-            <div class="contact-success" id="contactSuccess" role="alert" aria-live="polite" style="display:none;">
-              <div class="contact-success__icon">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-              </div>
-              <p class="contact-success__title">Message Received</p>
-              <p class="contact-success__text">Thank you for reaching out. A member of the Orvaal team will be in touch within one business day.</p>
-            </div>
-
             <!-- Form -->
-            <form class="contact-form reveal" id="contactForm" novalidate>
+            <form class="contact-form reveal" id="contactForm" action="contact-submit.php" method="post" novalidate>
+              <input type="hidden" name="source_page" value="contact" />
               <div class="form-row">
                 <div class="form-group">
                   <label class="form-label" for="fullName">Full Name <span>*</span></label>
@@ -127,38 +119,16 @@
                   <input class="form-control" type="email" id="email" name="email" placeholder="jane@company.com" required autocomplete="email" />
                 </div>
               </div>
-              <div class="form-row">
-                <div class="form-group">
-                  <label class="form-label" for="company">Company Name</label>
-                  <input class="form-control" type="text" id="company" name="company" placeholder="Your company" autocomplete="organization" />
-                </div>
-                <div class="form-group">
-                  <label class="form-label" for="phone">Phone Number</label>
-                  <input class="form-control" type="tel" id="phone" name="phone" placeholder="+44 20 0000 0000" autocomplete="tel" />
-                </div>
-              </div>
               <div class="form-group">
-                <label class="form-label" for="service">Service of Interest</label>
-                <select class="form-control" id="service" name="service">
-                  <option value="" disabled selected>Select a service or topic</option>
-                  <option value="Application Development">Application Development</option>
-                  <option value="Application Management & Support">Application Management &amp; Support</option>
-                  <option value="Data Analytics & Monetization">Data Analytics &amp; Monetization</option>
-                  <option value="Products (VMM, Epic, SOL)">Products — VMM, Epic, SOL</option>
-                  <option value="General Enquiry">General Enquiry</option>
-                  <option value="Partnership">Partnership</option>
-                  <option value="Careers">Careers</option>
-                </select>
+                <label class="form-label" for="company">Company Name</label>
+                <input class="form-control" type="text" id="company" name="company" placeholder="Your company" autocomplete="organization" />
               </div>
               <div class="form-group">
                 <label class="form-label" for="message">Message <span>*</span></label>
                 <textarea class="form-control" id="message" name="message" placeholder="Tell us about your project, requirements, or any questions you have…" required></textarea>
               </div>
               <div class="form-submit">
-                <button type="submit" class="btn btn--primary btn--lg" id="submitBtn">
-                  <span id="submitText">Send Message</span>
-                  <span id="submitSpinner" style="display:none;">Sending…</span>
-                </button>
+                <button type="submit" class="btn btn--primary btn--lg">Send Message</button>
               </div>
             </form>
           </div>
@@ -250,13 +220,8 @@
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Contact form handler
     (function () {
-      var form    = document.getElementById('contactForm');
-      var success = document.getElementById('contactSuccess');
-      var btn     = document.getElementById('submitBtn');
-      var text    = document.getElementById('submitText');
-      var spinner = document.getElementById('submitSpinner');
+      var form = document.getElementById('contactForm');
       if (!form) return;
 
       function showError(input, msg) {
@@ -277,7 +242,6 @@
       }
 
       form.addEventListener('submit', function (e) {
-        e.preventDefault();
         clearErrors();
         var name    = document.getElementById('fullName');
         var email   = document.getElementById('email');
@@ -288,42 +252,8 @@
         if (!email.value.trim()) { showError(email, 'Email address is required.'); valid = false; }
         else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim())) { showError(email, 'Please enter a valid email address.'); valid = false; }
         if (!message.value.trim()) { showError(message, 'Please enter a message.'); valid = false; }
-        if (!valid) return;
-
-        btn.disabled  = true;
-        text.style.display    = 'none';
-        spinner.style.display = 'inline';
-
-        // POST to Formspree (replace YOUR_FORM_ID with real endpoint when ready)
-        var endpoint = form.dataset.endpoint || '';
-        if (endpoint) {
-          fetch(endpoint, { method: 'POST', headers: { 'Accept': 'application/json' }, body: new FormData(form) })
-            .then(function (r) { return r.ok ? showSuccess() : showFallback(); })
-            .catch(showFallback);
-        } else {
-          // No endpoint configured — show success for demo
-          setTimeout(showSuccess, 800);
-        }
+        if (!valid) { e.preventDefault(); }
       });
-
-      function showSuccess() {
-        form.style.display    = 'none';
-        success.style.display = 'block';
-      }
-
-      function showFallback() {
-        btn.disabled  = false;
-        text.style.display    = 'inline';
-        spinner.style.display = 'none';
-        var fb = form.querySelector('.form-fallback');
-        if (!fb) {
-          fb = document.createElement('p');
-          fb.className = 'form-fallback';
-          fb.style.cssText = 'color:#cc2222;margin-top:1rem;font-size:.9rem;';
-          fb.innerHTML = 'Could not send the message. Please email us directly at <a href="mailto:info@orvaal.com">info@orvaal.com</a>.';
-          form.appendChild(fb);
-        }
-      }
     }());
   </script>
 </body>

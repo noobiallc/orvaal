@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Orvaal products — Viral Marketing Master, Epic, and SOL. Proprietary platforms solving real business challenges." />
+  <meta name="description" content="Orvaal products — Epic, SOL, Viral Marketing Master, and Dallya Mobile Matching. Proprietary platforms solving real business challenges." />
   <title>Products | Orvaal</title>
   <link rel="stylesheet" href="css/style.css?v=5" />
   <style>
@@ -67,6 +67,9 @@
     .prd-panel .split__image { border-radius: 14px; overflow: hidden; box-shadow: 0 6px 32px rgba(38,36,83,0.1); align-self: start; }
     .prd-panel .split__image img { width: 100%; height: auto; display: block; }
     .prd-panel .split__image svg { width: 100%; height: auto; display: block; border-radius: 14px; overflow: hidden; }
+    /* Dallya image: remove 4/3 crop, stretch to match content column height */
+    #panel-dallya .split__image { aspect-ratio: unset; align-self: stretch; display: flex; align-items: center; }
+    #panel-dallya .split__image img { width: 100%; height: 100%; object-fit: contain; }
 
     /* Intro paragraphs */
     .prd-intro-paras { display: flex; flex-direction: column; gap: 18px; margin-top: 24px; }
@@ -93,6 +96,67 @@
     .prd-feature-text {
       font-family: var(--font-sans); font-size: 0.88rem; line-height: 1.6;
       color: rgba(38,36,83,0.8); font-weight: 500; margin: 0; padding-top: 5px;
+    }
+
+    /* Dallya circle feature cards */
+    .dallya-circles {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 36px;
+      max-width: 510px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .dallya-circle-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 28px 14px 24px;
+      background: #ffffff;
+      border-radius: 16px;
+      border: 1px solid rgba(38,36,83,0.08);
+      cursor: default;
+      transition: transform 0.25s cubic-bezier(0.22,1,0.36,1),
+                  box-shadow 0.25s cubic-bezier(0.22,1,0.36,1),
+                  border-color 0.25s ease;
+    }
+    .dallya-circle-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 40px rgba(38,36,83,0.12);
+      border-color: rgba(204,34,34,0.25);
+    }
+    .dallya-circle-icon {
+      width: 68px; height: 68px;
+      border-radius: 50%;
+      background: rgba(200,165,93,0.1);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 14px;
+      color: var(--color-gold);
+      flex-shrink: 0;
+      transition: background 0.25s ease;
+    }
+    .dallya-circle-card:hover .dallya-circle-icon {
+      background: rgba(200,165,93,0.2);
+    }
+    .dallya-circle-icon svg { width: 26px; height: 26px; }
+    .dallya-circle-label {
+      font-family: var(--font-sans);
+      font-size: 0.86rem;
+      font-weight: 600;
+      color: rgba(38,36,83,0.85);
+      line-height: 1.5;
+      margin: 0;
+    }
+    /* Mobile: stay in a row but scale down */
+    @media (max-width: 600px) {
+      .dallya-circles { gap: 10px; max-width: 100%; }
+      .dallya-circle-card { padding: 20px 8px 18px; border-radius: 12px; }
+      .dallya-circle-icon { width: 52px; height: 52px; margin-bottom: 10px; }
+      .dallya-circle-icon svg { width: 20px; height: 20px; }
+      .dallya-circle-label { font-size: 0.78rem; }
     }
 
     /* SOL 15-feature grid */
@@ -203,7 +267,7 @@
           </nav>
           <h1 class="page-hero__title" id="page-title">Our Products</h1>
           <!-- COPY PENDING CLIENT APPROVAL -->
-          <p class="page-hero__subtitle">Three proprietary platforms built to solve real operational challenges — ready to deploy, ready to scale.</p>
+          <p class="page-hero__subtitle">Four proprietary platforms built to solve real operational challenges — ready to deploy, ready to scale.</p>
         </div>
       </div>
     </section>
@@ -216,6 +280,7 @@
           <button class="prd-tab" role="tab" id="tab-epic"      aria-selected="false" aria-controls="panel-epic"      tabindex="-1">Epic</button>
           <button class="prd-tab" role="tab" id="tab-sol"       aria-selected="false" aria-controls="panel-sol"       tabindex="-1">SOL</button>
           <button class="prd-tab" role="tab" id="tab-vmm"       aria-selected="false" aria-controls="panel-vmm"       tabindex="-1">Viral Marketing Master</button>
+          <button class="prd-tab" role="tab" id="tab-dallya"    aria-selected="false" aria-controls="panel-dallya"    tabindex="-1">Dallya Mobile Matching</button>
         </div>
       </div>
     </div>
@@ -576,16 +641,83 @@
       </section>
     </div>
 
-    <!-- CTA — outside all panels -->
-    <!-- COPY PENDING CLIENT APPROVAL: heading and subtitle require client-provided final wording -->
-    <section class="cta-banner cta-banner--light" aria-labelledby="cta-title">
+    <!-- ═══════════════════════════════════════════════
+         PANEL 4 — DALLYA MOBILE MATCHING
+         ⚠ SOURCE TYPO — client confirmation needed: "Dallya is s the only application"
+         ⚠ FLAG: "the only application with indoor localization" — exclusive claim, verify before publishing
+         ⚠ FLAG: "Guaranteed privacy" — absolute claim, verify before publishing
+    ══════════════════════════════════════════════════ -->
+    <div role="tabpanel" id="panel-dallya" class="prd-panel" aria-labelledby="tab-dallya" hidden>
+      <section class="section">
+        <div class="container">
+          <div class="split">
+            <div class="split__image reveal">
+              <img src="assets/images/dallya-app.png" alt="Dallya mobile location matching platform" loading="lazy" width="800" height="600" />
+            </div>
+            <div class="split__content reveal reveal-delay-1">
+              <span class="eyebrow">Product 4</span>
+              <h2 class="section-title">Dallya Mobile Matching</h2>
+              <!-- ⚠ SOURCE TYPO: "is s the only" — preserved verbatim pending client confirmation -->
+              <!-- ⚠ FLAG: exclusive claim "the only application with indoor localization" — verify before publishing -->
+              <p class="split__body">Mobile matching is a huge market with many web based and mobile apps available. Dallya is s the only application with indoor localization and proximity awareness. It is designed to also work at indoor locations where classic applications would fail. Dallya is the application that will help you best in finding your match no matter where you are, at the shopping centre, in bars, clubs, cinemas, or theatres. The users tell Dallya who they are looking for, and as soon as Dallya finds a match in the vicinity, it notifies the user, and it offers the possibility to start chatting. At any point in time, the user can go invisible. The users of Dallya will always be anonymous and their privacy will stay intact.</p>
+              <p class="eyebrow" style="margin-top:4px;">Main features:</p>
+              <div class="dallya-circles">
+                <div class="dallya-circle-card">
+                  <div class="dallya-circle-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>
+                  </div>
+                  <p class="dallya-circle-label">Indoor &amp; outdoor instant scanning</p>
+                </div>
+                <!-- ⚠ FLAG: "Guaranteed privacy" — absolute claim, verify before publishing -->
+                <div class="dallya-circle-card">
+                  <div class="dallya-circle-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                  </div>
+                  <p class="dallya-circle-label">Guaranteed privacy</p>
+                </div>
+                <div class="dallya-circle-card">
+                  <div class="dallya-circle-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                  </div>
+                  <p class="dallya-circle-label">Easy setup and use</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <section class="lead-form-section" aria-labelledby="lf-heading-pr">
       <div class="container">
-        <div class="cta-banner__content">
-          <h2 class="cta-banner__title" id="cta-title">Interested in Our Products?</h2>
-          <p class="cta-banner__subtitle">Get in touch to discuss licensing, integration, or a custom demonstration of any Orvaal product.</p>
-          <div class="cta-banner__actions">
-            <a href="contact.html" class="btn btn--primary btn--lg">Get in Touch</a>
-            <a href="services.html" class="btn btn--outline-dark btn--lg">View Services</a>
+        <div class="lead-form-section__inner">
+          <div class="lead-form-section__intro">
+            <h2 class="lead-form-section__heading" id="lf-heading-pr">Let's Talk About Your Project</h2>
+            <p class="lead-form-section__copy">Tell us about your project, requirements, or questions and our team will get back to you.</p>
+          </div>
+          <div class="lead-form-section__form">
+            <form id="lead-form-products" class="lead-form" action="contact-submit.php" method="post" novalidate>
+              <input type="hidden" name="source_page" value="products" />
+              <div class="form-group">
+                <label class="form-label" for="lf-name-pr">Full Name <span aria-hidden="true">*</span></label>
+                <input class="form-control" type="text" id="lf-name-pr" name="full_name" placeholder="Jane Smith" autocomplete="name" required />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="lf-email-pr">Email Address <span aria-hidden="true">*</span></label>
+                <input class="form-control" type="email" id="lf-email-pr" name="email" placeholder="jane@company.com" autocomplete="email" required />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="lf-company-pr">Company Name</label>
+                <input class="form-control" type="text" id="lf-company-pr" name="company" placeholder="Your company" autocomplete="organization" />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="lf-message-pr">Message <span aria-hidden="true">*</span></label>
+                <textarea class="form-control" id="lf-message-pr" name="message" placeholder="Tell us about your project, requirements, or questions…" rows="5" required></textarea>
+              </div>
+              <div class="form-submit">
+                <button type="submit" class="btn btn--primary btn--lg">Send Message</button>
+              </div>
+            </form>
           </div>
         </div>
       </div>
@@ -617,6 +749,7 @@
             <li><a href="products.html#epic" class="footer__link">Epic</a></li>
             <li><a href="products.html#sol" class="footer__link">SOL</a></li>
             <li><a href="products.html#vmm" class="footer__link">VMM</a></li>
+            <li><a href="products.html#dallya" class="footer__link">Dallya</a></li>
           </ul>
         </div>
         <address style="font-style:normal;">
@@ -642,7 +775,7 @@
     (function () {
       var tabs   = Array.prototype.slice.call(document.querySelectorAll('.prd-tab'));
       var panels = Array.prototype.slice.call(document.querySelectorAll('.prd-panel'));
-      var hashes = ['products', 'epic', 'sol', 'vmm'];
+      var hashes = ['products', 'epic', 'sol', 'vmm', 'dallya'];
 
       panels.forEach(function (p, i) { if (i > 0) p.hidden = true; });
 

@@ -1150,18 +1150,36 @@
       </section>
     </div>
 
-    <!-- ═══════════════════════════════════════════════
-         CTA
-    ═══════════════════════════════════════════════ -->
-    <section class="cta-banner cta-banner--light stack-section" style="--s-z:2" aria-labelledby="cta-title">
+    <section class="lead-form-section stack-section" style="--s-z:2" aria-labelledby="lf-heading-sq">
       <div class="container">
-        <div class="cta-banner__content reveal">
-          <!-- ⚠ COPY PENDING CLIENT APPROVAL: headline and subtitle below not from client source document -->
-          <h2 class="cta-banner__title" id="cta-title">Quality by Design</h2>
-          <p class="cta-banner__subtitle">Contact us to discuss how quality by design principles can be applied to your next software project.</p>
-          <div class="cta-banner__actions">
-            <a href="contact.html" class="btn btn--primary btn--lg">Get in Touch</a>
-            <a href="approach.html" class="btn btn--outline-dark btn--lg">Our Approach</a>
+        <div class="lead-form-section__inner">
+          <div class="lead-form-section__intro">
+            <h2 class="lead-form-section__heading" id="lf-heading-sq">Let's Talk About Your Project</h2>
+            <p class="lead-form-section__copy">Tell us about your project, requirements, or questions and our team will get back to you.</p>
+          </div>
+          <div class="lead-form-section__form">
+            <form id="lead-form-sqa" class="lead-form" action="contact-submit.php" method="post" novalidate>
+              <input type="hidden" name="source_page" value="sqa" />
+              <div class="form-group">
+                <label class="form-label" for="lf-name-sq">Full Name <span aria-hidden="true">*</span></label>
+                <input class="form-control" type="text" id="lf-name-sq" name="full_name" placeholder="Jane Smith" autocomplete="name" required />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="lf-email-sq">Email Address <span aria-hidden="true">*</span></label>
+                <input class="form-control" type="email" id="lf-email-sq" name="email" placeholder="jane@company.com" autocomplete="email" required />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="lf-company-sq">Company Name</label>
+                <input class="form-control" type="text" id="lf-company-sq" name="company" placeholder="Your company" autocomplete="organization" />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="lf-message-sq">Message <span aria-hidden="true">*</span></label>
+                <textarea class="form-control" id="lf-message-sq" name="message" placeholder="Tell us about your project, requirements, or questions…" rows="5" required></textarea>
+              </div>
+              <div class="form-submit">
+                <button type="submit" class="btn btn--primary btn--lg">Send Message</button>
+              </div>
+            </form>
           </div>
         </div>
       </div>

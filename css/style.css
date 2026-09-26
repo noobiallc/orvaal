@@ -305,11 +305,14 @@ p { line-height: 1.75; }
   margin-right: auto;
 }
 .hero__actions { display: flex; gap: var(--space-4); flex-wrap: wrap; align-items: center; justify-content: center; }
+/* Equal sizing + centered text for both hero CTAs */
+.hero__actions .btn { min-width: 206px; justify-content: center; }
 /* Ghost button scoped to hero — white outline on dark bg */
+/* border matches .btn base (2px) so both hero CTAs have identical computed height */
 .hero .btn--outline-dark {
   background: transparent;
   color: #ffffff;
-  border: 1.5px solid rgba(255,255,255,0.45);
+  border: 2px solid rgba(255,255,255,0.45);
 }
 .hero .btn--outline-dark:hover { background: #ffffff; color: #262453; border-color: #ffffff; }
 /* ---- Hero Stats Row (embedded in hero, Zapier-style) ---- */
@@ -618,8 +621,8 @@ p { line-height: 1.75; }
   grid-template-columns: 1fr;
   gap: var(--space-6);
 }
-@media (min-width: 640px) { .products-grid { grid-template-columns: repeat(2, 1fr); } }
-@media (min-width: 1024px) { .products-grid { grid-template-columns: repeat(3, 1fr); } }
+@media (min-width: 640px)  { .products-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1280px) { .products-grid { grid-template-columns: repeat(4, 1fr); } }
 
 .product-card {
   background: var(--color-white);
@@ -790,6 +793,45 @@ p { line-height: 1.75; }
 .cta-banner--light .cta-banner__subtitle { color: var(--color-text-muted); }
 .cta-banner--light .cta-banner__email { color: var(--color-text-muted); }
 .cta-banner--light .cta-banner__email:hover { color: var(--color-accent); }
+
+/* ---- Lead Form Section — standardized page CTA ---- */
+.lead-form-section {
+  background: var(--color-white);
+  border-top: 1px solid #E5E5E5;
+  border-bottom: 3px solid var(--color-accent);
+  padding: var(--space-20) 0;
+}
+.lead-form-section__inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(40px, 5vw, 64px);
+  align-items: center;
+}
+.lead-form-section__heading {
+  font-family: var(--font-serif);
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: var(--space-4);
+  line-height: 1.2;
+}
+.lead-form-section__copy {
+  font-size: 1.0625rem;
+  color: var(--color-text-muted);
+  line-height: 1.75;
+}
+.lead-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+@media (max-width: 900px) {
+  .lead-form-section__inner { grid-template-columns: 1fr; gap: var(--space-10); }
+}
+@media (max-width: 640px) {
+  .lead-form-section { padding: var(--space-16) 0; }
+  .lead-form-section .form-submit .btn { width: 100%; justify-content: center; }
+}
 
 /* ---- Footer ---- */
 .footer { background: #1e1d45; padding: var(--space-16) 0 0; border-top: 2px solid var(--color-accent); }
